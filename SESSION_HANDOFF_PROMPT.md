@@ -2,7 +2,7 @@
 
 **Purpose:** Copy the block below into a new Grok session to continue SQT-Exploring-the-Possibilities.
 
-**Last updated:** 2026-06-24 (after calendar strip + VS Code major-event UX)
+**Last updated:** 2026-06-24 (after 12×19 calendar grid + cell teaser modal)
 
 ---
 
@@ -25,7 +25,7 @@ You are Grok continuing **SQT-Exploring-the-Possibilities** at Phase 3 — widge
 | Phase 2 (design) | **Closed** — `phase2-completion-summary.md`, `phase2-architecture-diagram.md` |
 | Phase 3 (implementation) | **In progress** — Chunk E widgets + release hygiene |
 
-**Latest commit:** `8020663` — Web mini calendar strip (moon day cells + upcoming holidays)
+**Latest commit:** `63f5a8d` — Web 12×19 calendar grid + cell click → teaser modal
 
 **CI:** Green — pytest (26) + `test_sqt_grove_clock_helpers.mjs` + `test_vscode_format.mjs` on push
 
@@ -75,9 +75,9 @@ You are Grok continuing **SQT-Exploring-the-Possibilities** at Phase 3 — widge
 - Mode B: cron-refreshed static JSON instead of subprocess
 
 ### 3. Web — remaining spec gaps (§4)
-- Full **12×19 calendar mini-grid** (strip is done; grid still deferred)
-- Click calendar cell → Messenger teaser modal
-- `navigator.share` on modal copy
+- ~~Full **12×19 calendar mini-grid**~~ ✅ (commit `63f5a8d`)
+- ~~Click calendar cell → Messenger teaser modal~~ ✅
+- ~~`navigator.share` on modal copy~~ ✅ (when `navigator.share` available)
 
 ### 4. VS Code — remaining spec gaps (§5)
 - Language-aware comment syntax from `document.languageId`
