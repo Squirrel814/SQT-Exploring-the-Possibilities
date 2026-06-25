@@ -8,6 +8,7 @@ Run: python bot.py
 
 from __future__ import annotations
 
+import asyncio
 import json
 import os
 import sys
@@ -132,6 +133,7 @@ class RatatoskrBot(discord.Client):
         intents = discord.Intents.default()
         super().__init__(intents=intents)
         self.tree = app_commands.CommandTree(self)
+        self._guild_sync_id: str | None = None
 
     async def setup_hook(self):
         guild_id = os.environ.get("DISCORD_GUILD_ID")
@@ -140,6 +142,7 @@ class RatatoskrBot(discord.Client):
             self.tree.copy_global_to(guild=guild)
             try:
                 await self.tree.sync(guild=guild)
+                self._guild_sync_id = guild_id
                 print(f"Synced slash commands to guild {guild_id}")
                 return
             except discord.Forbidden:
@@ -158,9 +161,40 @@ class RatatoskrBot(discord.Client):
 
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})")
+        await self._report_guild_membership()
+
+    async def _report_guild_membership(self) -> None:
+        """Guild cache is often empty on first on_ready — fetch or wait before warning."""
+        target_id = self._guild_sync_id or os.environ.get("DISCORD_GUILD_ID")
+        if target_id:
+            cached = self.get_guild(int(target_id))
+            if cached:
+                print(f"Joined servers: {cached.name} ({cached.id})")
+                return
+            try:
+                fetched = await self.fetch_guild(int(target_id))
+                print(f"Joined servers: {fetched.name} ({fetched.id})")
+                return
+            except (discord.NotFound, discord.Forbidden):
+                print(
+                    f"[warn] Guild {target_id} not reachable — re-invite Ratatoskr "
+                    "(scopes: bot + applications.commands).",
+                    file=sys.stderr,
+                )
+                return
+            except discord.HTTPException:
+                pass
+
+        if not self.guilds:
+            await asyncio.sleep(2)
         if self.guilds:
             names = ", ".join(f"{g.name} ({g.id})" for g in self.guilds)
             print(f"Joined servers: {names}")
+        elif self._guild_sync_id:
+            print(
+                f"[info] Commands synced to guild {self._guild_sync_id} — "
+                "Ratatoskr is connected (guild name pending in cache).",
+            )
         else:
             print(
                 "[warn] Ratatoskr is not in any server yet — generate an invite URL in the Developer Portal.",
