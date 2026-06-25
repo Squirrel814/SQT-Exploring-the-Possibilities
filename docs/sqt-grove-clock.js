@@ -55,6 +55,25 @@ function escapeHtml(text) {
     .replace(/"/g, '&quot;');
 }
 
+function isCeremonialMajor(holiday) {
+  return holiday?.type === 'major';
+}
+
+function ceremonialKeywords(bundle, themes) {
+  if (bundle?.ceremonial_header) return bundle.ceremonial_header;
+  const kw = themes?.tone_keywords || [];
+  return kw.filter(Boolean).join(' · ');
+}
+
+function ceremonialBannerHtml(bundle, themes) {
+  const line = ceremonialKeywords(bundle, themes);
+  if (!line) return '';
+  return `<div class="ceremonial-banner" role="note" aria-label="Major lunation ceremonial themes">
+    <span class="ceremonial-star" aria-hidden="true">✦</span>
+    <span class="ceremonial-text">${escapeHtml(line)}</span>
+  </div>`;
+}
+
 class SQTGroveClock extends HTMLElement {
   static get observedAttributes() {
     return ['src', 'refresh', 'theme', 'bundle-mode', 'calendar-src', 'lunation-labels', 'show-calendar', 'calendar-view'];
@@ -401,15 +420,31 @@ class SQTGroveClock extends HTMLElement {
     }
 
     const h = this.activeHoliday();
+    const ceremonial = isCeremonialMajor(h);
+    if (ceremonial) {
+      this.dataset.ceremonial = 'major';
+    } else {
+      delete this.dataset.ceremonial;
+    }
+
+    const rootEl = this.shadowRoot.querySelector('.root');
+    if (rootEl) rootEl.classList.toggle('ceremonial-major', ceremonial);
+
     const badgeWrap = this.shadowRoot.querySelector('.badge-wrap');
     badgeWrap.innerHTML = '';
     if (h) {
       const badge = document.createElement('span');
-      badge.className = `badge badge-${h.type}`;
+      badge.className = `badge badge-${h.type}${ceremonial ? ' badge-major-ceremonial' : ''}`;
       badge.setAttribute('aria-label', `Active holiday: ${h.name}, ${h.type}`);
-      badge.textContent = h.name;
+      badge.textContent = ceremonial ? `✦ ${h.name}` : h.name;
       badge.style.background = BADGE_COLORS[h.type] || BADGE_COLORS.none;
       badgeWrap.appendChild(badge);
+      if (ceremonial) {
+        const sub = document.createElement('p');
+        sub.className = 'major-lunation-label';
+        sub.textContent = 'Major Lunation Event';
+        badgeWrap.appendChild(sub);
+      }
     } else {
       const plain = document.createElement('span');
       plain.className = 'badge badge-none';
@@ -421,7 +456,10 @@ class SQTGroveClock extends HTMLElement {
     const openBtn = this.shadowRoot.querySelector('.open-circuit');
     const mode = this.getAttribute('bundle-mode') || 'teaser';
     openBtn.hidden = mode === 'none' || !data.bundle;
-    openBtn.textContent = h ? `Open Circuit — ${h.name}` : "Open today's Circuit";
+    openBtn.classList.toggle('ceremonial', ceremonial);
+    openBtn.textContent = ceremonial
+      ? `Open Ceremonial Circuit — ${h.name}`
+      : (h ? `Open Circuit — ${h.name}` : "Open today's Circuit");
 
     this.renderCalendar();
   }
@@ -505,9 +543,11 @@ class SQTGroveClock extends HTMLElement {
       .map((c) => `<span class="swatch" style="background:${c}" title="${c}"></span>`)
       .join('');
 
+    const majorCeremonial = isCeremonialMajor(h);
     inner.innerHTML = `
-      <h2 id="circuit-title">${h ? h.name : 'Grove Day'}</h2>
+      <h2 id="circuit-title">${majorCeremonial ? '✦ ' : ''}${h ? escapeHtml(h.name) : 'Grove Day'}${majorCeremonial ? ' <span class="major-tag">Major Lunation</span>' : ''}</h2>
       <p class="circuit-stamp">${escapeHtml(stamp)}</p>
+      ${majorCeremonial ? ceremonialBannerHtml(b, t) : ''}
       ${!isToday ? '<p class="preview-note">Calendar preview — open on this Grove day for the live Circuit.</p>' : ''}
       ${h ? `<p class="holiday-meta">Type: ${h.type}</p>` : ''}
       ${motifs ? `<div class="motifs" aria-label="Holiday motifs">${motifs}</div>` : ''}

@@ -23,6 +23,10 @@ except ImportError:
     raise SystemExit(1)
 
 from discord_helpers import (
+    GROVE_ICON_URL,
+    circuit_embed_fields,
+    circuit_embed_footer,
+    circuit_embed_title,
     embed_color_for_holiday,
     fetch_circuit,
     find_next_holiday,
@@ -33,6 +37,7 @@ from discord_helpers import (
     relay_thread_name,
     resolve_forum_tag_ids,
     sanitize_lore_text,
+    should_offer_relay,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -50,56 +55,38 @@ def embed_from_circuit(data: dict, mode: str = "teaser") -> discord.Embed:
     b = data.get("bundle", {})
     t = data.get("themes", {})
     color = embed_color_for_holiday(h, t)
-
-    if h:
-        title = f"🌰 {h['name']}"
-        if h.get("type") == "major":
-            title += " 🌕 Major Lunation Event"
-    else:
-        title = "🌰 Grove Day — no holiday active"
-
-    title += f" — Year {s.get('year', 1)}, Lunation {s.get('lunation')}, Day {s.get('day')}"
-
-    if mode == "full":
-        title = f"The Messenger's Circuit — {h['name'] if h else 'Grove Day'}"
-        if h and h.get("type") == "major":
-            title += " 🌕 Major Lunation Event"
-
+    title = circuit_embed_title(s, h, mode)
     embed = discord.Embed(title=title, description=b.get("journal_prompt", "No bundle today."), color=color)
-    embed.add_field(name="SQT Time", value=s.get("time", "—"), inline=True)
-    if b.get("foraging_idea"):
-        embed.add_field(name="Forage Today", value=b["foraging_idea"], inline=False)
-    if mode == "full":
-        if b.get("story_seed"):
-            embed.add_field(name="Story Seed", value=b["story_seed"][:1024], inline=False)
-        mood = b.get("mood_board") or {}
-        if mood.get("atmosphere"):
-            embed.add_field(name="Atmosphere", value=mood["atmosphere"][:1024], inline=False)
-    if h and h.get("type") == "rare":
-        embed.set_footer(text="Rare event in the Grove • Ratatoskr Grove Messenger")
-    else:
-        footer = "Ratatoskr Grove Messenger"
-        if mode == "teaser":
-            footer += " • /circuit mode:full for complete bundle"
-        embed.set_footer(text=footer)
+    for field in circuit_embed_fields(b, s, t, h, mode):
+        embed.add_field(name=field["name"], value=field["value"], inline=field.get("inline", False))
+    embed.set_footer(text=circuit_embed_footer(h, mode))
+    if h and h.get("type") == "major":
+        embed.set_thumbnail(url=GROVE_ICON_URL)
     return embed
 
 
 class RelayStartView(discord.ui.View):
-    def __init__(self, story_seed: str, holiday_id: str, lunation: int):
+    def __init__(self, story_seed: str, holiday_id: str, lunation: int, holiday_name: str = ""):
         super().__init__(timeout=300)
         self.story_seed = story_seed
         self.holiday_id = holiday_id
         self.lunation = lunation
+        self.holiday_name = holiday_name
+        self._started = False
 
     @discord.ui.button(label="Start Ratatoskr Relay", style=discord.ButtonStyle.primary, emoji="🌰")
     async def start_relay(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if self._started:
+            await interaction.response.send_message("Relay already opened from this message.", ephemeral=True)
+            return
         if not interaction.channel:
             await interaction.response.send_message("Cannot open a relay here.", ephemeral=True)
             return
 
         thread_name = relay_thread_name(self.holiday_id, self.lunation)
-        opener = relay_opener_message(self.story_seed, self.holiday_id, self.lunation)
+        opener = relay_opener_message(
+            self.story_seed, self.holiday_id, self.lunation, self.holiday_name
+        )
         tag_names = relay_tag_names(self.holiday_id, self.lunation)
         parent = interaction.channel.parent if isinstance(interaction.channel, discord.Thread) else interaction.channel
 
@@ -126,7 +113,14 @@ class RelayStartView(discord.ui.View):
             )
             return
 
+        self._started = True
+        button.disabled = True
+        button.label = "Relay opened"
         await interaction.response.send_message(f"Relay opened in {thread.mention}", ephemeral=True)
+        try:
+            await interaction.message.edit(view=self)
+        except discord.HTTPException:
+            pass
         self.stop()
 
 
@@ -219,7 +213,7 @@ async def circuit(interaction: discord.Interaction, mode: app_commands.Choice[st
     await interaction.response.defer()
     try:
         m = (mode.value if mode else "teaser")
-        engine_mode = "standard" if m == "full" else m
+        engine_mode = "ceremonial" if m == "full" else m
         data = fetch_circuit(
             ROOT, ENGINE, bundle=True, circuit_mode=engine_mode, timeout=ENGINE_TIMEOUT
         )
@@ -227,8 +221,13 @@ async def circuit(interaction: discord.Interaction, mode: app_commands.Choice[st
         view = None
         h = data.get("holiday") or {}
         b = data.get("bundle", {})
-        if m == "full" and h.get("type") == "major" and b.get("story_seed"):
-            view = RelayStartView(b["story_seed"], h.get("id", "major"), data.get("sqt", {}).get("lunation", 0))
+        if should_offer_relay(h, m, b):
+            view = RelayStartView(
+                b["story_seed"],
+                h.get("id", "major"),
+                data.get("sqt", {}).get("lunation", 0),
+                h.get("name", ""),
+            )
         await interaction.followup.send(embed=embed, view=view)
         if m == "full":
             art = b.get("art_prompt")
@@ -241,6 +240,43 @@ async def circuit(interaction: discord.Interaction, mode: app_commands.Choice[st
     except Exception as exc:
         await interaction.followup.send(LEYLINES_QUIET, ephemeral=True)
         print(f"[circuit] {exc}", file=sys.stderr)
+
+
+@bot.tree.command(name="relay", description="Start Ratatoskr Relay on a major lunation event")
+async def relay(interaction: discord.Interaction):
+    await interaction.response.defer(ephemeral=True)
+    try:
+        data = fetch_circuit(
+            ROOT, ENGINE, bundle=True, circuit_mode="ceremonial", timeout=ENGINE_TIMEOUT
+        )
+        h = data.get("holiday") or {}
+        b = data.get("bundle", {})
+        if h.get("type") != "major":
+            await interaction.followup.send(
+                "Ratatoskr Relay opens on **Major Lunation Events** only. "
+                "Try again on a Hero's Journey milestone day.",
+                ephemeral=True,
+            )
+            return
+        if not b.get("story_seed"):
+            await interaction.followup.send(LEYLINES_QUIET, ephemeral=True)
+            return
+        view = RelayStartView(
+            b["story_seed"],
+            h.get("id", "major"),
+            data.get("sqt", {}).get("lunation", 0),
+            h.get("name", ""),
+        )
+        embed = embed_from_circuit(data, "full")
+        await interaction.followup.send(
+            "Major event detected — start the collaborative tale:",
+            embed=embed,
+            view=view,
+            ephemeral=False,
+        )
+    except Exception as exc:
+        await interaction.followup.send(LEYLINES_QUIET, ephemeral=True)
+        print(f"[relay] {exc}", file=sys.stderr)
 
 
 @bot.tree.command(name="forage", description="Today's foraging idea")

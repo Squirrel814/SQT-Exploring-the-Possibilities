@@ -13,11 +13,14 @@ HELPERS = ROOT / "widgets" / "discord-bot"
 sys.path.insert(0, str(HELPERS))
 
 from discord_helpers import (  # noqa: E402
+    circuit_embed_footer,
+    circuit_embed_title,
     fetch_circuit,
     relay_opener_message,
     relay_tag_names,
     relay_thread_name,
     resolve_forum_tag_ids,
+    should_offer_relay,
 )
 
 
@@ -30,12 +33,31 @@ def test_relay_thread_name():
 
 
 def test_relay_opener_includes_tags():
-    opener = relay_opener_message("Fog in the Grove.", "shadow_trial", 6)
+    opener = relay_opener_message("Fog in the Grove.", "shadow_trial", 6, "The Shadow Trial")
     assert "Fog in the Grove." in opener
+    assert "Ratatoskr Relay" in opener
+    assert "The Shadow Trial" in opener
     assert "Continue the tale" in opener
     assert "`relay`" in opener
     assert "`shadow_trial`" in opener
     assert "`lunation-6`" in opener
+
+
+def test_should_offer_relay_major_full_only():
+    major = {"id": "shadow_trial", "type": "major", "name": "The Shadow Trial"}
+    assert should_offer_relay(major, "full", {"story_seed": "Once."})
+    assert not should_offer_relay(major, "teaser", {"story_seed": "Once."})
+    assert not should_offer_relay({"type": "recurring"}, "full", {"story_seed": "Once."})
+
+
+def test_major_teaser_footer_mentions_relay():
+    footer = circuit_embed_footer({"type": "major"}, "teaser")
+    assert "Relay" in footer
+
+
+def test_major_full_title():
+    title = circuit_embed_title({"year": 1, "lunation": 6, "day": 19}, {"name": "The Shadow Trial", "type": "major"}, "full")
+    assert "Major Lunation Event" in title
 
 
 def test_resolve_forum_tag_ids_case_insensitive():

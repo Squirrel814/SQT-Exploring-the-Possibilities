@@ -14,9 +14,14 @@ Live Squirrel Quantum Time status bar + insert **Messenger's Circuit** bundles i
 
 Press **F5** with this folder open (Extension Development Host). See `.vscode/launch.json`.
 
-```bash
-npm install -g @vscode/vsce   # once
-vsce package                  # produces sqt-grove-0.3.0.vsix
+```powershell
+# From repo root (recommended):
+.\scripts\publish_vscode_extension.ps1
+
+# Or manually:
+cd widgets/vscode-sqt-grove
+npx @vscode/vsce package      # → sqt-grove-0.3.1.vsix
+code --install-extension sqt-grove-0.3.1.vsix
 ```
 
 ## Configuration
@@ -30,12 +35,19 @@ vsce package                  # produces sqt-grove-0.3.0.vsix
 | `sqtGrove.projectContext` | — | For `project-deep` mode |
 | `sqtGrove.squirrelOps` | `false` | Engine `--squirrel-ops` |
 
-## Marketplace publish (manual)
+## Marketplace publish (manual token step)
 
-1. Create publisher at https://marketplace.visualstudio.com/manage
-2. `vsce login squirrel814`
-3. `vsce publish` from this directory
-4. Verify icon + README render; link to live PWA demo
+1. Create publisher **squirrel814** at https://marketplace.visualstudio.com/manage
+2. Generate a Personal Access Token (Marketplace → **Manage** → **Access Tokens**)
+3. In PowerShell:
+
+```powershell
+$env:VSCE_PAT = 'your-marketplace-token'
+cd C:\Users\Inter\Documents\GitHub\SQT-Exploring-the-Possibilities
+.\scripts\publish_vscode_extension.ps1 -Publish
+```
+
+4. Verify listing icon + README; link to live PWA demo
 
 ## License
 

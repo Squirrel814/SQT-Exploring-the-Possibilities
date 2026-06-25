@@ -21,12 +21,17 @@ const requiredJs = [
   'sqt-holiday-change',
   'navigator.share',
   'high-contrast',
+  'ceremonial-banner',
+  'ceremonial-major',
+  'Major Lunation',
 ];
 for (const token of requiredJs) {
   assert.match(js, new RegExp(token.replace('.', '\\.')), `missing in sqt-grove-clock.js: ${token}`);
 }
 
 assert.match(css, /\.calendar-grid/);
+assert.match(css, /\.ceremonial-banner/);
+assert.match(css, /\.ceremonial-major/);
 assert.match(html, /<sqt-grove-clock/);
 assert.equal(matrix.cells?.length, 12 * 19);
 assert.ok(matrix.cells.some((c) => c.teaser?.journal_prompt), 'matrix holiday teasers');

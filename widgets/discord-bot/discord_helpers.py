@@ -20,6 +20,10 @@ EMBED_COLORS = {
     None: 0x8C6239,
 }
 
+GROVE_ICON_URL = (
+    "https://squirrel814.github.io/SQT-Exploring-the-Possibilities/icon-128.png"
+)
+
 MENTION_PATTERN = re.compile(r"<@!?\d+>|<#\d+>|<@&\d+>")
 URL_PATTERN = re.compile(
     r"https?://[^\s<>]+|www\.[^\s<>]+",
@@ -133,10 +137,10 @@ def fetch_circuit(
     cmd = [sys.executable, str(engine), "--json", "--compact"]
     if bundle:
         cmd.append("--bundle")
-    if circuit_mode and circuit_mode not in ("standard", "full"):
-        cmd += ["--circuit-mode", circuit_mode]
-    elif circuit_mode == "full":
+    if circuit_mode == "full":
         cmd += ["--circuit-mode", "standard"]
+    elif circuit_mode and circuit_mode != "standard":
+        cmd += ["--circuit-mode", circuit_mode]
     cmd += ["--holidays", str(root / "sqt-holidays.json")]
     cmd += ["--themes", str(root / "sqt-themes.json")]
     out = subprocess.check_output(cmd, cwd=str(root), timeout=timeout, text=True)
@@ -152,12 +156,100 @@ def relay_thread_name(holiday_id: str, lunation: int) -> str:
     return f"relay-{holiday_id}-lunation-{lunation}"[:100]
 
 
-def relay_opener_message(story_seed: str, holiday_id: str, lunation: int) -> str:
+def ceremonial_header_line(bundle: Dict[str, Any], themes: Optional[Dict[str, Any]] = None) -> str:
+    header = (bundle or {}).get("ceremonial_header")
+    if header:
+        return str(header)
+    keywords = (themes or {}).get("tone_keywords") or []
+    return " · ".join(k for k in keywords if k)
+
+
+def circuit_embed_title(
+    sqt: Dict[str, Any],
+    holiday: Optional[Dict[str, Any]],
+    mode: str,
+) -> str:
+    h = holiday or {}
+    y = sqt.get("year", 1)
+    lun = sqt.get("lunation")
+    day = sqt.get("day")
+    if mode == "full":
+        title = f"The Messenger's Circuit — {h.get('name') or 'Grove Day'}"
+        if h.get("type") == "major":
+            title += " 🌕 Major Lunation Event"
+        return title
+    if h:
+        title = f"🌰 {h['name']}"
+        if h.get("type") == "major":
+            title += " 🌕 Major Lunation Event"
+    else:
+        title = "🌰 Grove Day — no holiday active"
+    return f"{title} — Year {y}, Lunation {lun}, Day {day}"
+
+
+def circuit_embed_footer(holiday: Optional[Dict[str, Any]], mode: str) -> str:
+    if holiday and holiday.get("type") == "rare":
+        return "Rare event in the Grove • Ratatoskr Grove Messenger"
+    footer = "Ratatoskr Grove Messenger"
+    if holiday and holiday.get("type") == "major" and mode == "teaser":
+        footer += " • /circuit mode:full for ceremonial bundle + Ratatoskr Relay"
+    elif mode == "teaser":
+        footer += " • /circuit mode:full for complete bundle"
+    elif holiday and holiday.get("type") == "major" and mode == "full":
+        footer += " • Start Ratatoskr Relay below to continue the tale"
+    return footer
+
+
+def circuit_embed_fields(
+    bundle: Dict[str, Any],
+    sqt: Dict[str, Any],
+    themes: Dict[str, Any],
+    holiday: Optional[Dict[str, Any]],
+    mode: str,
+) -> List[Dict[str, str]]:
+    fields: List[Dict[str, str]] = [
+        {"name": "SQT Time", "value": sqt.get("time", "—"), "inline": True},
+    ]
+    if holiday and holiday.get("type") == "major":
+        header = ceremonial_header_line(bundle, themes)
+        if header:
+            fields.append({"name": "Ceremonial Themes", "value": header[:1024], "inline": False})
+    if bundle.get("foraging_idea"):
+        fields.append({"name": "Forage Today", "value": bundle["foraging_idea"][:1024], "inline": False})
+    if mode == "full":
+        if bundle.get("story_seed"):
+            fields.append({"name": "Story Seed", "value": bundle["story_seed"][:1024], "inline": False})
+        mood = bundle.get("mood_board") or {}
+        if mood.get("atmosphere"):
+            fields.append({"name": "Atmosphere", "value": mood["atmosphere"][:1024], "inline": False})
+    return fields
+
+
+def should_offer_relay(
+    holiday: Optional[Dict[str, Any]],
+    mode: str,
+    bundle: Optional[Dict[str, Any]] = None,
+) -> bool:
+    """Major events + full circuit with a story seed → Relay button."""
+    if mode != "full":
+        return False
+    if not holiday or holiday.get("type") != "major":
+        return False
+    return bool((bundle or {}).get("story_seed"))
+
+
+def relay_opener_message(
+    story_seed: str,
+    holiday_id: str,
+    lunation: int,
+    holiday_name: Optional[str] = None,
+) -> str:
     """Thread opener body + tag footer (text channels; forum uses applied_tags when available)."""
     tags = relay_tag_names(holiday_id, lunation)
     tag_line = " · ".join(f"`{name}`" for name in tags)
+    header = f"**Ratatoskr Relay** — {holiday_name}\n\n" if holiday_name else ""
     return (
-        f"{story_seed}\n\n"
+        f"{header}{story_seed}\n\n"
         "Continue the tale — what does the squirrel do next?\n\n"
         f"—\nTags: {tag_line}"
     )

@@ -81,7 +81,7 @@ git push origin master
 | Track | Examples |
 |-------|----------|
 | **A — Archive & distill** | **Done** — `Post_Project_Summary.md` polished; Memory Island refs in Grok-Agents; log close-out entry |
-| **B — Phase 4/5 expansion** | **Chunk 1 done** — circuit modes, v1 API, Burrowkins hooks, VS Code 0.3.0 polish; chunk 2 TBD |
+| **B — Phase 4/5 expansion** | Chunks 1–2 done — circuit modes, v1 API, Burrowkins hooks, major-event UX, VS Code 0.3.1 `.vsix`; publish via `VSCE_PAT` |
 | **C — Curriculum** | Cyber-SQRRL “Time is Relative” module from `design_notes.md` + Squirrel Ops labs |
 | **D — Discord resume** | Ratatoskr reliability pass, scheduled `#grove-circuit`, Mode B cron |
 | **E — New surface** | Grove Passport printable, Obsidian plugin, LLM bundle layer (deferred variants) |

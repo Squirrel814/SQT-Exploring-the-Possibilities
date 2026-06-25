@@ -33,6 +33,24 @@
   max-width: min(42rem, 100%);
   box-shadow: 0 4px 12px var(--sqt-shadow);
   border: 2px solid transparent;
+  position: relative;
+}
+
+.root.ceremonial-major {
+  border-color: var(--sqt-badge-major, #ffd54f);
+  box-shadow:
+    0 4px 12px var(--sqt-shadow),
+    0 0 18px rgba(255, 213, 79, 0.35);
+  animation: ceremonial-root-glow 4s ease-in-out infinite;
+}
+
+.root.ceremonial-major::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 213, 79, 0.12), transparent 65%);
 }
 
 :host([data-theme='high-contrast']) .root {
@@ -99,6 +117,65 @@
 
 .badge-changed {
   animation: badge-pulse 0.6s ease 2;
+}
+
+.badge-major-ceremonial {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0 0 2px rgba(255, 213, 79, 0.45);
+}
+
+.major-lunation-label {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sqt-badge-major, #ffd54f);
+}
+
+.open-circuit.ceremonial {
+  background: linear-gradient(135deg, var(--sqt-badge-major, #ffd54f), var(--sqt-accent));
+  color: var(--sqt-badge-text);
+  box-shadow: 0 2px 8px rgba(255, 213, 79, 0.4);
+}
+
+.ceremonial-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--sqt-radius);
+  border: 1px solid var(--sqt-badge-major, #ffd54f);
+  background: rgba(255, 213, 79, 0.12);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.ceremonial-star {
+  color: var(--sqt-badge-major, #ffd54f);
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.major-tag {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+  background: var(--sqt-badge-major, #ffd54f);
+  color: var(--sqt-badge-text);
+}
+
+@keyframes ceremonial-root-glow {
+  0%, 100% { box-shadow: 0 4px 12px var(--sqt-shadow), 0 0 12px rgba(255, 213, 79, 0.25); }
+  50% { box-shadow: 0 4px 12px var(--sqt-shadow), 0 0 22px rgba(255, 213, 79, 0.45); }
 }
 
 .calendar-strip {

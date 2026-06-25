@@ -2,9 +2,10 @@
   "name": "sqt-grove",
   "displayName": "SQT Grove — Messenger's Circuit",
   "description": "SQT status bar + insert Messenger's Circuit bundle",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "squirrel814",
   "license": "MIT",
+  "icon": "icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/Squirrel814/SQT-Exploring-the-Possibilities.git",
