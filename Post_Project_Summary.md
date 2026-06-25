@@ -2,7 +2,7 @@
 
 **Status:** Stub (in progress — project not yet archived)  
 **Last Updated:** 2026-06-24  
-**Project Phase:** Phase 2 — Segment 2.3 (Widget Specs & Integration Design)
+**Project Phase:** Phase 2 — Segment 2.5 next (2.3 Widget Specs complete)
 
 ---
 
@@ -29,6 +29,8 @@ Deliver the **SQT Living Grove Ecosystem** (*The Messenger's Circuit*): unified 
 | `phase1-requirements-messenger-circuit.md` | Widget + bundle contract spec |
 | `phase2-schedule.md` | Phase 2 segment tracker |
 | `sqt-grove-style-guide.md` | Visual + prompt direction |
+| `phase2-2.3-widget-specs.md` | Discord, web component, VS Code contracts |
+| `phase2-2.3-pwa-outline.md` | PWA manifest + service worker outline |
 | `design_notes.md` | Variants + Squirrel Ops labs |
 
 ---
@@ -37,7 +39,7 @@ Deliver the **SQT Living Grove Ecosystem** (*The Messenger's Circuit*): unified 
 
 - **Phase 0:** Complete
 - **Phase 1:** Complete (schemas, requirements, handoff packages)
-- **Phase 2:** In progress — 2.1 ✅, 2.2 ✅, **2.3 next** (widget specs)
+- **Phase 2:** In progress — 2.1 ✅, 2.2 ✅, 2.3 ✅, **2.5 next**
 
 ---
 

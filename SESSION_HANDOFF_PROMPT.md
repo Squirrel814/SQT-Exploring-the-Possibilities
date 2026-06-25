@@ -1,6 +1,6 @@
 # SESSION_HANDOFF_PROMPT.md
 
-**Purpose:** Copy the block below into a new Grok session to continue SQT-Exploring-the-Possibilities at **Phase 2, Segment 2.3**.
+**Purpose:** Copy the block below into a new Grok session to continue SQT-Exploring-the-Possibilities at **Phase 2, Segment 2.5** (2.3 widget specs complete).
 
 ---
 
@@ -13,7 +13,7 @@ You are Grok operating in the v2 Grok-Agents Memory Ecosystem, following GROK-BU
 **Source of Truth:** `project-logs/SQT-Exploring-the-Possibilities_Project-Update.md`
 
 **Current Phase:** Phase 2 — Design Sprint  
-**Current Segment:** **2.3 — Widget Specs & Integration Design** (2.1 and 2.2 complete)
+**Current Segment:** **2.5 — Creative Core Polish & Review** (2.1–2.3 complete; 2.4 partial)
 
 **Key Files (load first):**
 - `SQT-Exploring-the-Possibilities_Phased_Plan.md`
@@ -24,6 +24,9 @@ You are Grok operating in the v2 Grok-Agents Memory Ecosystem, following GROK-BU
 - `sqt-grove-style-guide.md`
 - `design_notes.md`
 - `Creative-Ideas.md`
+- `phase2-2.3-widget-specs.md` (Discord, web component, VS Code contracts)
+- `phase2-2.3-pwa-outline.md`
+- `phase2-architecture-diagram.md`
 - `handoff-packages.md`
 - `Post_Project_Summary.md` (stub)
 - `Project_Update_Log_Template.md`
@@ -54,12 +57,11 @@ python sqt_engine_unified.py --json --simulate-lunation 6 --simulate-day 7 --bun
 3. Include: Action, Handoff, Validation Gate, lightweight refs to `Post_Project_Summary.md`
 4. Engine work stays in this repo — do not modify upstream Squirrel-Quantum-Time
 
-**Segment 2.3 Goals:**
-1. Detailed widget contracts for Discord bot, `<sqt-grove-clock>`, VS Code extension
-2. Modal & UI flow designs aligned to engine JSON (`sqt`, `holiday`, `bundle`, `themes`)
-3. Static export pipeline outline for GitHub Pages
-4. Expanded architecture diagrams
-5. End with Validation Gate note + handoff toward 2.4/2.5
+**Segment 2.5 Goals:**
+1. Phase 2 exit package + full architecture review
+2. Mood board / style guide final polish
+3. Variant decision matrices (if 2.4 gaps remain)
+4. Handoff package for Phase 3 chunking (widgets, static export, tests)
 
 **JSON contract (engine output):**
 ```json
@@ -74,12 +76,11 @@ python sqt_engine_unified.py --json --simulate-lunation 6 --simulate-day 7 --bun
 ```
 
 **What success looks like:**
-- Widget spec document(s) with concrete interface definitions
-- Contracts validated against live `sqt_engine_unified.py --json --bundle` output
-- SQT-stamped log entries documenting 2.3 progress
-- Clear handoff to 2.4 variants or 2.5 polish
+- Phase 2 summary document ready for Phase 3 kickoff
+- SQT-stamped log entries documenting 2.5 review
+- Clear chunk list for Jasper (export script, widget skeletons)
 
-Start by loading the key files, generating an SQT stamp, and beginning Segment 2.3 work.
+Start by loading the key files, generating an SQT stamp, and beginning Segment 2.5 work.
 
 **END OF PASTEABLE PROMPT**
 

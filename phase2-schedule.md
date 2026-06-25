@@ -34,11 +34,12 @@ This schedule is high-level and will be refined as work progresses. All work log
 - **Segment 2.1 complete**: Engine unification design doc + working sqt_engine_unified.py prototype (JSON output + sample data loader + holiday detection + trimmed names). Validation Gate PASSED.
 - **Segment 2.2 complete**: sqt-grove-style-guide.md heavily expanded (full motif library, 6 concrete mood boards with ready prompts, prompt guidelines + tiered assembly, typography/UI, integration with engine). sqt-themes.sample.json fully populated for all 5 recurring + 4 major events. 3+ complete cohesive 5-element bundle examples (standard, major ceremonial, curriculum mode) included. Validation criteria met.
 - **Segment 2.4 progress (parallel)**: Rich Squirrel Ops lab catalog added to design_notes.md — 11 concrete labs (5 recurring + 4 majors + 2 rare samples) + full metaphor dictionary. Curriculum injection rules documented. Engine + themes integration verified. Meets/exceeds handoff targets. Variants already ≥5 per area.
+- **Segment 2.3 complete**: `phase2-2.3-widget-specs.md` (Discord, `<sqt-grove-clock>`, VS Code binding contracts validated against live engine JSON). `phase2-2.3-pwa-outline.md` (manifest + SW). `phase2-architecture-diagram.md` expanded with widget layer. Validation Gate PASSED.
 
 **Next Immediate Actions:**
-- Crystal: Continue any refinement of 2.2 artifacts if feedback arrives; begin 2.3 widget contracts & diagrams.
-- Cyber-SQRRL: Expand "Time is Relative" curriculum module structure or add more labs as needed.
-- Parallel work across 2.2–2.4 encouraged per longer design sprint. 2.5 polish & review later.
+- Crystal + Cyber-SQRRL: Segment 2.5 polish (mood board review, Phase 2 exit package) or deepen 2.4 variant decision matrices.
+- Jasper: Phase 3 prep — `export_static_feed.py` scaffold per §7 of widget specs.
+- User: Review widget contracts before Phase 3 Chunk E implementation.
 
 **Lightweight Reference:** See Post_Project_Summary for SQT-Exploring-the-Possibilities for full details and contributions logs.
 

@@ -6,13 +6,13 @@ Structured test of the v2 Grok-Agents Memory Ecosystem handoff process while des
 
 ## Current Phase
 
-**Phase 2 — Segment 2.3** (Widget Specs & Integration Design)
+**Phase 2 — Segment 2.5 next** (Polish & Phase 2 exit package)
 
 | Segment | Status |
 |---------|--------|
 | 2.1 Engine & Data Foundation | Complete |
 | 2.2 Themes, Style & Prompt Core | Complete |
-| **2.3 Widget Specs** | **In progress** |
+| 2.3 Widget Specs | Complete |
 | 2.4 Variants | Partial |
 | 2.5 Polish & Review | Not started |
 
@@ -50,12 +50,17 @@ This repo does **not** modify the upstream Squirrel-Quantum-Time repository.
 | `SESSION_HANDOFF_PROMPT.md` | Paste into new agent sessions |
 | `Post_Project_Summary.md` | Memory island distillation target (stub) |
 
-## Next Steps (Segment 2.3)
+## Widget Specs (Segment 2.3 — complete)
 
-1. Crystal + Jasper: widget interface contracts (Discord, `<sqt-grove-clock>`, VS Code)
-2. Architecture diagrams + PWA manifest outline
-3. Static export pipeline spec for GitHub Pages
-4. Log all work with SQT stamps per `Project_Update_Log_Template.md`
+- `phase2-2.3-widget-specs.md` — Discord, `<sqt-grove-clock>`, VS Code contracts
+- `phase2-2.3-pwa-outline.md` — manifest + service worker outline
+- `phase2-architecture-diagram.md` — updated data flow
+
+## Next Steps (Segment 2.5)
+
+1. Phase 2 exit package + architecture review
+2. Phase 3 chunking: `export_static_feed.py`, widget skeletons
+3. Fix rare-event sample data (Shadowforage Eclipse trigger)
 
 ---
 
