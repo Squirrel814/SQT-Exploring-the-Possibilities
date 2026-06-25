@@ -63,8 +63,10 @@ python scripts/sync_docs_widgets.py
 
 **Phase 3 Goals:**
 1. Harden widget scaffolds per `phase2-2.3-widget-specs.md`
-2. CI (pytest + JS parity) and GitHub Pages from `/docs`
+2. Enable GitHub Pages (Settings → Pages → branch `master` → `/docs`)
 3. Release workflow: `export_static_feed.py` then `sync_docs_widgets.py` (Option B — commit JSON with `generated_at`)
+
+**CI:** `.github/workflows/ci.yml` — pytest on push/PR (Python 3.11 + Node 20).
 
 **JSON contract (engine output):**
 ```json

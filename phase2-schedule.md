@@ -35,7 +35,8 @@ Per user direction, Phase 2 was a thorough design sprint. Segment 2.5 (exit pack
 ## Next: Phase 3
 
 - Harden widget scaffolds per `phase2-2.3-widget-specs.md`
-- CI, GitHub Pages deploy from `/docs`
-- `scripts/export_static_feed.py` + `scripts/sync_docs_widgets.py` on each release
+- CI: `.github/workflows/ci.yml` (pytest on push/PR)
+- GitHub Pages: enable `/docs` in repo Settings (see README)
+- Release: `export_static_feed.py` + `sync_docs_widgets.py` → commit `docs/`
 
 **Lightweight Reference:** See `Post_Project_Summary.md` for distilled patterns.

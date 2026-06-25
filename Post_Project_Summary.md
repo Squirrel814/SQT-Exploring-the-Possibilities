@@ -32,6 +32,9 @@ Deliver the **SQT Living Grove Ecosystem** (*The Messenger's Circuit*): unified 
 | `phase2-2.3-widget-specs.md` | Discord, web component, VS Code contracts |
 | `phase2-2.3-pwa-outline.md` | PWA manifest + service worker outline |
 | `design_notes.md` | Variants + Squirrel Ops labs |
+| `.github/workflows/ci.yml` | pytest CI on push/PR |
+| `scripts/sync_docs_widgets.py` | Widget assets → `docs/` |
+| `LICENSE` | MIT |
 
 ---
 
@@ -59,7 +62,7 @@ Deliver the **SQT Living Grove Ecosystem** (*The Messenger's Circuit*): unified 
 | Agent | Contribution |
 |-------|--------------|
 | Zeenah | Phase coordination, gates, phased plan |
-| Jasper | `sqt_engine_unified.py`, schemas support, engine design |
+| Jasper | `sqt_engine_unified.py`, schemas, CI, static export, widget scaffolds |
 | Crystal | Style guide, themes sample data, mood boards |
 | Cyber-SQRRL | Squirrel Ops lab catalog in design_notes |
 

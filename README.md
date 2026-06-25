@@ -78,16 +78,38 @@ Widget JS/CSS in `docs/` must stay in sync with `widgets/sqt-grove-clock/` — a
 
 ## Tests & Validation
 
+- **CI:** `.github/workflows/ci.yml` runs `pytest` on push/PR (Python 3.11 + Node 20 for JS parity)
 - **Schema:** `jsonschema` enforced on engine load (`--skip-schema-validation` to bypass)
 - **Holiday matrix:** `tests/test_holiday_matrix.py` — all **12 lunations × 19 days**
-- **Python/JS parity:** `tests/test_sqt_parity.py` — requires Node.js
+- **Python/JS parity:** `tests/test_sqt_parity.py` — requires Node.js locally
 - **Bundle field:** canonical key is `foraging_idea` (not `forage_idea`)
+
+## GitHub Pages (PWA demo)
+
+Static site is served from the `/docs` folder.
+
+1. Open repo **Settings → Pages**
+2. **Build and deployment → Source:** Deploy from a branch
+3. **Branch:** `master` (or `main`) · **Folder:** `/docs`
+4. Save — site publishes at `https://squirrel814.github.io/SQT-Exploring-the-Possibilities/`
+
+Before each deploy, refresh committed feeds and widget assets:
+
+```bash
+python scripts/export_static_feed.py
+python scripts/sync_docs_widgets.py
+git add docs/ && git commit -m "Refresh static feeds and widget assets"
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
 
 ## Next Steps (Phase 3)
 
 1. Harden widget scaffolds (Discord rate limits, web calendar grid, VS Code major-event UX)
-2. GitHub Actions CI + enable GitHub Pages from `/docs`
-3. Smoke-test: Discord token, VS Code F5 extension, PWA demo
+2. Enable GitHub Pages in repo Settings (see above)
+3. Smoke-test: Discord token, VS Code F5 extension, live PWA demo
 
 ---
 

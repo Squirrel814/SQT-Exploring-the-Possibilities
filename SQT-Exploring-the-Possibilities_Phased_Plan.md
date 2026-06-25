@@ -160,7 +160,7 @@ Full details, user flows (normal vs. major event), and principles in Creative-Id
 
 ## Phased Plan (adapted from GROK-BUILD_Meta-Framework_v3.1.md)
 
-**Current Phase Status:** Phase 0: COMPLETE. Phase 1: COMPLETE (see `phase1-completion-summary.md`). Phase 2: COMPLETE (segments 2.1–2.4; segment 2.5 removed). **Phase 3: IN PROGRESS** (widget scaffolds, tests, static export).
+**Current Phase Status:** Phase 0: COMPLETE. Phase 1: COMPLETE (see `phase1-completion-summary.md`). Phase 2: COMPLETE (segments 2.1–2.4; segment 2.5 removed). **Phase 3: IN PROGRESS** (widget scaffolds, CI, static export, GitHub Pages from `/docs`).
 
 ### Phase 0: Context Load, Scope Lock & Risk Scan (COMPLETE)
 - Restated goal/vision incorporating The Messenger’s Circuit as the unifying product.
