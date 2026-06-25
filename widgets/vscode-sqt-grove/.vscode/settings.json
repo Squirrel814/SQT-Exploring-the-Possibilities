@@ -1,0 +1,4 @@
+{
+  "sqtGrove.staticJsonPath": "${workspaceFolder}/../../docs/circuit-current.json",
+  "sqtGrove.enginePath": "${workspaceFolder}/../../sqt_engine_unified.py"
+}
