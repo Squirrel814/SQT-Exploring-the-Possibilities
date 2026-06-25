@@ -25,7 +25,7 @@ Binding interface contracts for the three core community widgets. All widgets co
 
 ### 2.1 Canonical Engine Response
 
-Widgets consume the widget-facing fields from `sqt_engine_unified.py`. Ignore `_extended`, `_note`, and `version` for rendering unless debugging.
+Widgets consume the widget-facing fields from `sqt_engine_unified.py`. Use `--compact` (or `compact_context()`) to omit `_extended` and `_note`. Ignore `version` for rendering unless debugging.
 
 ```json
 {

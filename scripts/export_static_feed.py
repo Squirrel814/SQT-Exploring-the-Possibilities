@@ -12,7 +12,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from sqt_engine_unified import SQT_DAYS_PER_LUNATION, SQT_LUNATIONS_PER_YEAR, SQTUnifiedEngine
+from sqt_engine_unified import (
+    SQT_DAYS_PER_LUNATION,
+    SQT_LUNATIONS_PER_YEAR,
+    SQTUnifiedEngine,
+    compact_context,
+)
 
 TRIM_LUNATION = {
     1: "Sleepy", 2: "Pinecone", 3: "Scamper", 4: "Asher", 5: "Bark Stripper",
@@ -55,11 +60,8 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
 
     engine = SQTUnifiedEngine(holidays_path=args.holidays, themes_path=args.themes)
-    circuit = engine.get_full_context(include_bundle=True)
-    circuit.pop("_extended", None)
-
-    holiday_only = engine.get_full_context(include_bundle=False, holiday_only=True)
-    holiday_only.pop("_extended", None)
+    circuit = compact_context(engine.get_full_context(include_bundle=True))
+    holiday_only = compact_context(engine.get_full_context(include_bundle=False, holiday_only=True))
 
     matrix = build_calendar_matrix(engine)
 

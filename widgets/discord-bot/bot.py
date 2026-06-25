@@ -26,7 +26,7 @@ ENGINE = ROOT / "sqt_engine_unified.py"
 
 
 def fetch_circuit(bundle: bool = True) -> dict:
-    cmd = [sys.executable, str(ENGINE), "--json"]
+    cmd = [sys.executable, str(ENGINE), "--json", "--compact"]
     if bundle:
         cmd.append("--bundle")
     cmd += ["--holidays", str(ROOT / "sqt-holidays.sample.json")]

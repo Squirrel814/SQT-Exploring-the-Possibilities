@@ -462,6 +462,11 @@ class SQTUnifiedEngine:
         return json.dumps(context, indent=indent, ensure_ascii=False)
 
 
+def compact_context(ctx: Dict[str, Any]) -> Dict[str, Any]:
+    """Widget-facing JSON — strip debug fields (_extended, _note)."""
+    return {k: v for k, v in ctx.items() if k not in ("_extended", "_note")}
+
+
 def _simulate_reference_time(lun: int, day: int) -> datetime:
     position = (day - 1) / 19.0
     total_lun = (lun - 1) + position
@@ -484,6 +489,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--themes", default="sqt-themes.sample.json")
     parser.add_argument("--no-trim", action="store_true", help="Use display names instead of trimmed")
     parser.add_argument("--skip-schema-validation", action="store_true", help="Load JSON without jsonschema enforcement")
+    parser.add_argument(
+        "--compact",
+        action="store_true",
+        help="Widget JSON only — omit _extended and _note debug fields",
+    )
 
     args = parser.parse_args(argv)
     include_bundle = args.bundle or args.bundle_stub or (args.json and not args.holiday)
@@ -527,6 +537,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             ctx["bundle"] = engine.generate_bundle(forced_sqt, active)
         ctx["_extended"] = {"sqt_full": forced_sqt, "holiday_detection": holiday_ctx}
         ctx["_note"] = "Simulated lunation/day for design validation."
+
+    if args.compact:
+        ctx = compact_context(ctx)
 
     if args.json or args.pretty:
         print(engine.to_json(ctx, pretty=args.pretty or (not args.json and args.pretty)))

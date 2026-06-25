@@ -25,7 +25,7 @@ See `phase2-schedule.md` for the full segment table.
 
 ```bash
 pip install -r requirements-dev.txt
-python sqt_engine_unified.py --json --bundle
+python sqt_engine_unified.py --json --bundle --compact
 python sqt_engine_unified.py --json --simulate-lunation 6 --simulate-day 7 --bundle
 python -m pytest tests/ -q
 python scripts/export_static_feed.py
