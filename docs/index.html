@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2E5A44" />
+  <link rel="manifest" href="manifest.json" />
+  <title>SQT Living Grove</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #1a3328;
+      color: #dfd4b5;
+      font-family: Georgia, 'Palatino Linotype', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    h1 { color: #4af626; font-weight: normal; letter-spacing: 0.05em; }
+    p.sub { opacity: 0.85; max-width: 32rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Squirrel Quantum Time</h1>
+  <p class="sub">12 lunations per SQT year · 19 unique days per lunation · The Messenger's Circuit</p>
+  <sqt-grove-clock
+    src="./circuit-current.json"
+    calendar-src="./calendar_matrix.json"
+    refresh="60"
+    bundle-mode="full"
+  ></sqt-grove-clock>
+  <script type="module" src="./sqt-grove-clock.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>

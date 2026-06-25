@@ -1,0 +1,33 @@
+{
+  "version": "sqt-unified-0.2-phase2.2",
+  "generated_at": "2026-06-25T00:23:56.396707+00:00",
+  "sqt": {
+    "year": 1,
+    "lunation": 6,
+    "day": 7,
+    "time": "04:03:02"
+  },
+  "holiday": {
+    "id": "leybridge_threading",
+    "name": "Leybridge Threading",
+    "type": "recurring"
+  },
+  "themes": {
+    "palettes": [
+      "#2E5A44",
+      "#DFD4B5",
+      "#8C6239"
+    ],
+    "motifs": [
+      "pebbles",
+      "braided vines",
+      "glowing leylines"
+    ],
+    "style_modifiers": "Chalk storybook illustration, highly detailed wood-grain textures, soft golden atmospheric dust",
+    "tone_keywords": [
+      "steady",
+      "incremental",
+      "patient bridge-building"
+    ]
+  }
+}

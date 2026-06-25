@@ -24,6 +24,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+from sqt_schema_validate import SchemaValidationError, validate_holidays_file, validate_themes_file
+
 # =============================================================================
 # EXACT CONSTANTS — fidelity locked to reference/sqt_engine_2.py
 # =============================================================================
@@ -32,6 +34,8 @@ SQT_EPOCH = datetime(2026, 1, 18, 20, 52, 0, tzinfo=timezone.utc)
 EARTH_HOURS_PER_SQT_DAY = 37.301826
 SEC_PER_SQT_DAY = EARTH_HOURS_PER_SQT_DAY * 3600
 LUNAR_CYCLE_SECONDS = 29.53059 * 24 * 3600
+SQT_LUNATIONS_PER_YEAR = 12
+SQT_DAYS_PER_LUNATION = 19
 
 SQT_LUNATIONS_DISPLAY: Dict[int, str] = {
     1: "Sleepy Moon", 2: "Pinecone Moon", 3: "Scamper Moon",
@@ -120,8 +124,10 @@ class SQTUnifiedEngine:
         holidays_path: Optional[str] = None,
         themes_path: Optional[str] = None,
         use_trimmed: bool = True,
+        validate_schema: bool = True,
     ):
         self.use_trimmed = use_trimmed
+        self.validate_schema = validate_schema
         self.holidays: Dict[str, Any] = {}
         self.themes: Dict[str, Any] = {}
         self._holidays_raw: Dict[str, Any] = {}
@@ -140,9 +146,8 @@ class SQTUnifiedEngine:
             return
         with p.open(encoding="utf-8") as f:
             data = json.load(f)
-        for key in ("recurring_holidays", "major_lunation_events", "rare_periodic_events"):
-            if key not in data:
-                print(f"[warn] Missing key in holidays: {key}", file=sys.stderr)
+        if self.validate_schema:
+            validate_holidays_file(p)
         self._holidays_raw = data
         self.holidays = {
             "recurring": {h["id"]: h for h in data.get("recurring_holidays", [])},
@@ -158,8 +163,17 @@ class SQTUnifiedEngine:
             return
         with p.open(encoding="utf-8") as f:
             data = json.load(f)
+        if self.validate_schema:
+            validate_themes_file(p)
         self._themes_raw = data
         self.themes = data
+
+    def forced_sqt_state(self, lunation: int, day: int) -> Dict[str, Any]:
+        """SQT state for a specific lunation (1–12) and day (1–19) in year 1."""
+        sqt = self.get_sqt_state(_simulate_reference_time(lunation, day))
+        sqt["lunation"] = lunation
+        sqt["day"] = day
+        return sqt
 
     def get_sqt_state(self, reference_time: Optional[datetime] = None) -> Dict[str, Any]:
         now = reference_time or datetime.now(timezone.utc)
@@ -174,7 +188,7 @@ class SQTUnifiedEngine:
 
         sqt_year = (current_lunation_raw // 12) + 1
         lunation_num = (current_lunation_raw % 12) + 1
-        sqt_day = max(1, min(19, int(position_in_lunation * 19) + 1))
+        sqt_day = max(1, min(SQT_DAYS_PER_LUNATION, int(position_in_lunation * SQT_DAYS_PER_LUNATION) + 1))
 
         day_display, week_label = SQT_UNIQUE_DAYS_DISPLAY.get(
             sqt_day, ("Unknown-day", "Unknown Week")
@@ -469,15 +483,21 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--holidays", default="sqt-holidays.sample.json")
     parser.add_argument("--themes", default="sqt-themes.sample.json")
     parser.add_argument("--no-trim", action="store_true", help="Use display names instead of trimmed")
+    parser.add_argument("--skip-schema-validation", action="store_true", help="Load JSON without jsonschema enforcement")
 
     args = parser.parse_args(argv)
     include_bundle = args.bundle or args.bundle_stub or (args.json and not args.holiday)
 
-    engine = SQTUnifiedEngine(
-        holidays_path=args.holidays,
-        themes_path=args.themes,
-        use_trimmed=not args.no_trim,
-    )
+    try:
+        engine = SQTUnifiedEngine(
+            holidays_path=args.holidays,
+            themes_path=args.themes,
+            use_trimmed=not args.no_trim,
+            validate_schema=not args.skip_schema_validation,
+        )
+    except SchemaValidationError as exc:
+        print(f"[error] {exc}", file=sys.stderr)
+        return 1
 
     ref_time = None
     if args.simulate_lunation is not None or args.simulate_day is not None:

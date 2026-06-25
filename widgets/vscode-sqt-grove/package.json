@@ -1,0 +1,39 @@
+{
+  "name": "sqt-grove",
+  "displayName": "SQT Grove — Messenger's Circuit",
+  "description": "SQT status bar + insert Messenger's Circuit bundle",
+  "version": "0.1.0",
+  "publisher": "squirrel814",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "sqt-grove.insertBundle", "title": "SQT Grove: Insert Messenger's Circuit Bundle" },
+      { "command": "sqt-grove.insertForage", "title": "SQT Grove: Insert Foraging Idea" },
+      { "command": "sqt-grove.refresh", "title": "SQT Grove: Refresh SQT Status" }
+    ],
+    "configuration": {
+      "title": "SQT Grove",
+      "properties": {
+        "sqtGrove.enginePath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to sqt_engine_unified.py (empty = workspace search)"
+        },
+        "sqtGrove.staticJsonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional circuit-current.json (overrides subprocess)"
+        },
+        "sqtGrove.insertFormat": {
+          "type": "string",
+          "enum": ["markdown", "comment-block"],
+          "default": "markdown"
+        },
+        "sqtGrove.pythonPath": { "type": "string", "default": "python" }
+      }
+    }
+  }
+}

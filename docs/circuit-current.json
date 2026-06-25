@@ -1,0 +1,48 @@
+{
+  "version": "sqt-unified-0.2-phase2.2",
+  "generated_at": "2026-06-25T00:23:56.396707+00:00",
+  "sqt": {
+    "year": 1,
+    "lunation": 6,
+    "day": 7,
+    "time": "04:03:02"
+  },
+  "holiday": {
+    "id": "leybridge_threading",
+    "name": "Leybridge Threading",
+    "type": "recurring"
+  },
+  "themes": {
+    "palettes": [
+      "#2E5A44",
+      "#DFD4B5",
+      "#8C6239"
+    ],
+    "motifs": [
+      "pebbles",
+      "braided vines",
+      "glowing leylines"
+    ],
+    "style_modifiers": "Chalk storybook illustration, highly detailed wood-grain textures, soft golden atmospheric dust",
+    "tone_keywords": [
+      "steady",
+      "incremental",
+      "patient bridge-building"
+    ]
+  },
+  "bundle": {
+    "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Canopy lunation, Stash-day.",
+    "mood_board": {
+      "palette": [
+        "#2E5A44",
+        "#DFD4B5",
+        "#8C6239"
+      ],
+      "image_prompt": "A determined squirrel carefully placing smooth pebbles to form a small bridge across a forest stream, glowing leylines in the water, highly detailed wood grain, soft golden dust, in the SQT Grove Style",
+      "atmosphere": "Steady path of pebbles across a stream, vines linking trees"
+    },
+    "story_seed": "One pebble at a time, the squirrel began laying a path across the rushing water...",
+    "art_prompt": "A determined squirrel carefully placing smooth pebbles to form a small bridge across a forest stream, glowing leylines in the water, highly detailed wood grain, soft golden dust, in the SQT Grove Style",
+    "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+  }
+}

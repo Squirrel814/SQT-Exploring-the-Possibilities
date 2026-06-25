@@ -1,0 +1,92 @@
+:host {
+  --sqt-bg: #2e5a44;
+  --sqt-fg: #dfd4b5;
+  --sqt-accent: #4af626;
+  --sqt-font: Georgia, 'Palatino Linotype', serif;
+  --sqt-radius: 8px;
+  display: block;
+  font-family: var(--sqt-font);
+  color: var(--sqt-fg);
+}
+
+.root {
+  background: var(--sqt-bg);
+  border-radius: var(--sqt-radius);
+  padding: 1rem 1.25rem;
+  max-width: 28rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.time {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #1e1e1e;
+  margin-bottom: 0.75rem;
+}
+
+.open-circuit {
+  background: var(--sqt-accent);
+  color: #1e1e1e;
+  border: none;
+  border-radius: var(--sqt-radius);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.open-circuit:hover {
+  filter: brightness(1.05);
+}
+
+.modal {
+  border: none;
+  border-radius: var(--sqt-radius);
+  padding: 0;
+  max-width: 32rem;
+  width: 90vw;
+  background: var(--sqt-bg);
+  color: var(--sqt-fg);
+  font-family: var(--sqt-font);
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.modal-inner {
+  padding: 1.25rem;
+}
+
+.modal h2 {
+  margin: 0 0 0.75rem;
+  color: var(--sqt-accent);
+}
+
+.swatch {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 4px;
+  margin-right: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.close, .copy {
+  margin: 0.5rem 1.25rem 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--sqt-radius);
+  border: 1px solid var(--sqt-fg);
+  background: transparent;
+  color: var(--sqt-fg);
+  cursor: pointer;
+  font-family: inherit;
+}

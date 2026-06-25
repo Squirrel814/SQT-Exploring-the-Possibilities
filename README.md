@@ -24,8 +24,11 @@ See `phase2-schedule.md` for the full segment table.
 - **`sqt_engine_unified.py`** — Headless rewrite with holidays + `generate_bundle()` + widget JSON
 
 ```bash
+pip install -r requirements-dev.txt
 python sqt_engine_unified.py --json --bundle
 python sqt_engine_unified.py --json --simulate-lunation 6 --simulate-day 7 --bundle
+python -m pytest tests/ -q
+python scripts/export_static_feed.py
 ```
 
 This repo does **not** modify the upstream Squirrel-Quantum-Time repository.
@@ -50,11 +53,22 @@ This repo does **not** modify the upstream Squirrel-Quantum-Time repository.
 | `SESSION_HANDOFF_PROMPT.md` | Paste into new agent sessions |
 | `Post_Project_Summary.md` | Memory island distillation target (stub) |
 
-## Widget Specs (Segment 2.3 — complete)
+## Widget Specs & Scaffolds (Phase 3 Chunk E started)
 
-- `phase2-2.3-widget-specs.md` — Discord, `<sqt-grove-clock>`, VS Code contracts
-- `phase2-2.3-pwa-outline.md` — manifest + service worker outline
-- `phase2-architecture-diagram.md` — updated data flow
+| Path | Role |
+|------|------|
+| `phase2-2.3-widget-specs.md` | Binding contracts |
+| `widgets/discord-bot/` | Ratatoskr Grove Messenger (`DISCORD_BOT_TOKEN`) |
+| `widgets/sqt-grove-clock/` | `<sqt-grove-clock>` web component |
+| `widgets/vscode-sqt-grove/` | VS Code status bar + insert bundle |
+| `docs/` | PWA demo (manifest, SW, static JSON feeds) |
+| `lib/sqt-core.js` | JS engine parity with Python (12×19 lunations) |
+
+## Tests & Validation
+
+- **Schema:** `jsonschema` enforced on engine load (`--skip-schema-validation` to bypass)
+- **Holiday matrix:** `tests/test_holiday_matrix.py` — all **12 lunations × 19 days**
+- **Python/JS parity:** `tests/test_sqt_parity.py` — requires Node.js
 
 ## Next Steps (Segment 2.5)
 

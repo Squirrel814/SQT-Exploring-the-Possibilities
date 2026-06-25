@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="SQT acorn">
+  <rect width="192" height="192" fill="#2E5A44"/>
+  <ellipse cx="96" cy="118" rx="42" ry="48" fill="#8C6239"/>
+  <path d="M96 42 C72 58, 68 88, 96 78 C124 88, 120 58, 96 42 Z" fill="#4AF626"/>
+  <path d="M40 96 Q96 60, 152 96" stroke="#DFD4B5" stroke-width="3" fill="none" opacity="0.6"/>
+</svg>

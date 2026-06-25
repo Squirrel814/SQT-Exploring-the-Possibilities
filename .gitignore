@@ -22,3 +22,7 @@ build/
 .pytest_cache/
 htmlcov/
 .coverage
+node_modules/
+
+# Widget runtime
+widgets/discord-bot/lore_queue.jsonl

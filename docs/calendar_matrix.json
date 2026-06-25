@@ -1,0 +1,1617 @@
+{
+  "generated_at": "2026-06-25T00:23:56.396707+00:00",
+  "lunation_names": {
+    "1": "Sleepy",
+    "2": "Pinecone",
+    "3": "Scamper",
+    "4": "Asher",
+    "5": "Bark Stripper",
+    "6": "Canopy",
+    "7": "Hollow Tree",
+    "8": "Golden Leaf",
+    "9": "Cache",
+    "10": "Shadow",
+    "11": "Forage",
+    "12": "Chattering"
+  },
+  "sqt_lunations_per_year": 12,
+  "sqt_days_per_lunation": 19,
+  "cells": [
+    {
+      "lunation": 1,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 1,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 1,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 1,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 1,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 1,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 1,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 13,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 1,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 1,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 1,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 1,
+      "day": 19,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 2,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 2,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 2,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 2,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 2,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 2,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 13,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 2,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 2,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 2,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 2,
+      "day": 19,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 3,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 3,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 3,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 3,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 3,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 3,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 13,
+      "holiday_id": "burrow_rebuild",
+      "holiday_name": "Burrow Rebuild",
+      "type": "rare"
+    },
+    {
+      "lunation": 3,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 3,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 3,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 3,
+      "day": 19,
+      "holiday_id": "the_hoardkeeper’s_joyful_reckoning",
+      "holiday_name": "Hoardkeeper’s Joyful Reckoning",
+      "type": "major"
+    },
+    {
+      "lunation": 4,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 4,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 4,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 4,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 4,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 4,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 4,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 4,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 4,
+      "day": 9,
+      "holiday_id": "whisper_storm",
+      "holiday_name": "The Whisper Storm",
+      "type": "rare"
+    },
+    {
+      "lunation": 4,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 4,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 4,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 4,
+      "day": 13,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 4,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 4,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 4,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 4,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 4,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 4,
+      "day": 19,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 5,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 5,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 5,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 5,
+      "day": 7,
+      "holiday_id": "leyline_surge",
+      "holiday_name": "Leyline Surge",
+      "type": "rare"
+    },
+    {
+      "lunation": 5,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 5,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 13,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 5,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 5,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 5,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 5,
+      "day": 19,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 6,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 6,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 6,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 6,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 6,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 6,
+      "day": 12,
+      "holiday_id": "hidden_cache_reveal",
+      "holiday_name": "Hidden Cache Reveal",
+      "type": "rare"
+    },
+    {
+      "lunation": 6,
+      "day": 13,
+      "holiday_id": "burrow_rebuild",
+      "holiday_name": "Burrow Rebuild",
+      "type": "rare"
+    },
+    {
+      "lunation": 6,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 6,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 6,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 6,
+      "day": 19,
+      "holiday_id": "shadow_trial",
+      "holiday_name": "The Shadow Trial",
+      "type": "major"
+    },
+    {
+      "lunation": 7,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 7,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 7,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 7,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 7,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 7,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 7,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 13,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 7,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 7,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 7,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 7,
+      "day": 19,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 8,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 8,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 8,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 8,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 8,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 9,
+      "holiday_id": "whisper_storm",
+      "holiday_name": "The Whisper Storm",
+      "type": "rare"
+    },
+    {
+      "lunation": 8,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 8,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 13,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 8,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 8,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 8,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 8,
+      "day": 19,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 9,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 9,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 9,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 9,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 9,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 9,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 13,
+      "holiday_id": "burrow_rebuild",
+      "holiday_name": "Burrow Rebuild",
+      "type": "rare"
+    },
+    {
+      "lunation": 9,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 9,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 9,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 9,
+      "day": 19,
+      "holiday_id": "the_burrow_rebirth",
+      "holiday_name": "The Burrow Rebirth",
+      "type": "major"
+    },
+    {
+      "lunation": 10,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 10,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 10,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 10,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 10,
+      "day": 7,
+      "holiday_id": "leyline_surge",
+      "holiday_name": "Leyline Surge",
+      "type": "rare"
+    },
+    {
+      "lunation": 10,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 10,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 13,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 10,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 10,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 10,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 10,
+      "day": 19,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 11,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 11,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 11,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 11,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 11,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 9,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 11,
+      "day": 12,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 13,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 11,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 11,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 11,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 11,
+      "day": 19,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 12,
+      "day": 1,
+      "holiday_id": "whisperwake_first_message",
+      "holiday_name": "Whisperwake of the First Message",
+      "type": "recurring"
+    },
+    {
+      "lunation": 12,
+      "day": 2,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 12,
+      "day": 3,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 12,
+      "day": 4,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 12,
+      "day": 5,
+      "holiday_id": "discerned_hoard",
+      "holiday_name": "The Discerned Hoard",
+      "type": "recurring"
+    },
+    {
+      "lunation": 12,
+      "day": 6,
+      "holiday_id": "ratatoskr_argument",
+      "holiday_name": "Ratatoskr's Argument",
+      "type": "rare"
+    },
+    {
+      "lunation": 12,
+      "day": 7,
+      "holiday_id": "leybridge_threading",
+      "holiday_name": "Leybridge Threading",
+      "type": "recurring"
+    },
+    {
+      "lunation": 12,
+      "day": 8,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 12,
+      "day": 9,
+      "holiday_id": "whisper_storm",
+      "holiday_name": "The Whisper Storm",
+      "type": "rare"
+    },
+    {
+      "lunation": 12,
+      "day": 10,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 12,
+      "day": 11,
+      "holiday_id": "shadowforage_eclipse",
+      "holiday_name": "Shadowforage Eclipse",
+      "type": "rare"
+    },
+    {
+      "lunation": 12,
+      "day": 12,
+      "holiday_id": "hidden_cache_reveal",
+      "holiday_name": "Hidden Cache Reveal",
+      "type": "rare"
+    },
+    {
+      "lunation": 12,
+      "day": 13,
+      "holiday_id": "burrow_rebuild",
+      "holiday_name": "Burrow Rebuild",
+      "type": "rare"
+    },
+    {
+      "lunation": 12,
+      "day": 14,
+      "holiday_id": "burrowstill_knowing",
+      "holiday_name": "Burrowstill Knowing",
+      "type": "recurring"
+    },
+    {
+      "lunation": 12,
+      "day": 15,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 12,
+      "day": 16,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 12,
+      "day": 17,
+      "holiday_id": "chatterseed_scatter",
+      "holiday_name": "Chatterseed Scatter",
+      "type": "recurring"
+    },
+    {
+      "lunation": 12,
+      "day": 18,
+      "holiday_id": null,
+      "holiday_name": null,
+      "type": null
+    },
+    {
+      "lunation": 12,
+      "day": 19,
+      "holiday_id": "the_messengers_circuit_complete",
+      "holiday_name": "The Messenger’s Circuit Complete",
+      "type": "major"
+    }
+  ]
+}
