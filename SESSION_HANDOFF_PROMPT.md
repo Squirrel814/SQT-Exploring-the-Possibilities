@@ -71,10 +71,10 @@ You are Grok continuing **SQT-Exploring-the-Possibilities** at Phase 3 — widge
 | **Discord** | `pytest tests/test_discord_relay.py`; engine fetch in smoke triad | `DISCORD_BOT_TOKEN` → `python widgets/discord-bot/bot.py`; test 4 commands + Relay button |
 | **VS Code** | `node tests/test_vscode_extension_smoke.mjs` | F5 on `widgets/vscode-sqt-grove` (`.vscode/launch.json`); status bar + insert |
 
-### 2. Discord — remaining spec gaps (§3)
-- ~~Ratatoskr Relay polish (thread tags)~~ ✅ — `relay`, `{holiday.id}`, `lunation-{n}`; forum `applied_tags` when configured
-- Scheduled `#grove-circuit` teaser posts (optional cron)
-- Mode B: cron-refreshed static JSON instead of subprocess
+### 2. Discord — PAUSED (partial live smoke OK; resume when wanted)
+- Scaffold + Relay tags + `.env` loader + guild sync ✅
+- Live: Ratatoskr login + guild sync + `/circuit` worked; user paused further Discord work
+- Remaining when resumed: scheduled posts, Mode B cron, full command reliability pass
 
 ### 3. Web — remaining spec gaps (§4)
 - ~~Full **12×19 calendar mini-grid**~~ ✅ (commit `63f5a8d`)
