@@ -312,7 +312,8 @@ def _load_dotenv() -> None:
         from dotenv import load_dotenv
     except ImportError:
         return
-    for path in (Path(__file__).resolve().parent / ".env", ROOT / ".env"):
+    bot_dir = Path(__file__).resolve().parent
+    for path in (bot_dir / ".env", bot_dir / "discord-bot.env", ROOT / ".env"):
         if path.is_file():
             load_dotenv(path)
             return
