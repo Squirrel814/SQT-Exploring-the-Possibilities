@@ -90,10 +90,11 @@ Widget JS/CSS in `docs/` must stay in sync with `widgets/sqt-grove-clock/` — a
 
 Static site is served from the `/docs` folder.
 
+**If Settings → Pages shows no Source dropdown:** this repo is **private**. GitHub Pages for private repos requires **GitHub Pro** (or make the repo **public**). On a free plan, open **Settings → General → Danger zone → Change repository visibility → Public**, then configure Pages below.
+
 1. Open repo **Settings → Pages**
-2. **Build and deployment → Source:** Deploy from a branch
-3. **Branch:** `master` (or `main`) · **Folder:** `/docs`
-4. Save — site publishes at `https://squirrel814.github.io/SQT-Exploring-the-Possibilities/`
+2. **Build and deployment → Source:** choose **GitHub Actions** (workflow in `.github/workflows/pages.yml`) *or* **Deploy from a branch** → `master` / `/docs`
+3. Save — site publishes at `https://squirrel814.github.io/SQT-Exploring-the-Possibilities/` (may take 1–10 minutes)
 
 Before each deploy, refresh committed feeds and widget assets:
 
