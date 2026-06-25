@@ -6,7 +6,7 @@ Structured test of the v2 Grok-Agents Memory Ecosystem handoff process while des
 
 ## Current Phase
 
-**Phase 3 — Implementation** **complete (good enough)** — Phases 4–7 optional
+**Phase 3 — Implementation** **archived** (good enough, Track A distillation complete) — Phases 4–7 optional
 
 | Segment | Status |
 |---------|--------|
@@ -65,7 +65,7 @@ Widget JS/CSS in `docs/` must stay in sync with `widgets/sqt-grove-clock/` — a
 | `phase2-completion-summary.md` | Phase 2 close-out, 2.4 decisions, Phase 3 handoff |
 | `phase2-architecture-diagram.md` | Data flow + implemented vs spec boundaries |
 | `SESSION_HANDOFF_PROMPT.md` | Paste into new agent sessions |
-| `Post_Project_Summary.md` | Phase 3 status + distillation target |
+| `Post_Project_Summary.md` | Phase 3 archive + Memory Island distillation source |
 
 ## Widget Specs & Scaffolds (Phase 3 Chunk E)
 

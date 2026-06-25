@@ -1,9 +1,11 @@
 # Post_Project_Summary — SQT-Exploring-the-Possibilities
 
-**Status:** Phase 3 complete (good enough) — not archived to Memory Islands yet  
-**Last Updated:** 2026-06-24 (Phase 3 close-out)  
+**Status:** Phase 3 archived — distillation complete (Track A)  
+**Archive date:** 2026-06-24  
+**Latest commit:** `998a304` — Phase 3 close-out  
 **Live PWA:** https://squirrel814.github.io/SQT-Exploring-the-Possibilities/  
-**Chronological detail:** `project-logs/SQT-Exploring-the-Possibilities_Project-Update.md`
+**Chronological detail:** `project-logs/SQT-Exploring-the-Possibilities_Project-Update.md`  
+**Binding contracts:** `phase2-2.3-widget-specs.md`
 
 ---
 
@@ -20,7 +22,10 @@ Deliver **The Messenger's Circuit** — a Squirrel Quantum Time (SQT) side-quest
 | 0 — Context | Complete | Scope lock in phased plan |
 | 1 — Analysis | Complete | `phase1-completion-summary.md`, schemas, requirements |
 | 2 — Design | Complete | `phase2-completion-summary.md`, widget specs, style guide |
-| 3 — Implementation | **Complete (good enough)** | Engine, PWA live, VS Code, Discord scaffold, 37+ tests, production lore |
+| 3 — Implementation | **Complete (good enough)** | Engine, PWA live, VS Code, Discord scaffold, 37 tests, production lore |
+| 4–7 | **Not started** (optional) | See `SQT-Exploring-the-Possibilities_Phased_Plan.md` |
+
+**Phase overlap note:** Phase 3 shipped much of the original Phase 4–5 scope (engine, holidays, PWA, widget scaffolds, static feeds). Optional Phases 4–7 now cover gaps only — full Circuit modes, Discord polish, curriculum packaging, Burrowkins hooks, marketplace publish.
 
 ---
 
@@ -71,7 +76,7 @@ Deliver **The Messenger's Circuit** — a Squirrel Quantum Time (SQT) side-quest
 
 | Item | Status |
 |------|--------|
-| CI | pytest + Node tests + `smoke_widget_triad.py` + `test_pwa_build.mjs` |
+| CI | pytest (37) + Node tests + `smoke_widget_triad.py` + `test_pwa_build.mjs` |
 | GitHub Pages | `/docs` on `master`, public repo |
 | LICENSE | MIT |
 
@@ -121,24 +126,58 @@ git push origin master
 
 ---
 
-## Reusable Patterns (for Memory Islands)
+## Reusable Patterns (distilled to Memory Islands)
 
-1. **Exploration-repo engine fidelity** — Snapshot `reference/sqt_engine_2.py`; rewrite headless in-place; never patch upstream in place.
-2. **Widget JSON contract** — Flat `sqt` + `holiday` + `bundle` + `themes`; `--compact` for consumers; `foraging_idea` canonical.
-3. **Template bundle assembly** — Theme seeds → `generate_bundle()`; no LLM in engine; optional Squirrel Ops overlay.
-4. **Option B static feeds** — Commit `docs/*.json` with `generated_at`; `sync_docs_widgets.py` copies web assets.
-5. **Trimmed vs display naming** — Moons (`Canopy Moon`), named days (`Stash-day`); Lunation reserved for day 10.
-6. **Phase 3 smoke triad** — `scripts/smoke_widget_triad.py` + focused Node tests per widget.
+| # | Pattern | Island |
+|---|---------|--------|
+| 1 | Exploration-repo engine fidelity — snapshot `reference/sqt_engine_2.py`; rewrite headless in-place; never patch upstream | Jasper → `Coherence_Enforcement.md` |
+| 2 | Widget JSON contract — flat `sqt` + `holiday` + `bundle` + `themes`; `--compact` for consumers; `foraging_idea` canonical | Jasper → `JSON_Manifests_and_Schemas.md` |
+| 3 | Option B static feeds — commit `docs/*.json` with `generated_at`; `sync_docs_widgets.py` copies web assets | Jasper → `JSON_Manifests_and_Schemas.md` |
+| 4 | Phase 3 smoke triad — `scripts/smoke_widget_triad.py` + focused Node tests per widget | Jasper → `Coherence_Enforcement.md` |
+| 5 | Trimmed vs display naming — Moons (`Canopy Moon`), named days (`Stash-day`); Lunation reserved for day 10 | Crystal → `Visual_Flow_Design.md` |
+| 6 | Widget UX + a11y — focus trap, Esc, high-contrast, `aria-*` grid, `navigator.share` fallback | Crystal → `Visual_Flow_Design.md` |
+| 7 | Squirrel Ops lab catalog — mythic metaphors (Hoard, Leylines, Shadow Trial) mapped to opt-in `--squirrel-ops` injection | Cyber-SQRRL → `Creative_Options.md` |
+| 8 | Discord/widget hygiene — `.env` token loader, lore sanitization, rate limits, no secrets in logs | Alex Pericles → `Log_Hygiene_and_Audit_Trails.md` |
+
+**Lightweight reference format (all islands):**  
+`See Post_Project_Summary for SQT-Exploring-the-Possibilities for full details, code/examples, and contributions logs.`
 
 ---
 
-## Open / Deferred
+## Lessons Learned
 
-- Discord: scheduled `#grove-circuit` posts, full command reliability pass (user paused)
-- VS Code: marketplace publish, Obsidian plugin (deferred variant)
-- Curriculum: full **Time is Relative** module packaging
-- Burrowkins / printable passport / LLM pipeline variants (deferred in 2.4 matrices)
-- Project archive + Memory Island distillation (when Phase 3 completes)
+- **Headless-first unification** avoided breaking the upstream Squirrel-Quantum-Time repo while delivering a testable engine with holiday + bundle layers.
+- **Option B static feeds** (committed JSON + `generated_at`) kept GitHub Pages simple without a build server; `sync_docs_widgets.py` closed the source→docs gap.
+- **Binding widget specs before implementation** (`phase2-2.3-widget-specs.md`) prevented field-name drift (`foraging_idea` vs `forage_idea`).
+- **Smoke triad automation** caught PWA/asset regressions early; Discord live smoke correctly deferred when token unavailable.
+- **v2 handoff process validated** — SQT-stamped project log + Post_Project_Summary distillation worked without formal gate bloat.
+
+---
+
+## Open / Deferred (optional tracks B–F)
+
+| Item | Suggested track |
+|------|-----------------|
+| Discord scheduled `#grove-circuit`, full command reliability | D |
+| VS Code marketplace publish, Obsidian plugin | E |
+| Full **Time is Relative** curriculum module packaging | C |
+| Burrowkins / printable passport / LLM pipeline variants | B / E |
+| Lore copy edits, SW cache bump, dependency pins | F |
+
+---
+
+## Memory Island References (Track A archive)
+
+| Agent | Island | Distilled bullet topic |
+|-------|--------|------------------------|
+| Jasper | `JSON_Manifests_and_Schemas.md` | Widget JSON contract + static feed schemas |
+| Jasper | `Coherence_Enforcement.md` | Engine fidelity + smoke triad |
+| Crystal | `Visual_Flow_Design.md` | Moon/day terminology + PWA a11y patterns |
+| Cyber-SQRRL | `Creative_Options.md` | Squirrel Ops metaphor catalog + opt-in injection |
+| Alex Pericles | `Log_Hygiene_and_Audit_Trails.md` | Discord token/.env + lore sanitization |
+
+**Tracker:** `C:\Projects\Grok-Agents\logs\Memory_Update_Tracker.md`  
+**Sub-archive:** `C:\Projects\Grok-Agents\logs\archive\memory_update_Canopy_Stash_20260624.md`
 
 ---
 
@@ -146,7 +185,7 @@ git push origin master
 
 | Agent | Contribution |
 |-------|--------------|
-| Zeenah | Phase coordination, phased plan v0.2, selective second-opinion integration |
+| Zeenah | Phase coordination, phased plan v0.2, archive/distillation (Track A) |
 | Jasper | `sqt_engine_unified.py`, CI, static export, widget backends, smoke automation |
 | Crystal | Style guide, themes, PWA UX, 12×19 grid, widget specs |
 | Cyber-SQRRL | Squirrel Ops lab catalog + `sqt-squirrel-ops-labs.json` |

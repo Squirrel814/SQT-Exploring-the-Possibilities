@@ -2,7 +2,7 @@
 
 **Purpose:** Copy the block below into a new Grok session to continue SQT-Exploring-the-Possibilities.
 
-**Last updated:** 2026-06-24 (Phase 3 closed — good enough)
+**Last updated:** 2026-06-24 (Phase 3 archived — Track A distillation complete)
 
 ---
 
@@ -24,7 +24,7 @@ You are Grok continuing **SQT-Exploring-the-Possibilities** after **Phase 3 clos
 | Phase | Status |
 |-------|--------|
 | Phases 0–2 | **Complete** |
-| **Phase 3** (implementation) | **Complete (good enough)** — `b242b3a` |
+| **Phase 3** (implementation) | **Archived (good enough)** — `998a304`; Track A distillation done |
 | Phases 4–7 | **Not started** — optional expansion per `SQT-Exploring-the-Possibilities_Phased_Plan.md` |
 
 **CI:** Green — pytest (37) + Node tests + `smoke_widget_triad.py` + `test_pwa_build.mjs`  
@@ -80,7 +80,7 @@ git push origin master
 
 | Track | Examples |
 |-------|----------|
-| **A — Archive & distill** | Final `Post_Project_Summary` polish; Memory Island lightweight refs; project log close-out entry |
+| **A — Archive & distill** | **Done** — `Post_Project_Summary.md` polished; Memory Island refs in Grok-Agents; log close-out entry |
 | **B — Phase 4/5 expansion** | Full Circuit modes, Burrowkins hooks, public API, widget marketplace polish |
 | **C — Curriculum** | Cyber-SQRRL “Time is Relative” module from `design_notes.md` + Squirrel Ops labs |
 | **D — Discord resume** | Ratatoskr reliability pass, scheduled `#grove-circuit`, Mode B cron |
@@ -101,7 +101,7 @@ git push origin master
 
 | File | Why |
 |------|-----|
-| `Post_Project_Summary.md` | What shipped; patterns; open optional work |
+| `Post_Project_Summary.md` | Archive source; Memory Island mapping; optional tracks B–F |
 | `SQT-Exploring-the-Possibilities_Phased_Plan.md` | Phases 4–7 roadmap |
 | `phase2-2.3-widget-specs.md` | Widget contracts |
 | `sqt_engine_unified.py` | Engine |
@@ -130,7 +130,7 @@ Log meaningful work in `project-logs/SQT-Exploring-the-Possibilities_Project-Upd
 
 ## Recommended first move
 
-Ask the user which track (A–F) they want — or a **new project entirely**. Load `Post_Project_Summary.md` + phased plan § Phases 4–7 before proposing scope. Do not reopen Phase 3 unless they report a bug.
+Track A (archive) is complete. Ask the user which **optional track (B–F)** they want — or a **new project entirely**. Load `Post_Project_Summary.md` + phased plan § Phases 4–7 before proposing scope. Do not reopen Phase 3 unless they report a bug. Maintenance: release ritual after lore/widget edits.
 
 **END OF PASTEABLE PROMPT**
 
