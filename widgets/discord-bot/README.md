@@ -8,6 +8,8 @@ set DISCORD_BOT_TOKEN=your_token_here
 python bot.py
 ```
 
+**Faster slash-command testing:** set `DISCORD_GUILD_ID` to your server ID — commands sync instantly to that guild instead of waiting on global propagation.
+
 Calls `sqt_engine_unified.py --json --bundle --compact` from repo root. See `phase2-2.3-widget-specs.md`.
 
 **Ratatoskr Relay** (major events, `/circuit mode:full`):

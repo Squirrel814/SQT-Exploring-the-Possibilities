@@ -134,8 +134,16 @@ class RatatoskrBot(discord.Client):
         self.tree = app_commands.CommandTree(self)
 
     async def setup_hook(self):
-        self.tree.copy_global_to(guild=None)
-        await self.tree.sync()
+        # Optional: DISCORD_GUILD_ID for instant guild command sync during dev
+        guild_id = os.environ.get("DISCORD_GUILD_ID")
+        if guild_id:
+            guild = discord.Object(id=int(guild_id))
+            self.tree.copy_global_to(guild=guild)
+            await self.tree.sync(guild=guild)
+            print(f"Synced slash commands to guild {guild_id}")
+        else:
+            await self.tree.sync()
+            print("Synced global slash commands (may take up to ~1h to appear everywhere)")
 
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})")
