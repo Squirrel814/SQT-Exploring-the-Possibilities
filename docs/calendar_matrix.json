@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T01:18:17.955994+00:00",
+  "generated_at": "2026-06-25T01:32:25.809536+00:00",
   "lunation_names": {
     "1": "Sleepy",
     "2": "Pinecone",
@@ -22,7 +22,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Sleepy Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 1,
@@ -43,28 +47,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Sleepy Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 1,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Sleepy Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 1,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Sleepy Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 1,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Sleepy Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 1,
@@ -92,7 +112,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Sleepy Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 1,
@@ -106,14 +130,22 @@
       "day": 13,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Sleepy Moon, Timber-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 1,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Sleepy Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 1,
@@ -134,7 +166,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Sleepy Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 1,
@@ -155,7 +191,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Pinecone Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 2,
@@ -176,28 +216,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Pinecone Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 2,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Pinecone Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 2,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Pinecone Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 2,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Pinecone Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 2,
@@ -225,7 +281,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Pinecone Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 2,
@@ -239,14 +299,22 @@
       "day": 13,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Pinecone Moon, Timber-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 2,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Pinecone Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 2,
@@ -267,7 +335,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Pinecone Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 2,
@@ -288,7 +360,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Scamper Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 3,
@@ -309,28 +385,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Scamper Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 3,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Scamper Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 3,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Scamper Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 3,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Scamper Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 3,
@@ -358,7 +450,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Scamper Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 3,
@@ -372,14 +468,22 @@
       "day": 13,
       "holiday_id": "burrow_rebuild",
       "holiday_name": "Burrow Rebuild",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "What old structure is ready to come down so something sturdier can grow? Reflect on Burrow Rebuild during Year 1, Scamper Moon, Timber-day.",
+        "foraging_idea": "Today (Burrow Rebuild): Retire one brittle habit or tool; sketch the replacement before rebuilding."
+      }
     },
     {
       "lunation": 3,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Scamper Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 3,
@@ -400,7 +504,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Scamper Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 3,
@@ -414,14 +522,22 @@
       "day": 19,
       "holiday_id": "the_hoardkeeper’s_joyful_reckoning",
       "holiday_name": "Hoardkeeper’s Joyful Reckoning",
-      "type": "major"
+      "type": "major",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? (Year 1, Scamper Moon, Nap-day — Hoardkeeper’s Joyful Reckoning)",
+        "foraging_idea": "Today (Hoardkeeper’s Joyful Reckoning): Gentle intentional action."
+      }
     },
     {
       "lunation": 4,
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Asher Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 4,
@@ -442,28 +558,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Asher Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 4,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Asher Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 4,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Asher Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 4,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Asher Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 4,
@@ -477,7 +609,11 @@
       "day": 9,
       "holiday_id": "whisper_storm",
       "holiday_name": "The Whisper Storm",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Many whispers arrive at once — which message deserves your attention first? Reflect on The Whisper Storm during Year 1, Asher Moon, Moss-day.",
+        "foraging_idea": "Today (The Whisper Storm): Capture the best ideas quickly, then sort; do not chase every leaf in the wind."
+      }
     },
     {
       "lunation": 4,
@@ -491,7 +627,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Asher Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 4,
@@ -505,14 +645,22 @@
       "day": 13,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Asher Moon, Timber-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 4,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Asher Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 4,
@@ -533,7 +681,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Asher Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 4,
@@ -554,7 +706,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Bark Stripper Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 5,
@@ -575,28 +731,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Bark Stripper Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 5,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Bark Stripper Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 5,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Bark Stripper Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 5,
       "day": 7,
       "holiday_id": "leyline_surge",
       "holiday_name": "Leyline Surge",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "What connections are suddenly easier to make today? Reflect on Leyline Surge during Year 1, Bark Stripper Moon, Stash-day.",
+        "foraging_idea": "Today (Leyline Surge): Link two projects, people, or ideas that usually stay separate; ride the surge."
+      }
     },
     {
       "lunation": 5,
@@ -624,7 +796,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Bark Stripper Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 5,
@@ -638,14 +814,22 @@
       "day": 13,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Bark Stripper Moon, Timber-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 5,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Bark Stripper Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 5,
@@ -666,7 +850,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Bark Stripper Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 5,
@@ -687,7 +875,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Canopy Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 6,
@@ -708,28 +900,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Canopy Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 6,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Canopy Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 6,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Canopy Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 6,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Canopy Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 6,
@@ -757,28 +965,44 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Canopy Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 6,
       "day": 12,
       "holiday_id": "hidden_cache_reveal",
       "holiday_name": "Hidden Cache Reveal",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "What forgotten idea or note is suddenly relevant again? Reflect on Hidden Cache Reveal during Year 1, Canopy Moon, Oak-day.",
+        "foraging_idea": "Today (Hidden Cache Reveal): Revisit an old project, notebook, or commit; one buried insight may be ripe now."
+      }
     },
     {
       "lunation": 6,
       "day": 13,
       "holiday_id": "burrow_rebuild",
       "holiday_name": "Burrow Rebuild",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "What old structure is ready to come down so something sturdier can grow? Reflect on Burrow Rebuild during Year 1, Canopy Moon, Timber-day.",
+        "foraging_idea": "Today (Burrow Rebuild): Retire one brittle habit or tool; sketch the replacement before rebuilding."
+      }
     },
     {
       "lunation": 6,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Canopy Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 6,
@@ -799,7 +1023,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Canopy Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 6,
@@ -813,14 +1041,22 @@
       "day": 19,
       "holiday_id": "shadow_trial",
       "holiday_name": "The Shadow Trial",
-      "type": "major"
+      "type": "major",
+      "teaser": {
+        "journal_prompt": "When the usual path disappears, what clever new way forward can you find? (Year 1, Canopy Moon, Nap-day — The Shadow Trial)",
+        "foraging_idea": "Today (The Shadow Trial): Facing resistance with creativity, low-visibility problem solving."
+      }
     },
     {
       "lunation": 7,
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Hollow Tree Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 7,
@@ -841,28 +1077,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Hollow Tree Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 7,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Hollow Tree Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 7,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Hollow Tree Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 7,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Hollow Tree Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 7,
@@ -890,7 +1142,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Hollow Tree Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 7,
@@ -904,14 +1160,22 @@
       "day": 13,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Hollow Tree Moon, Timber-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 7,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Hollow Tree Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 7,
@@ -932,7 +1196,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Hollow Tree Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 7,
@@ -953,7 +1221,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Golden Leaf Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 8,
@@ -974,28 +1246,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Golden Leaf Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 8,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Golden Leaf Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 8,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Golden Leaf Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 8,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Golden Leaf Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 8,
@@ -1009,7 +1297,11 @@
       "day": 9,
       "holiday_id": "whisper_storm",
       "holiday_name": "The Whisper Storm",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Many whispers arrive at once — which message deserves your attention first? Reflect on The Whisper Storm during Year 1, Golden Leaf Moon, Moss-day.",
+        "foraging_idea": "Today (The Whisper Storm): Capture the best ideas quickly, then sort; do not chase every leaf in the wind."
+      }
     },
     {
       "lunation": 8,
@@ -1023,7 +1315,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Golden Leaf Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 8,
@@ -1037,14 +1333,22 @@
       "day": 13,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Golden Leaf Moon, Timber-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 8,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Golden Leaf Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 8,
@@ -1065,7 +1369,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Golden Leaf Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 8,
@@ -1086,7 +1394,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Cache Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 9,
@@ -1107,28 +1419,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Cache Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 9,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Cache Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 9,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Cache Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 9,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Cache Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 9,
@@ -1156,7 +1484,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Cache Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 9,
@@ -1170,14 +1502,22 @@
       "day": 13,
       "holiday_id": "burrow_rebuild",
       "holiday_name": "Burrow Rebuild",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "What old structure is ready to come down so something sturdier can grow? Reflect on Burrow Rebuild during Year 1, Cache Moon, Timber-day.",
+        "foraging_idea": "Today (Burrow Rebuild): Retire one brittle habit or tool; sketch the replacement before rebuilding."
+      }
     },
     {
       "lunation": 9,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Cache Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 9,
@@ -1198,7 +1538,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Cache Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 9,
@@ -1212,14 +1556,22 @@
       "day": 19,
       "holiday_id": "the_burrow_rebirth",
       "holiday_name": "The Burrow Rebirth",
-      "type": "major"
+      "type": "major",
+      "teaser": {
+        "journal_prompt": "What old structure are you ready to let go of so something truer can grow? (Year 1, Cache Moon, Nap-day — The Burrow Rebirth)",
+        "foraging_idea": "Today (The Burrow Rebirth): Intentional rest followed by gentle rebirth and new growth."
+      }
     },
     {
       "lunation": 10,
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Shadow Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 10,
@@ -1240,28 +1592,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Shadow Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 10,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Shadow Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 10,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Shadow Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 10,
       "day": 7,
       "holiday_id": "leyline_surge",
       "holiday_name": "Leyline Surge",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "What connections are suddenly easier to make today? Reflect on Leyline Surge during Year 1, Shadow Moon, Stash-day.",
+        "foraging_idea": "Today (Leyline Surge): Link two projects, people, or ideas that usually stay separate; ride the surge."
+      }
     },
     {
       "lunation": 10,
@@ -1289,7 +1657,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Shadow Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 10,
@@ -1303,14 +1675,22 @@
       "day": 13,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Shadow Moon, Timber-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 10,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Shadow Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 10,
@@ -1331,7 +1711,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Shadow Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 10,
@@ -1352,7 +1736,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Forage Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 11,
@@ -1373,28 +1761,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Forage Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 11,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Forage Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 11,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Forage Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 11,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Forage Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 11,
@@ -1422,7 +1826,11 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Forage Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 11,
@@ -1436,14 +1844,22 @@
       "day": 13,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Forage Moon, Timber-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 11,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Forage Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 11,
@@ -1464,7 +1880,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Forage Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 11,
@@ -1485,7 +1905,11 @@
       "day": 1,
       "holiday_id": "whisperwake_first_message",
       "holiday_name": "Whisperwake of the First Message",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What message arrives for you today? Reflect on Whisperwake of the First Message during Year 1, Chattering Moon, Truffle-day.",
+        "foraging_idea": "Today (Whisperwake of the First Message): Gentle new beginnings, listening before acting."
+      }
     },
     {
       "lunation": 12,
@@ -1506,28 +1930,44 @@
       "day": 4,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Chattering Moon, Twig-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 12,
       "day": 5,
       "holiday_id": "discerned_hoard",
       "holiday_name": "The Discerned Hoard",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What truly deserves a place in your hoard today? Reflect on The Discerned Hoard during Year 1, Chattering Moon, Fern-day.",
+        "foraging_idea": "Today (The Discerned Hoard): Selective attention, letting go of the non-essential, quality over quantity."
+      }
     },
     {
       "lunation": 12,
       "day": 6,
       "holiday_id": "ratatoskr_argument",
       "holiday_name": "Ratatoskr's Argument",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Two whispers pull in different directions — what third path might weave them together? Reflect on Ratatoskr's Argument during Year 1, Chattering Moon, Chitter-day.",
+        "foraging_idea": "Today (Ratatoskr's Argument): Name the trade-off explicitly; choose one path or design a synthesis before acting."
+      }
     },
     {
       "lunation": 12,
       "day": 7,
       "holiday_id": "leybridge_threading",
       "holiday_name": "Leybridge Threading",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Chattering Moon, Stash-day.",
+        "foraging_idea": "Today (Leybridge Threading): Consistent small actions, connections."
+      }
     },
     {
       "lunation": 12,
@@ -1541,7 +1981,11 @@
       "day": 9,
       "holiday_id": "whisper_storm",
       "holiday_name": "The Whisper Storm",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "Many whispers arrive at once — which message deserves your attention first? Reflect on The Whisper Storm during Year 1, Chattering Moon, Moss-day.",
+        "foraging_idea": "Today (The Whisper Storm): Capture the best ideas quickly, then sort; do not chase every leaf in the wind."
+      }
     },
     {
       "lunation": 12,
@@ -1555,28 +1999,44 @@
       "day": 11,
       "holiday_id": "shadowforage_eclipse",
       "holiday_name": "Shadowforage Eclipse",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "When the familiar path fades, what clever new route can you sense? Reflect on Shadowforage Eclipse during Year 1, Chattering Moon, Forage-day.",
+        "foraging_idea": "Today (Shadowforage Eclipse): Navigate ambiguity with small careful steps; trust touch and memory over sight."
+      }
     },
     {
       "lunation": 12,
       "day": 12,
       "holiday_id": "hidden_cache_reveal",
       "holiday_name": "Hidden Cache Reveal",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "What forgotten idea or note is suddenly relevant again? Reflect on Hidden Cache Reveal during Year 1, Chattering Moon, Oak-day.",
+        "foraging_idea": "Today (Hidden Cache Reveal): Revisit an old project, notebook, or commit; one buried insight may be ripe now."
+      }
     },
     {
       "lunation": 12,
       "day": 13,
       "holiday_id": "burrow_rebuild",
       "holiday_name": "Burrow Rebuild",
-      "type": "rare"
+      "type": "rare",
+      "teaser": {
+        "journal_prompt": "What old structure is ready to come down so something sturdier can grow? Reflect on Burrow Rebuild during Year 1, Chattering Moon, Timber-day.",
+        "foraging_idea": "Today (Burrow Rebuild): Retire one brittle habit or tool; sketch the replacement before rebuilding."
+      }
     },
     {
       "lunation": 12,
       "day": 14,
       "holiday_id": "burrowstill_knowing",
       "holiday_name": "Burrowstill Knowing",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What wisdom is settling in your burrow right now? Reflect on Burrowstill Knowing during Year 1, Chattering Moon, Swindle-day.",
+        "foraging_idea": "Today (Burrowstill Knowing): Strategic rest, integration, listening inward."
+      }
     },
     {
       "lunation": 12,
@@ -1597,7 +2057,11 @@
       "day": 17,
       "holiday_id": "chatterseed_scatter",
       "holiday_name": "Chatterseed Scatter",
-      "type": "recurring"
+      "type": "recurring",
+      "teaser": {
+        "journal_prompt": "What idea, story, or resource are you ready to scatter today? Reflect on Chatterseed Scatter during Year 1, Chattering Moon, Willow-day.",
+        "foraging_idea": "Today (Chatterseed Scatter): Generosity without attachment, outward connection, joyful release."
+      }
     },
     {
       "lunation": 12,
@@ -1611,7 +2075,11 @@
       "day": 19,
       "holiday_id": "the_messengers_circuit_complete",
       "holiday_name": "The Messenger’s Circuit Complete",
-      "type": "major"
+      "type": "major",
+      "teaser": {
+        "journal_prompt": "Looking across the full year’s circuit, what wisdom are you bringing home? (Year 1, Chattering Moon, Nap-day — The Messenger’s Circuit Complete)",
+        "foraging_idea": "Today (The Messenger’s Circuit Complete): Synthesis, sharing the full harvest, preparing the next cycle."
+      }
     }
   ]
 }

@@ -1,8 +1,11 @@
 import assert from 'node:assert/strict';
 import {
+  buildFullGridModel,
   buildMoonStripModel,
+  calendarViewMode,
   formatCalendarCellLabel,
   formatHolidayAnnouncement,
+  matrixCellAt,
   showCalendarEnabled,
   upcomingHolidayCells,
 } from '../widgets/sqt-grove-clock/sqt-grove-helpers.js';
@@ -54,5 +57,21 @@ assert.equal(
   formatCalendarCellLabel(strip[1], 'Canopy Moon', dayNames),
   'Canopy Moon, Stash-day, Leybridge Threading',
 );
+
+assert.equal(calendarViewMode(null), 'both');
+assert.equal(calendarViewMode('strip'), 'strip');
+assert.equal(calendarViewMode('grid'), 'grid');
+
+assert.equal(matrixCellAt(matrix, 6, 7)?.holiday_id, 'leybridge_threading');
+assert.equal(matrixCellAt(matrix, 6, 1), null);
+
+const grid = buildFullGridModel(matrix, live, dayNames);
+assert.equal(grid.rows.length, 12);
+assert.equal(grid.rows[5].moonName, 'Moon 6');
+assert.equal(grid.rows[5].cells.length, 19);
+const todayCell = grid.rows[5].cells.find((c) => c.day === 7);
+assert.equal(todayCell?.isToday, true);
+assert.equal(todayCell?.isCurrentMoon, true);
+assert.equal(grid.rows[0].cells[6]?.isCurrentMoon, false);
 
 console.log('sqt-grove-clock helper tests: ok');

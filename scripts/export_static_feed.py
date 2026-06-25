@@ -36,13 +36,20 @@ def build_calendar_matrix(engine: SQTUnifiedEngine) -> dict:
             sqt = engine.forced_sqt_state(lunation, day)
             ctx = engine.detect_holiday(sqt)
             active = ctx.get("active")
-            cells.append({
+            cell = {
                 "lunation": lunation,
                 "day": day,
                 "holiday_id": active["id"] if active else None,
                 "holiday_name": active["name"] if active else None,
                 "type": active["type"] if active else None,
-            })
+            }
+            if active:
+                bundle = engine.generate_bundle(sqt, active)
+                cell["teaser"] = {
+                    "journal_prompt": bundle["journal_prompt"],
+                    "foraging_idea": bundle["foraging_idea"],
+                }
+            cells.append(cell)
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "lunation_names": {str(k): v for k, v in TRIM_LUNATION.items()},

@@ -80,6 +80,45 @@ export function buildMoonStripModel(matrix, live, dayNames = {}, moonDisplayName
   }));
 }
 
+export function matrixCellAt(matrix, lunation, day) {
+  return (matrix?.cells || []).find((c) => c.lunation === lunation && c.day === day) || null;
+}
+
+export function calendarViewMode(attr) {
+  if (attr === 'strip' || attr === 'grid') return attr;
+  return 'both';
+}
+
+export function buildFullGridModel(matrix, live, dayNames = {}) {
+  if (!matrix?.cells?.length) return { rows: [], daysPerLunation: 19, lunationsPerYear: 12 };
+
+  const daysPerLunation = matrix.sqt_days_per_lunation || 19;
+  const lunationsPerYear = matrix.sqt_lunations_per_year || 12;
+  const moonNames = matrix.lunation_names || {};
+  const rows = [];
+
+  for (let lunation = 1; lunation <= lunationsPerYear; lunation += 1) {
+    const moon = moonNames[String(lunation)] || `Moon ${lunation}`;
+    const cells = [];
+    for (let day = 1; day <= daysPerLunation; day += 1) {
+      const cell = matrixCellAt(matrix, lunation, day) || { lunation, day };
+      const isToday = live && cell.lunation === live.lunation && cell.day === live.day;
+      const isCurrentMoon = live && cell.lunation === live.lunation;
+      cells.push({
+        ...cell,
+        isToday,
+        isCurrentMoon,
+        dayName: dayNames[day] || `Day ${day}`,
+        moonName: moon,
+        ariaLabel: formatCalendarCellLabel(cell, `${moon} Moon`, dayNames),
+      });
+    }
+    rows.push({ lunation, moonName: moon, cells });
+  }
+
+  return { rows, daysPerLunation, lunationsPerYear };
+}
+
 export function showCalendarEnabled(attr) {
   return attr !== 'false' && attr !== '0';
 }
