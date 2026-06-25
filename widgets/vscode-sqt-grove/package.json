@@ -2,7 +2,7 @@
   "name": "sqt-grove",
   "displayName": "SQT Grove — Messenger's Circuit",
   "description": "SQT status bar + insert Messenger's Circuit bundle",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "squirrel814",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["Other"],

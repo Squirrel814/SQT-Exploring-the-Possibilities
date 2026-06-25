@@ -2,6 +2,7 @@ const vscode = require('vscode');
 const { execFile } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const { formatInsert, formatStatus, formatTooltipLines } = require('./vscode-format');
 
 let statusItem;
 let cache = { data: null, at: 0 };
@@ -41,7 +42,7 @@ function fetchCircuit(callback) {
   if (!engine) return callback(new Error('sqt_engine_unified.py not found'));
   const python = getConfig().get('pythonPath') || 'python';
   const cwd = path.dirname(engine);
-  execFile(python, [engine, '--json', '--bundle', '--compact'], { cwd, timeout: 5000 }, (err, stdout) => {
+  execFile(python, [engine, '--json', '--bundle'], { cwd, timeout: 5000 }, (err, stdout) => {
     if (err) return callback(err);
     try {
       const data = JSON.parse(stdout);
@@ -53,62 +54,10 @@ function fetchCircuit(callback) {
   });
 }
 
-function formatStatus(data) {
-  const s = data.sqt || {};
-  const h = data.holiday;
-  const ext = data._extended?.sqt_full;
-  const lun = ext?.lunation_name || `L${s.lunation}`;
-  const day = ext?.day_name || `D${s.day}`;
-  const hol = h ? ` · ${h.name.split(' ')[0]}` : '';
-  return `$(squirrel) Y${s.year} ${lun} · ${day}${hol}`;
-}
-
 function formatTooltip(data) {
-  const s = data.sqt || {};
-  const h = data.holiday;
-  const b = data.bundle || {};
-  const lines = [
-    `**SQT** Year ${s.year}, Lunation ${s.lunation}, Day ${s.day}`,
-    `**Time** ${s.time || '—'}`,
-  ];
-  if (h) lines.push(`**Holiday** ${h.name} (${h.type})`);
-  if (b.foraging_idea) lines.push(`_Forage:_ ${b.foraging_idea}`);
+  const lines = formatTooltipLines(data);
+  lines.push('', '[Insert Full Bundle](command:sqt-grove.insertBundle)');
   return new vscode.MarkdownString(lines.join('\n'));
-}
-
-function formatInsert(data) {
-  const s = data.sqt || {};
-  const h = data.holiday;
-  const b = data.bundle || {};
-  const fmt = getConfig().get('insertFormat') || 'markdown';
-  if (fmt === 'comment-block') {
-    const j = (b.journal_prompt || '').replace(/\n/g, ' ').slice(0, 120);
-    return [
-      `// ═══ SQT Grove · ${h?.name || 'Grove Day'} · Y${s.year} L${s.lunation} D${s.day} ═══`,
-      `// Journal: ${j}`,
-      `// Forage: ${b.foraging_idea || ''}`,
-      `// ═══`,
-      '',
-    ].join('\n');
-  }
-  return [
-    `<!-- sqt-grove: Y${s.year}-L${s.lunation}-D${s.day} -->`,
-    `## Messenger's Circuit — ${h?.name || 'Grove Day'}`,
-    `*Year ${s.year}, Lunation ${s.lunation}, Day ${s.day} · ${s.time}*`,
-    '',
-    '### Journal',
-    b.journal_prompt || '',
-    '',
-    '### Story Seed',
-    b.story_seed || '',
-    '',
-    '### Foraging',
-    b.foraging_idea || '',
-    '',
-    '### Art Prompt',
-    b.art_prompt || '',
-    '',
-  ].join('\n');
 }
 
 function refreshStatusBar() {
@@ -141,7 +90,8 @@ function activate(context) {
         if (err) return vscode.window.showErrorMessage(String(err));
         const ed = vscode.window.activeTextEditor;
         if (!ed) return;
-        ed.edit((eb) => eb.insert(ed.selection.active, formatInsert(data)));
+        const fmt = getConfig().get('insertFormat') || 'markdown';
+        ed.edit((eb) => eb.insert(ed.selection.active, formatInsert(data, fmt)));
       });
     }),
     vscode.commands.registerCommand('sqt-grove.insertForage', () => {
