@@ -51,6 +51,8 @@ You are Grok continuing **SQT-Exploring-the-Possibilities** at Phase 3 — widge
 - **Terminology:** 12 **Moons** (not Lunations); day names (`Stash-day`); "Lunation" only on day 10 (Full Moon)
 - **A11y:** focus trap + Esc in modal, high-contrast toggle, `sqt-holiday-change` event `{ previous, current }`
 - **Calendar strip:** current Moon’s 19 day cells + upcoming holidays list (`show-calendar` default true)
+- **Calendar grid:** full 12×19 mini-grid (`calendar-view` default `both`); cell click → teaser modal; matrix teasers in export
+- **Share:** `navigator.share` on modal when browser supports it
 - SW cache: `sqt-shell-v4` / `sqt-data-v4`
 
 ### VS Code (`widgets/vscode-sqt-grove/`)
