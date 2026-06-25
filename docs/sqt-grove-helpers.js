@@ -33,6 +33,57 @@ export function getFocusableElements(root) {
   ).filter((el) => el.offsetParent !== null || el === root.activeElement);
 }
 
+export function sqtLinearIndex(lunation, day, daysPerLunation = 19) {
+  return (lunation - 1) * daysPerLunation + (day - 1);
+}
+
+export function moonDayCells(matrix, lunation) {
+  return (matrix?.cells || []).filter((cell) => cell.lunation === lunation);
+}
+
+export function upcomingHolidayCells(matrix, lunation, day, limit = 4) {
+  const cells = matrix?.cells || [];
+  if (!cells.length || limit <= 0) return [];
+
+  let start = cells.findIndex((c) => c.lunation === lunation && c.day === day);
+  if (start < 0) {
+    start = sqtLinearIndex(lunation, day, matrix.sqt_days_per_lunation || 19);
+    if (start >= cells.length) return [];
+  }
+
+  const result = [];
+  for (let offset = 1; offset <= cells.length && result.length < limit; offset += 1) {
+    const cell = cells[(start + offset) % cells.length];
+    if (!cell?.holiday_id) continue;
+    const prev = result[result.length - 1];
+    if (prev?.holiday_id === cell.holiday_id) continue;
+    result.push(cell);
+  }
+  return result;
+}
+
+export function formatCalendarCellLabel(cell, moonName, dayNames = {}) {
+  const moon = moonName || `Moon ${cell.lunation}`;
+  const dayName = dayNames[cell.day] || `Day ${cell.day}`;
+  if (cell.holiday_name) return `${moon}, ${dayName}, ${cell.holiday_name}`;
+  return `${moon}, ${dayName}, no holiday`;
+}
+
+export function buildMoonStripModel(matrix, live, dayNames = {}, moonDisplayName = '') {
+  if (!matrix || !live) return [];
+  const moon = moonDisplayName || `Moon ${live.lunation}`;
+  return moonDayCells(matrix, live.lunation).map((cell) => ({
+    ...cell,
+    isToday: cell.day === live.day,
+    dayName: dayNames[cell.day] || `Day ${cell.day}`,
+    ariaLabel: formatCalendarCellLabel(cell, moon, dayNames),
+  }));
+}
+
+export function showCalendarEnabled(attr) {
+  return attr !== 'false' && attr !== '0';
+}
+
 export function trapFocus(container, onEscape) {
   const handleKeyDown = (event) => {
     if (event.key === 'Escape') {

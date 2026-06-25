@@ -2,13 +2,16 @@
  * <sqt-grove-clock> — embeddable SQT time + holiday + Circuit modal
  * Contract: phase2-2.3-widget-specs.md
  */
-import { sqtStateNow } from './sqt-core.js';
+import { SQT_UNIQUE_DAYS_DISPLAY, sqtStateNow } from './sqt-core.js';
 import {
+  buildMoonStripModel,
   buildSnapshot,
   formatHolidayAnnouncement,
   getFocusableElements,
   holidaysDiffer,
+  showCalendarEnabled,
   trapFocus,
+  upcomingHolidayCells,
 } from './sqt-grove-helpers.js';
 
 const BADGE_COLORS = {
@@ -19,6 +22,10 @@ const BADGE_COLORS = {
 };
 
 const THEME_STORAGE_KEY = 'sqt-grove-clock-theme';
+
+const DAY_NAMES = Object.fromEntries(
+  Object.entries(SQT_UNIQUE_DAYS_DISPLAY).map(([day, info]) => [Number(day), info[0]]),
+);
 
 function phaseLabel(live) {
   if (live.day === 10) return 'Lunation';
@@ -38,9 +45,17 @@ function holidayFromMatrix(matrix, lunation, day) {
   return { id: cell.holiday_id, name: cell.holiday_name, type: cell.type };
 }
 
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 class SQTGroveClock extends HTMLElement {
   static get observedAttributes() {
-    return ['src', 'refresh', 'theme', 'bundle-mode', 'calendar-src', 'lunation-labels'];
+    return ['src', 'refresh', 'theme', 'bundle-mode', 'calendar-src', 'lunation-labels', 'show-calendar'];
   }
 
   constructor() {
@@ -82,6 +97,7 @@ class SQTGroveClock extends HTMLElement {
     if (!this.isConnected) return;
     if (name === 'theme') this.applyTheme(this.resolveTheme());
     if (name === 'calendar-src') this.loadCalendarMatrix();
+    if (name === 'show-calendar') this.renderCalendar();
     if (name === 'src' || name === 'refresh') this.fetchData();
   }
 
@@ -123,9 +139,13 @@ class SQTGroveClock extends HTMLElement {
     if (!src) return;
     try {
       const res = await fetch(src);
-      if (res.ok) this._matrix = await res.json();
+      if (res.ok) {
+        this._matrix = await res.json();
+        this.renderCalendar();
+      }
     } catch {
       this._matrix = null;
+      this.renderCalendar();
     }
   }
 
@@ -162,6 +182,7 @@ class SQTGroveClock extends HTMLElement {
     if (pos !== this._lastPosition) {
       this._lastPosition = pos;
       if (this._data) this.renderData(this._data);
+      else this.renderCalendar();
       this.fetchData();
       this.checkHolidayChange('tick');
     }
@@ -224,6 +245,14 @@ class SQTGroveClock extends HTMLElement {
         <div class="time" aria-live="polite"></div>
         <div class="holiday-announce" aria-live="assertive"></div>
         <div class="badge-wrap"></div>
+        <section class="calendar-strip" hidden aria-label="SQT calendar">
+          <h3 class="calendar-title"></h3>
+          <div class="moon-strip" role="list" aria-label="Days in current Moon"></div>
+          <div class="upcoming-strip">
+            <span class="upcoming-label">Upcoming</span>
+            <ul class="upcoming-list"></ul>
+          </div>
+        </section>
         <button type="button" class="open-circuit" hidden>Open today's Circuit</button>
       </div>
       <dialog class="modal" aria-labelledby="circuit-title" aria-modal="true">
@@ -238,9 +267,48 @@ class SQTGroveClock extends HTMLElement {
     this.applyTheme(this.resolveTheme());
   }
 
+  renderCalendar() {
+    const strip = this.shadowRoot?.querySelector('.calendar-strip');
+    if (!strip) return;
+
+    const enabled = showCalendarEnabled(this.getAttribute('show-calendar'));
+    if (!enabled || !this._matrix || !this._live || this._live.error) {
+      strip.hidden = true;
+      return;
+    }
+
+    const moonTitle = this.shadowRoot.querySelector('.calendar-title');
+    const moonStrip = this.shadowRoot.querySelector('.moon-strip');
+    const upcomingList = this.shadowRoot.querySelector('.upcoming-list');
+    const moonName = this._live.lunation_name_display || `Moon ${this._live.lunation}`;
+
+    moonTitle.textContent = `${moonName} — days`;
+
+    const stripModel = buildMoonStripModel(this._matrix, this._live, DAY_NAMES, moonName);
+    moonStrip.innerHTML = stripModel.map((cell) => {
+      const classes = ['cal-cell'];
+      if (cell.isToday) classes.push('is-today');
+      if (cell.holiday_id) classes.push('has-holiday', `holiday-${cell.type || 'recurring'}`);
+      return `<span class="${classes.join(' ')}" role="listitem" tabindex="0" aria-label="${escapeHtml(cell.ariaLabel)}" title="${escapeHtml(cell.dayName)}${cell.holiday_name ? ` · ${cell.holiday_name}` : ''}">${cell.day}</span>`;
+    }).join('');
+
+    const upcoming = upcomingHolidayCells(this._matrix, this._live.lunation, this._live.day, 4);
+    upcomingList.innerHTML = upcoming.length
+      ? upcoming.map((cell) => {
+          const moon = this._matrix.lunation_names?.[String(cell.lunation)] || `Moon ${cell.lunation}`;
+          const dayName = DAY_NAMES[cell.day] || `Day ${cell.day}`;
+          const label = `${cell.holiday_name} (${moon} Moon · ${dayName})`;
+          return `<li class="upcoming-item holiday-${cell.type || 'recurring'}">${escapeHtml(label)}</li>`;
+        }).join('')
+      : '<li class="upcoming-item upcoming-none">No more holidays this cycle</li>';
+
+    strip.hidden = false;
+  }
+
   renderError(msg) {
     const timeEl = this.shadowRoot.querySelector('.time');
     if (timeEl) timeEl.textContent = `SQT Grove offline: ${msg}`;
+    this.renderCalendar();
   }
 
   renderData(data) {
@@ -271,6 +339,8 @@ class SQTGroveClock extends HTMLElement {
     const mode = this.getAttribute('bundle-mode') || 'teaser';
     openBtn.hidden = mode === 'none' || !data.bundle;
     openBtn.textContent = h ? `Open Circuit — ${h.name}` : "Open today's Circuit";
+
+    this.renderCalendar();
   }
 
   teardownFocusTrap() {

@@ -1,5 +1,5 @@
-const SHELL_CACHE = 'sqt-shell-v3';
-const DATA_CACHE = 'sqt-data-v3';
+const SHELL_CACHE = 'sqt-shell-v4';
+const DATA_CACHE = 'sqt-data-v4';
 const SHELL_ASSETS = ['./', './index.html', './sqt-grove-clock.js', './sqt-grove-helpers.js', './sqt-core.js', './sqt-grove-clock.css', './manifest.json'];
 const DATA_ASSETS = ['./circuit-current.json', './calendar_matrix.json'];
 
@@ -12,7 +12,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => !['sqt-shell-v3', 'sqt-data-v3'].includes(k)).map((k) => caches.delete(k)))
+      Promise.all(keys.filter((k) => !['sqt-shell-v4', 'sqt-data-v4'].includes(k)).map((k) => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });
