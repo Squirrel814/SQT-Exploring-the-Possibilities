@@ -3,6 +3,13 @@
  * Contract: phase2-2.3-widget-specs.md
  */
 import { sqtStateNow } from './sqt-core.js';
+import {
+  buildSnapshot,
+  formatHolidayAnnouncement,
+  getFocusableElements,
+  holidaysDiffer,
+  trapFocus,
+} from './sqt-grove-helpers.js';
 
 const BADGE_COLORS = {
   recurring: 'var(--sqt-badge-recurring, #4CAF50)',
@@ -10,6 +17,8 @@ const BADGE_COLORS = {
   rare: 'var(--sqt-badge-rare, #78909C)',
   none: 'var(--sqt-badge-none, #8C6239)',
 };
+
+const THEME_STORAGE_KEY = 'sqt-grove-clock-theme';
 
 function phaseLabel(live) {
   if (live.day === 10) return 'Lunation';
@@ -43,9 +52,14 @@ class SQTGroveClock extends HTMLElement {
     this._clockTimer = null;
     this._live = null;
     this._lastPosition = '';
+    this._snapshot = null;
+    this._releaseFocusTrap = null;
+    this._focusReturn = null;
+    this._announceTimer = null;
   }
 
   connectedCallback() {
+    this.applyTheme(this.resolveTheme());
     this.renderShell();
     this.loadCalendarMatrix();
     this.fetchData();
@@ -60,12 +74,48 @@ class SQTGroveClock extends HTMLElement {
   disconnectedCallback() {
     if (this._pollTimer) clearInterval(this._pollTimer);
     if (this._clockTimer) clearInterval(this._clockTimer);
+    if (this._announceTimer) clearTimeout(this._announceTimer);
+    this.teardownFocusTrap();
   }
 
-  attributeChangedCallback() {
+  attributeChangedCallback(name) {
     if (!this.isConnected) return;
-    this.loadCalendarMatrix();
-    this.fetchData();
+    if (name === 'theme') this.applyTheme(this.resolveTheme());
+    if (name === 'calendar-src') this.loadCalendarMatrix();
+    if (name === 'src' || name === 'refresh') this.fetchData();
+  }
+
+  resolveTheme() {
+    const attr = this.getAttribute('theme');
+    if (attr === 'grove' || attr === 'minimal' || attr === 'high-contrast') return attr;
+    try {
+      const stored = localStorage.getItem(THEME_STORAGE_KEY);
+      if (stored === 'grove' || stored === 'minimal' || stored === 'high-contrast') return stored;
+    } catch {
+      /* private mode */
+    }
+    return 'grove';
+  }
+
+  applyTheme(theme) {
+    this.dataset.theme = theme;
+    const toggle = this.shadowRoot?.querySelector('.theme-toggle');
+    if (toggle) {
+      const high = theme === 'high-contrast';
+      toggle.setAttribute('aria-pressed', String(high));
+      toggle.textContent = high ? 'Grove theme' : 'High contrast';
+    }
+  }
+
+  toggleTheme() {
+    const next = this.dataset.theme === 'high-contrast' ? 'grove' : 'high-contrast';
+    this.setAttribute('theme', next);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, next);
+    } catch {
+      /* private mode */
+    }
+    this.applyTheme(next);
   }
 
   async loadCalendarMatrix() {
@@ -88,6 +138,7 @@ class SQTGroveClock extends HTMLElement {
       const data = await res.json();
       this._data = data;
       this.renderData(data);
+      this.checkHolidayChange('poll');
       this.dispatchEvent(new CustomEvent('sqt-loaded', { detail: data, bubbles: true }));
     } catch (err) {
       if (!this._live) this.renderError(err.message);
@@ -112,10 +163,7 @@ class SQTGroveClock extends HTMLElement {
       this._lastPosition = pos;
       if (this._data) this.renderData(this._data);
       this.fetchData();
-      this.dispatchEvent(new CustomEvent('sqt-holiday-change', {
-        detail: { live: this._live, holiday: this.activeHoliday() },
-        bubbles: true,
-      }));
+      this.checkHolidayChange('tick');
     }
   }
 
@@ -127,21 +175,67 @@ class SQTGroveClock extends HTMLElement {
     return this._data?.holiday || null;
   }
 
+  currentSnapshot() {
+    return buildSnapshot(this._live, this.activeHoliday());
+  }
+
+  checkHolidayChange(_source) {
+    const current = this.currentSnapshot();
+    if (!this._snapshot) {
+      this._snapshot = current;
+      return;
+    }
+    if (!holidaysDiffer(this._snapshot, current)) return;
+
+    const previous = this._snapshot;
+    this._snapshot = current;
+    this.dispatchEvent(new CustomEvent('sqt-holiday-change', {
+      detail: { previous, current },
+      bubbles: true,
+    }));
+    this.announceHolidayChange(previous, current);
+    this.renderData(this._data || {});
+  }
+
+  announceHolidayChange(previous, current) {
+    const message = formatHolidayAnnouncement(previous, current);
+    if (!message) return;
+
+    const announcer = this.shadowRoot?.querySelector('.holiday-announce');
+    if (!announcer) return;
+
+    announcer.textContent = message;
+    const badge = this.shadowRoot?.querySelector('.badge');
+    badge?.classList.add('badge-changed');
+    if (this._announceTimer) clearTimeout(this._announceTimer);
+    this._announceTimer = setTimeout(() => {
+      badge?.classList.remove('badge-changed');
+      announcer.textContent = '';
+    }, 4000);
+  }
+
   renderShell() {
     this.shadowRoot.innerHTML = `
       <link rel="stylesheet" href="${this.getAttribute('css-href') || './sqt-grove-clock.css'}">
       <div class="root" role="region" aria-label="Squirrel Quantum Time">
+        <div class="toolbar">
+          <button type="button" class="theme-toggle" aria-pressed="false">High contrast</button>
+        </div>
         <div class="time" aria-live="polite"></div>
+        <div class="holiday-announce" aria-live="assertive"></div>
         <div class="badge-wrap"></div>
         <button type="button" class="open-circuit" hidden>Open today's Circuit</button>
       </div>
-      <dialog class="modal" aria-label="Messenger's Circuit">
+      <dialog class="modal" aria-labelledby="circuit-title" aria-modal="true">
         <div class="modal-inner"></div>
         <button type="button" class="close">Close</button>
       </dialog>
     `;
-    this.shadowRoot.querySelector('.open-circuit').addEventListener('click', () => this.openModal());
+    this.shadowRoot.querySelector('.open-circuit').addEventListener('click', (e) => this.openModal(e.currentTarget));
     this.shadowRoot.querySelector('.close').addEventListener('click', () => this.closeModal());
+    this.shadowRoot.querySelector('.theme-toggle').addEventListener('click', () => this.toggleTheme());
+    this.shadowRoot.querySelector('.modal').addEventListener('close', () => this.teardownFocusTrap());
+    this.applyTheme(this.resolveTheme());
   }
 
   renderError(msg) {
@@ -165,6 +259,12 @@ class SQTGroveClock extends HTMLElement {
       badge.textContent = h.name;
       badge.style.background = BADGE_COLORS[h.type] || BADGE_COLORS.none;
       badgeWrap.appendChild(badge);
+    } else {
+      const plain = document.createElement('span');
+      plain.className = 'badge badge-none';
+      plain.setAttribute('aria-label', 'No active holiday');
+      plain.textContent = 'Plain Grove day';
+      badgeWrap.appendChild(plain);
     }
 
     const openBtn = this.shadowRoot.querySelector('.open-circuit');
@@ -173,25 +273,43 @@ class SQTGroveClock extends HTMLElement {
     openBtn.textContent = h ? `Open Circuit — ${h.name}` : "Open today's Circuit";
   }
 
-  openModal() {
+  teardownFocusTrap() {
+    if (this._releaseFocusTrap) {
+      this._releaseFocusTrap();
+      this._releaseFocusTrap = null;
+    }
+    if (this._focusReturn?.focus) {
+      this._focusReturn.focus();
+      this._focusReturn = null;
+    }
+  }
+
+  openModal(triggerEl) {
     const data = this._data;
     if (!data) return;
     const modal = this.shadowRoot.querySelector('.modal');
     const inner = this.shadowRoot.querySelector('.modal-inner');
     const h = this.activeHoliday();
     const b = data.bundle || {};
+    const t = data.themes || {};
     const mode = this.getAttribute('bundle-mode') || 'teaser';
-    const palettes = (b.mood_board?.palette || data.themes?.palettes || [])
+    const motifs = (t.motifs || [])
+      .slice(0, 5)
+      .map((m) => `<span class="motif-chip">${m}</span>`)
+      .join('');
+    const palettes = (b.mood_board?.palette || t.palettes || [])
       .map((c) => `<span class="swatch" style="background:${c}" title="${c}"></span>`)
       .join('');
 
     inner.innerHTML = `
-      <h2>${h ? h.name : 'Grove Day'}</h2>
+      <h2 id="circuit-title">${h ? h.name : 'Grove Day'}</h2>
+      ${h ? `<p class="holiday-meta">Type: ${h.type}</p>` : ''}
+      ${motifs ? `<div class="motifs" aria-label="Holiday motifs">${motifs}</div>` : ''}
       <p class="journal">${b.journal_prompt || ''}</p>
       <p class="forage"><strong>Forage:</strong> ${b.foraging_idea || ''}</p>
       ${mode === 'full' && b.story_seed ? `<details><summary>Story Seed</summary><p>${b.story_seed}</p></details>` : ''}
       ${mode === 'full' && b.art_prompt ? `<details><summary>Art Prompt</summary><p>${b.art_prompt}</p></details>` : ''}
-      ${palettes ? `<div class="swatches">${palettes}</div>` : ''}
+      ${palettes ? `<div class="swatches" aria-label="Mood palette">${palettes}</div>` : ''}
       <button type="button" class="copy">Copy teaser</button>
     `;
     inner.querySelector('.copy')?.addEventListener('click', () => {
@@ -199,7 +317,15 @@ class SQTGroveClock extends HTMLElement {
       const text = `## ${h?.name || 'SQT Grove'}\n${stamp}\n\n${b.journal_prompt || ''}\n\n**Forage:** ${b.foraging_idea || ''}`;
       navigator.clipboard?.writeText(text);
     });
+
+    this._focusReturn = triggerEl || this.shadowRoot.activeElement;
     modal.showModal();
+    this.teardownFocusTrap();
+    this._releaseFocusTrap = trapFocus(modal, () => this.closeModal());
+
+    const focusable = getFocusableElements(modal);
+    (focusable[0] || modal).focus();
+
     this.dispatchEvent(new CustomEvent('sqt-bundle-open', { detail: { mode }, bubbles: true }));
   }
 

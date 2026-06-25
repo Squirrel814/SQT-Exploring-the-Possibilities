@@ -15,6 +15,7 @@ DOCS_DIR = ROOT / "docs"
 SYNC_FILES = (
     ("sqt-grove-clock.js", WIDGET_DIR),
     ("sqt-grove-clock.css", WIDGET_DIR),
+    ("sqt-grove-helpers.js", WIDGET_DIR),
     ("sqt-core.js", CORE_DIR),
 )
 

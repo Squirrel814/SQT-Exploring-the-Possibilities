@@ -24,4 +24,6 @@ jobs:
         run: pip install -r requirements-dev.txt
 
       - name: Run tests
-        run: python -m pytest tests/ -q
+        run: |
+          python -m pytest tests/ -q
+          node tests/test_sqt_grove_clock_helpers.mjs
