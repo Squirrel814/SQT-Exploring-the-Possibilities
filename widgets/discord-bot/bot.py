@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import json
 import os
-import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -24,9 +23,14 @@ except ImportError:
 
 from discord_helpers import (
     embed_color_for_holiday,
+    fetch_circuit,
     find_next_holiday,
     load_calendar_matrix,
     lore_rate_limited,
+    relay_opener_message,
+    relay_tag_names,
+    relay_thread_name,
+    resolve_forum_tag_ids,
     sanitize_lore_text,
 )
 
@@ -35,16 +39,6 @@ ENGINE = ROOT / "sqt_engine_unified.py"
 CALENDAR_MATRIX = ROOT / "docs" / "calendar_matrix.json"
 LORE_QUEUE = Path(__file__).resolve().parent / "lore_queue.jsonl"
 ENGINE_TIMEOUT = 3
-
-
-def fetch_circuit(bundle: bool = True) -> dict:
-    cmd = [sys.executable, str(ENGINE), "--json", "--compact"]
-    if bundle:
-        cmd.append("--bundle")
-    cmd += ["--holidays", str(ROOT / "sqt-holidays.sample.json")]
-    cmd += ["--themes", str(ROOT / "sqt-themes.sample.json")]
-    out = subprocess.check_output(cmd, cwd=str(ROOT), timeout=ENGINE_TIMEOUT, text=True)
-    return json.loads(out)
 
 
 def embed_from_circuit(data: dict, mode: str = "teaser") -> discord.Embed:
@@ -100,14 +94,35 @@ class RelayStartView(discord.ui.View):
         if not interaction.channel:
             await interaction.response.send_message("Cannot open a relay here.", ephemeral=True)
             return
-        thread_name = f"relay-{self.holiday_id}-L{self.lunation}"[:100]
-        thread = await interaction.channel.create_thread(
-            name=thread_name,
-            type=discord.ChannelType.public_thread,
-            auto_archive_duration=1440,
-        )
-        opener = f"{self.story_seed}\n\nContinue the tale — what does the squirrel do next?"
-        await thread.send(opener)
+
+        thread_name = relay_thread_name(self.holiday_id, self.lunation)
+        opener = relay_opener_message(self.story_seed, self.holiday_id, self.lunation)
+        tag_names = relay_tag_names(self.holiday_id, self.lunation)
+        parent = interaction.channel.parent if isinstance(interaction.channel, discord.Thread) else interaction.channel
+
+        try:
+            if isinstance(parent, discord.ForumChannel):
+                applied = resolve_forum_tag_ids(parent.available_tags, tag_names)
+                thread = await parent.create_thread(
+                    name=thread_name,
+                    content=opener,
+                    applied_tags=applied or None,
+                    auto_archive_duration=1440,
+                )
+            else:
+                thread = await interaction.channel.create_thread(
+                    name=thread_name,
+                    type=discord.ChannelType.public_thread,
+                    auto_archive_duration=1440,
+                )
+                await thread.send(opener)
+        except discord.HTTPException as exc:
+            await interaction.response.send_message(
+                f"Could not open relay thread: {exc.text}",
+                ephemeral=True,
+            )
+            return
+
         await interaction.response.send_message(f"Relay opened in {thread.mention}", ephemeral=True)
         self.stop()
 
@@ -138,7 +153,7 @@ bot = RatatoskrBot()
 async def circuit(interaction: discord.Interaction, mode: app_commands.Choice[str] | None = None):
     await interaction.response.defer()
     try:
-        data = fetch_circuit(bundle=True)
+        data = fetch_circuit(ROOT, ENGINE, bundle=True, timeout=ENGINE_TIMEOUT)
         m = (mode.value if mode else "teaser")
         embed = embed_from_circuit(data, m)
         view = None
@@ -163,7 +178,7 @@ async def circuit(interaction: discord.Interaction, mode: app_commands.Choice[st
 @bot.tree.command(name="forage", description="Today's foraging idea")
 async def forage(interaction: discord.Interaction):
     await interaction.response.defer()
-    data = fetch_circuit(bundle=True)
+    data = fetch_circuit(ROOT, ENGINE, bundle=True, timeout=ENGINE_TIMEOUT)
     b = data.get("bundle", {})
     t = data.get("themes", {})
     palettes = t.get("palettes") or ["#2E5A44", "#4CAF50"]
@@ -179,7 +194,7 @@ async def forage(interaction: discord.Interaction):
 @bot.tree.command(name="holiday", description="Current SQT holiday or event")
 async def holiday(interaction: discord.Interaction):
     await interaction.response.defer()
-    data = fetch_circuit(bundle=False)
+    data = fetch_circuit(ROOT, ENGINE, bundle=False, timeout=ENGINE_TIMEOUT)
     h = data.get("holiday")
     s = data.get("sqt", {})
     t = data.get("themes", {})
@@ -248,7 +263,7 @@ async def lore_drop(interaction: discord.Interaction, content: str, title: str |
         )
         return
 
-    data = fetch_circuit(bundle=False)
+    data = fetch_circuit(ROOT, ENGINE, bundle=False, timeout=ENGINE_TIMEOUT)
     entry = {
         "submitted_at": datetime.now(timezone.utc).isoformat(),
         "user_id": str(interaction.user.id),

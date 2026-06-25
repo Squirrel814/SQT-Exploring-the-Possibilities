@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -116,3 +118,52 @@ def embed_color_for_holiday(holiday: Optional[Dict[str, Any]], themes: Optional[
 def load_calendar_matrix(path: Path) -> dict:
     with path.open(encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def fetch_circuit(
+    root: Path,
+    engine_path: Optional[Path] = None,
+    *,
+    bundle: bool = True,
+    timeout: float = 3,
+) -> dict:
+    """Mode A — subprocess engine JSON (same argv contract as bot.py)."""
+    engine = engine_path or (root / "sqt_engine_unified.py")
+    cmd = [sys.executable, str(engine), "--json", "--compact"]
+    if bundle:
+        cmd.append("--bundle")
+    cmd += ["--holidays", str(root / "sqt-holidays.sample.json")]
+    cmd += ["--themes", str(root / "sqt-themes.sample.json")]
+    out = subprocess.check_output(cmd, cwd=str(root), timeout=timeout, text=True)
+    return json.loads(out)
+
+
+def relay_tag_names(holiday_id: str, lunation: int) -> List[str]:
+    """§3.3 thread tags: relay, {holiday.id}, lunation-{n}."""
+    return ["relay", holiday_id, f"lunation-{lunation}"]
+
+
+def relay_thread_name(holiday_id: str, lunation: int) -> str:
+    return f"relay-{holiday_id}-lunation-{lunation}"[:100]
+
+
+def relay_opener_message(story_seed: str, holiday_id: str, lunation: int) -> str:
+    """Thread opener body + tag footer (text channels; forum uses applied_tags when available)."""
+    tags = relay_tag_names(holiday_id, lunation)
+    tag_line = " · ".join(f"`{name}`" for name in tags)
+    return (
+        f"{story_seed}\n\n"
+        "Continue the tale — what does the squirrel do next?\n\n"
+        f"—\nTags: {tag_line}"
+    )
+
+
+def resolve_forum_tag_ids(available_tags: List[Any], tag_names: List[str]) -> List[int]:
+    """Map tag name strings to forum tag IDs (case-insensitive). Skips unknown tags."""
+    by_name = {getattr(tag, "name", "").lower(): getattr(tag, "id", None) for tag in available_tags}
+    ids: List[int] = []
+    for name in tag_names:
+        tag_id = by_name.get(name.lower())
+        if tag_id is not None:
+            ids.append(int(tag_id))
+    return ids

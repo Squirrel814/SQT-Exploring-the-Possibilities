@@ -28,3 +28,5 @@ jobs:
           python -m pytest tests/ -q
           node tests/test_sqt_grove_clock_helpers.mjs
           node tests/test_vscode_format.mjs
+          node tests/test_vscode_extension_smoke.mjs
+          python scripts/smoke_widget_triad.py

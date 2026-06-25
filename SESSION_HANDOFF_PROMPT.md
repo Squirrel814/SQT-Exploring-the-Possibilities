@@ -64,15 +64,15 @@ You are Grok continuing **SQT-Exploring-the-Possibilities** at Phase 3 — widge
 
 ## Still open (priority order)
 
-### 1. Live smoke tests (manual — unblocks confidence)
-| Surface | How to verify |
-|---------|----------------|
-| **PWA** | Hard refresh live URL; clock ticks; strip shows; modal Tab/Esc; high-contrast toggle |
-| **Discord** | `DISCORD_BOT_TOKEN` → `python widgets/discord-bot/bot.py`; test 4 commands + rate limit |
-| **VS Code** | F5 on `widgets/vscode-sqt-grove`; status bar; insert bundle; simulate major via `staticJsonPath` |
+### 1. Live smoke tests
+| Surface | Automated | Manual |
+|---------|-----------|--------|
+| **PWA** | `python scripts/smoke_widget_triad.py` (live asset HTTP 200) | Hard refresh; clock ticks; grid cell click; modal Tab/Esc |
+| **Discord** | `pytest tests/test_discord_relay.py`; engine fetch in smoke triad | `DISCORD_BOT_TOKEN` → `python widgets/discord-bot/bot.py`; test 4 commands + Relay button |
+| **VS Code** | `node tests/test_vscode_extension_smoke.mjs` | F5 on `widgets/vscode-sqt-grove` (`.vscode/launch.json`); status bar + insert |
 
 ### 2. Discord — remaining spec gaps (§3)
-- Ratatoskr Relay polish (thread tags: `relay`, `{holiday.id}`, `lunation-{n}`)
+- ~~Ratatoskr Relay polish (thread tags)~~ ✅ — `relay`, `{holiday.id}`, `lunation-{n}`; forum `applied_tags` when configured
 - Scheduled `#grove-circuit` teaser posts (optional cron)
 - Mode B: cron-refreshed static JSON instead of subprocess
 

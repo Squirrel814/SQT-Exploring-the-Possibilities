@@ -42,7 +42,7 @@ function fetchCircuit(callback) {
   if (!engine) return callback(new Error('sqt_engine_unified.py not found'));
   const python = getConfig().get('pythonPath') || 'python';
   const cwd = path.dirname(engine);
-  execFile(python, [engine, '--json', '--bundle'], { cwd, timeout: 5000 }, (err, stdout) => {
+  execFile(python, [engine, '--json', '--bundle', '--compact'], { cwd, timeout: 5000 }, (err, stdout) => {
     if (err) return callback(err);
     try {
       const data = JSON.parse(stdout);
