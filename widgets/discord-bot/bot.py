@@ -287,10 +287,28 @@ async def lore_drop(interaction: discord.Interaction, content: str, title: str |
     await interaction.response.send_message("Your lore has been scattered to the moderation burrow.", ephemeral=True)
 
 
+def _load_dotenv() -> None:
+    """Load DISCORD_BOT_TOKEN from widgets/discord-bot/.env or repo .env (gitignored)."""
+    try:
+        from dotenv import load_dotenv
+    except ImportError:
+        return
+    for path in (Path(__file__).resolve().parent / ".env", ROOT / ".env"):
+        if path.is_file():
+            load_dotenv(path)
+            return
+
+
 def main():
+    _load_dotenv()
     token = os.environ.get("DISCORD_BOT_TOKEN")
     if not token:
-        print("Set DISCORD_BOT_TOKEN environment variable.", file=sys.stderr)
+        print(
+            "Set DISCORD_BOT_TOKEN:\n"
+            "  PowerShell: $env:DISCORD_BOT_TOKEN = 'your_token'\n"
+            "  Or copy .env.example to .env in widgets/discord-bot/ and paste the token there.",
+            file=sys.stderr,
+        )
         return 1
     bot.run(token)
     return 0

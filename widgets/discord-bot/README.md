@@ -4,7 +4,18 @@ Slash commands: `/circuit`, `/forage`, `/holiday`, `/lore-drop`
 
 ```bash
 pip install -r requirements.txt
-set DISCORD_BOT_TOKEN=your_token_here
+```
+
+**Token (pick one):**
+
+```powershell
+# A) One session
+$env:DISCORD_BOT_TOKEN = "your_token_here"
+python bot.py
+
+# B) Persistent local file (recommended)
+copy .env.example .env
+# Edit .env — paste token after DISCORD_BOT_TOKEN=
 python bot.py
 ```
 
