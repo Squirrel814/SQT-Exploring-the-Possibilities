@@ -39,7 +39,9 @@ ROOT = Path(__file__).resolve().parents[2]
 ENGINE = ROOT / "sqt_engine_unified.py"
 CALENDAR_MATRIX = ROOT / "docs" / "calendar_matrix.json"
 LORE_QUEUE = Path(__file__).resolve().parent / "lore_queue.jsonl"
-ENGINE_TIMEOUT = 3
+ENGINE_TIMEOUT = 8
+
+LEYLINES_QUIET = "The leylines are quiet. Try again in a moment."
 
 
 def embed_from_circuit(data: dict, mode: str = "teaser") -> discord.Embed:
@@ -232,30 +234,39 @@ async def circuit(interaction: discord.Interaction, mode: app_commands.Choice[st
             if image_prompt:
                 await interaction.followup.send(f"**Image Prompt**\n```\n{image_prompt[:1900]}\n```")
     except Exception as exc:
-        await interaction.followup.send("The leylines are quiet. Try again in a moment.", ephemeral=True)
-        print(exc, file=sys.stderr)
+        await interaction.followup.send(LEYLINES_QUIET, ephemeral=True)
+        print(f"[circuit] {exc}", file=sys.stderr)
 
 
 @bot.tree.command(name="forage", description="Today's foraging idea")
 async def forage(interaction: discord.Interaction):
     await interaction.response.defer()
-    data = fetch_circuit(ROOT, ENGINE, bundle=True, timeout=ENGINE_TIMEOUT)
-    b = data.get("bundle", {})
-    t = data.get("themes", {})
-    palettes = t.get("palettes") or ["#2E5A44", "#4CAF50"]
-    color = int(str(palettes[1] if len(palettes) > 1 else palettes[0]).lstrip("#"), 16)
-    embed = discord.Embed(
-        title="Today's Forage",
-        description=b.get("foraging_idea", "Gentle intentional action."),
-        color=color,
-    )
-    await interaction.followup.send(embed=embed)
+    try:
+        data = fetch_circuit(ROOT, ENGINE, bundle=True, timeout=ENGINE_TIMEOUT)
+        b = data.get("bundle", {})
+        t = data.get("themes", {})
+        palettes = t.get("palettes") or ["#2E5A44", "#4CAF50"]
+        color = int(str(palettes[1] if len(palettes) > 1 else palettes[0]).lstrip("#"), 16)
+        embed = discord.Embed(
+            title="Today's Forage",
+            description=b.get("foraging_idea", "Gentle intentional action."),
+            color=color,
+        )
+        await interaction.followup.send(embed=embed)
+    except Exception as exc:
+        await interaction.followup.send(LEYLINES_QUIET, ephemeral=True)
+        print(f"[forage] {exc}", file=sys.stderr)
 
 
 @bot.tree.command(name="holiday", description="Current SQT holiday or event")
 async def holiday(interaction: discord.Interaction):
     await interaction.response.defer()
-    data = fetch_circuit(ROOT, ENGINE, bundle=False, timeout=ENGINE_TIMEOUT)
+    try:
+        data = fetch_circuit(ROOT, ENGINE, bundle=False, timeout=ENGINE_TIMEOUT)
+    except Exception as exc:
+        await interaction.followup.send(LEYLINES_QUIET, ephemeral=True)
+        print(f"[holiday] {exc}", file=sys.stderr)
+        return
     h = data.get("holiday")
     s = data.get("sqt", {})
     t = data.get("themes", {})
@@ -324,7 +335,13 @@ async def lore_drop(interaction: discord.Interaction, content: str, title: str |
         )
         return
 
-    data = fetch_circuit(ROOT, ENGINE, bundle=False, timeout=ENGINE_TIMEOUT)
+    try:
+        data = fetch_circuit(ROOT, ENGINE, bundle=False, timeout=ENGINE_TIMEOUT)
+    except Exception as exc:
+        await interaction.response.send_message(LEYLINES_QUIET, ephemeral=True)
+        print(f"[lore-drop] {exc}", file=sys.stderr)
+        return
+
     entry = {
         "submitted_at": datetime.now(timezone.utc).isoformat(),
         "user_id": str(interaction.user.id),
