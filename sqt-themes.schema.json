@@ -38,7 +38,30 @@
           "motifs": { "type": "array", "items": { "type": "string" } },
           "style_modifiers": { "type": "string" },
           "tone": { "type": "string" },
+          "tone_keywords": { "type": "array", "items": { "type": "string" } },
+          "journal_prompt_seed": { "type": "string" },
+          "forage_bias": { "type": "string" },
+          "mood_board_hints": { "type": "string" },
+          "story_seed_seed": { "type": "string" },
+          "art_prompt_seed": { "type": "string" },
           "ceremonial_boost": { "type": "boolean", "default": true }
+        }
+      }
+    },
+    "rare_event_themes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "palettes": { "type": "array", "items": { "type": "string" } },
+          "motifs": { "type": "array", "items": { "type": "string" } },
+          "style_modifiers": { "type": "string" },
+          "tone_keywords": { "type": "array", "items": { "type": "string" } },
+          "journal_prompt_seed": { "type": "string" },
+          "forage_bias": { "type": "string" },
+          "mood_board_hints": { "type": "string" },
+          "story_seed_seed": { "type": "string" },
+          "art_prompt_seed": { "type": "string" }
         }
       }
     }

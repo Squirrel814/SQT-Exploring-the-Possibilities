@@ -257,7 +257,7 @@ This section records selected ideas from an external architecture review treated
       "trigger_type": "conditional_predicate",
       "condition": {
         "target_day": 11,
-        "moon_phase_requirement": "new_moon",
+        "moon_phase_requirement": "waning",
         "optional_engine_flag": "low_visibility"
       },
       "core_theme": "Adaptability in low visibility"
@@ -405,7 +405,7 @@ Instead of treating curriculum as a separate module, inject practical technical 
 
 **Rare / Surprise Labs (sample)**
 
-10. **Shadowforage Eclipse (conditional — new moon + Day 11)**  
+10. **Shadowforage Eclipse (conditional — Day 11 + waning moon, low-visibility forage)**
     **Theme:** Adaptability in low visibility.  
     **Lab — Chaos / Degraded Conditions Forage**  
     "When usual sight fails, the squirrel still finds the cache by memory and touch."  

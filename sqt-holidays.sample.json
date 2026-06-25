@@ -73,7 +73,8 @@
       "trigger_type": "conditional_predicate",
       "condition": {
         "target_day": 11,
-        "moon_phase_requirement": "new_moon"
+        "moon_phase_requirement": "waning",
+        "optional_engine_flag": "low_visibility"
       },
       "core_theme": "Adaptability in low visibility"
     },
@@ -86,6 +87,46 @@
         "target_day": 9
       },
       "core_theme": "Creative overload & inspiration"
+    },
+    {
+      "id": "hidden_cache_reveal",
+      "name": "Hidden Cache Reveal",
+      "trigger_type": "static_interval",
+      "condition": {
+        "interval_lunation": 6,
+        "target_day": 12
+      },
+      "core_theme": "Forgotten wisdom resurfacing"
+    },
+    {
+      "id": "ratatoskr_argument",
+      "name": "Ratatoskr's Argument",
+      "trigger_type": "conditional_predicate",
+      "condition": {
+        "target_day": 6,
+        "moon_phase_requirement": "waxing"
+      },
+      "core_theme": "Tension between messages"
+    },
+    {
+      "id": "leyline_surge",
+      "name": "Leyline Surge",
+      "trigger_type": "static_interval",
+      "condition": {
+        "interval_lunation": 5,
+        "target_day": 7
+      },
+      "core_theme": "Sudden connection & amplification"
+    },
+    {
+      "id": "burrow_rebuild",
+      "name": "Burrow Rebuild",
+      "trigger_type": "static_interval",
+      "condition": {
+        "interval_lunation": 3,
+        "target_day": 13
+      },
+      "core_theme": "Destruction & renewal"
     }
   ]
 }

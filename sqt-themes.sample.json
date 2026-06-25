@@ -113,5 +113,73 @@
       "art_prompt_seed": "Ratatoskr the messenger squirrel completing the great circuit, surrounded by a mandala of all the year’s acorns, leylines, and seasonal symbols in full warm forest palette with golden highlights, epic yet intimate whimsical storybook illustration, in the SQT Grove Style",
       "ceremonial_boost": true
     }
+  },
+  "rare_event_themes": {
+    "shadowforage_eclipse": {
+      "palettes": ["#263238", "#455A64", "#78909C", "#2E5A44"],
+      "motifs": ["dim forest paths", "silhouetted squirrel", "obscured acorn shapes", "mist between trees"],
+      "style_modifiers": "Low-visibility atmosphere, muted greens and slate, soft diffused light, clever adaptive posture",
+      "tone_keywords": ["adaptability", "low visibility", "clever navigation", "shadow foraging"],
+      "journal_prompt_seed": "When the familiar path fades, what clever new route can you sense?",
+      "forage_bias": "navigate ambiguity with small careful steps; trust touch and memory over sight",
+      "mood_board_hints": "A squirrel moving through dim undergrowth, shapes half-hidden, one paw extended toward an unseen acorn",
+      "story_seed_seed": "The canopy dimmed as if a shadow passed over the moon. The squirrel slowed, whiskers wide, and foraged by feel alone...",
+      "art_prompt_seed": "A clever squirrel foraging in deep forest shadow on Forage-day, muted slate and emerald palette, diffused mist, half-visible acorns, whimsical storybook illustration, in the SQT Grove Style"
+    },
+    "whisper_storm": {
+      "palettes": ["#5C6BC0", "#9FA8DA", "#E8EAF6", "#4AF626"],
+      "motifs": ["swirling leaves", "multiple whisper trails", "Ratatoskr mid-leap", "scattered message scrolls"],
+      "style_modifiers": "Dynamic motion, overlapping light trails, energetic but not chaotic, cool violet accents on warm forest base",
+      "tone_keywords": ["creative flood", "inspiration", "discernment", "many voices"],
+      "journal_prompt_seed": "Many whispers arrive at once — which message deserves your attention first?",
+      "forage_bias": "capture the best ideas quickly, then sort; do not chase every leaf in the wind",
+      "mood_board_hints": "Leaves and glowing message threads spiraling around a squirrel who pauses to listen amid the storm",
+      "story_seed_seed": "The whispers came all at once — a storm of acorn-tips, warnings, jokes, and prophecies. Ratatoskr laughed and spread both paws wide...",
+      "art_prompt_seed": "A squirrel amid a whirl of leaves and glowing whisper-trails in a forest gale, cool violet and soft cream accents, dynamic storybook motion, in the SQT Grove Style"
+    },
+    "hidden_cache_reveal": {
+      "palettes": ["#8D6E63", "#D7CCC8", "#FFD54F", "#4E342E"],
+      "motifs": ["uncovered burrow cache", "dust motes in sudden light", "forgotten scrolls", "old acorn shells"],
+      "style_modifiers": "Warm sudden revelation light, rich earth browns, golden highlight on rediscovered objects",
+      "tone_keywords": ["resurfacing", "forgotten wisdom", "pleasant surprise", "old treasures"],
+      "journal_prompt_seed": "What forgotten idea or note is suddenly relevant again?",
+      "forage_bias": "revisit an old project, notebook, or commit; one buried insight may be ripe now",
+      "mood_board_hints": "A beam of light falling on a hidden cache of acorns and curled bark-scrolls inside an old burrow wall",
+      "story_seed_seed": "While shifting moss, the squirrel's claw struck hollow wood — and a cache no one remembered opened to the light...",
+      "art_prompt_seed": "A surprised squirrel discovering a hidden acorn cache revealed by a shaft of golden light in an old burrow, warm earth tones and dust motes, whimsical storybook detail, in the SQT Grove Style"
+    },
+    "ratatoskr_argument": {
+      "palettes": ["#FF8F00", "#5D4037", "#90A4AE", "#2E5A44"],
+      "motifs": ["two opposing whisper paths", "forked leylines", "squirrel at a crossroads", "dueling scrolls"],
+      "style_modifiers": "Tension in composition, warm amber vs cool slate accents, decisive posture, split lighting",
+      "tone_keywords": ["tension", "choice", "synthesis", "conflicting messages"],
+      "journal_prompt_seed": "Two whispers pull in different directions — what third path might weave them together?",
+      "forage_bias": "name the trade-off explicitly; choose one path or design a synthesis before acting",
+      "mood_board_hints": "A squirrel at a fork where two glowing leylines diverge, each carrying a different message scroll",
+      "story_seed_seed": "Ratatoskr arrived with two whispers that could not both be true — or could they? The squirrel sat at the fork and listened harder...",
+      "art_prompt_seed": "A thoughtful squirrel at a forest crossroads with two glowing leyline paths and opposing message scrolls, amber and slate contrast, dramatic storybook lighting, in the SQT Grove Style"
+    },
+    "leyline_surge": {
+      "palettes": ["#4AF626", "#2E5A44", "#FFD54F", "#DFD4B5"],
+      "motifs": ["bright leyline network", "interconnected roots", "amplified bridges", "radiant pebbles"],
+      "style_modifiers": "Strong green-gold glow, network lines visible under bark and stream, amplified energy, connected feeling",
+      "tone_keywords": ["amplification", "connection", "cross-project synergy", "surge"],
+      "journal_prompt_seed": "What connections are suddenly easier to make today?",
+      "forage_bias": "link two projects, people, or ideas that usually stay separate; ride the surge",
+      "mood_board_hints": "Glowing leylines blazing between trees, pebble bridges lit from beneath, everything briefly connected",
+      "story_seed_seed": "Every leyline in the Grove flared at once. The squirrel felt every burrow, bridge, and branch as one living circuit...",
+      "art_prompt_seed": "A forest scene with blazing green-gold leylines connecting roots, streams, and pebble bridges, a squirrel at the nexus, highly detailed wood grain, in the SQT Grove Style"
+    },
+    "burrow_rebuild": {
+      "palettes": ["#5D4037", "#A1887F", "#81C784", "#3E2723"],
+      "motifs": ["collapsed old burrow wall", "fresh timber", "new moss lining", "squirrel with tools"],
+      "style_modifiers": "Before-and-after energy, broken brown tones yielding to fresh green growth, constructive hope",
+      "tone_keywords": ["renewal", "rebuild", "collapse", "stronger foundation"],
+      "journal_prompt_seed": "What old structure is ready to come down so something sturdier can grow?",
+      "forage_bias": "retire one brittle habit or tool; sketch the replacement before rebuilding",
+      "mood_board_hints": "An old burrow wall gently opened to fresh moss and new twig supports, morning light on rebuilt entrance",
+      "story_seed_seed": "The old wall finally gave way — not as disaster, but as permission. The squirrel began rebuilding with what the collapse had taught...",
+      "art_prompt_seed": "A squirrel rebuilding a burrow entrance with fresh twigs and moss after a gentle collapse, warm browns and new green shoots, hopeful storybook atmosphere, in the SQT Grove Style"
+    }
   }
 }
