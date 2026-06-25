@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-06-25T03:39:06.221222+00:00",
+  "catalog_version": "1.0.0",
+  "sqt": {
+    "year": 1,
+    "lunation": 6,
+    "day": 7,
+    "time": "07:18:11"
+  },
+  "holiday": {
+    "id": "leybridge_threading",
+    "name": "Leybridge Threading",
+    "type": "recurring"
+  },
+  "active_hook": {
+    "event_type": "leyline_boost",
+    "companion_mood": "connective",
+    "foraging_window": "bridge_building",
+    "leyline_intensity": 2
+  },
+  "integration_notes": "Consume from Burrowkins/Acorn Grove on SQT poll. leyline_intensity 0–3 scales event magnitude."
+}

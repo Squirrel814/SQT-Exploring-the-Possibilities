@@ -37,6 +37,85 @@ LUNAR_CYCLE_SECONDS = 29.53059 * 24 * 3600
 SQT_LUNATIONS_PER_YEAR = 12
 SQT_DAYS_PER_LUNATION = 19
 
+# Messenger's Circuit delivery modes (phase1 + phase2-2.3-widget-specs §2.4)
+CIRCUIT_MODE_ALIASES: Dict[str, str] = {
+    "full": "standard",
+    "minimal": "whisper",
+    "minimal_whisper": "whisper",
+    "major": "ceremonial",
+    "major_ceremonial": "ceremonial",
+    "major_event": "ceremonial",
+    "project_deep": "project-deep",
+    "story": "storytelling",
+}
+VALID_CIRCUIT_MODES = frozenset({
+    "standard", "teaser", "whisper", "ceremonial", "storytelling", "project-deep",
+})
+
+
+def normalize_circuit_mode(mode: str) -> str:
+    key = mode.strip().lower().replace("_", "-")
+    return CIRCUIT_MODE_ALIASES.get(key, key)
+
+
+def resolve_circuit_mode(requested: str, holiday: Optional[Dict[str, Any]]) -> str:
+    """Normalize mode; auto-upgrade standard → ceremonial on major holidays."""
+    mode = normalize_circuit_mode(requested)
+    if mode not in VALID_CIRCUIT_MODES:
+        mode = "standard"
+    if mode == "standard" and holiday and holiday.get("type") == "major":
+        return "ceremonial"
+    return mode
+
+
+def shape_bundle_for_mode(
+    bundle: Dict[str, Any],
+    themes: Dict[str, Any],
+    mode: str,
+    holiday: Optional[Dict[str, Any]],
+    project_context: Optional[str] = None,
+) -> Dict[str, Any]:
+    """Filter or enrich bundle fields per Circuit delivery mode."""
+    out = dict(bundle)
+    keywords = [k for k in (themes.get("tone_keywords") or []) if k]
+    ceremonial_prefix = f"[{' · '.join(keywords)}] " if keywords else ""
+
+    if mode in ("ceremonial", "storytelling") or (holiday and holiday.get("type") == "major"):
+        if ceremonial_prefix:
+            if out.get("story_seed"):
+                out["story_seed"] = ceremonial_prefix + out["story_seed"]
+            if out.get("journal_prompt") and mode == "ceremonial":
+                out["journal_prompt"] = ceremonial_prefix + out["journal_prompt"]
+        if keywords:
+            out["ceremonial_header"] = " · ".join(keywords)
+
+    if mode == "storytelling" and out.get("story_seed"):
+        out["story_seed"] = "The squirrel-protagonist's thread continues — " + out["story_seed"]
+
+    if mode == "project-deep" and project_context:
+        ctx = project_context.strip()
+        focus = f"Project focus: {ctx}. "
+        out["journal_prompt"] = focus + out.get("journal_prompt", "")
+        out["foraging_idea"] = focus + out.get("foraging_idea", "")
+        out["project_context"] = ctx
+
+    if mode == "whisper":
+        shaped: Dict[str, Any] = {"journal_prompt": out.get("journal_prompt", "")}
+        if out.get("squirrel_ops_lab"):
+            shaped["squirrel_ops_lab"] = out["squirrel_ops_lab"]
+        return shaped
+
+    if mode == "teaser":
+        shaped = {
+            "journal_prompt": out.get("journal_prompt", ""),
+            "foraging_idea": out.get("foraging_idea", ""),
+        }
+        if out.get("squirrel_ops_lab"):
+            shaped["squirrel_ops_lab"] = out["squirrel_ops_lab"]
+        return shaped
+
+    return out
+
 SQT_LUNATIONS_DISPLAY: Dict[int, str] = {
     1: "Sleepy Moon", 2: "Pinecone Moon", 3: "Scamper Moon",
     4: "Asher Moon", 5: "Bark Stripper Moon", 6: "Canopy Moon",
@@ -370,11 +449,13 @@ class SQTUnifiedEngine:
         sqt: Dict[str, Any],
         holiday: Optional[Dict[str, Any]] = None,
         mode: str = "standard",
+        project_context: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Assemble the 5-element Messenger's Circuit bundle from theme seeds.
-        Template-based — no LLM calls.
+        Template-based — no LLM calls. ``mode`` selects delivery shape (see VALID_CIRCUIT_MODES).
         """
+        resolved = resolve_circuit_mode(mode, holiday)
         hid = holiday.get("id") if holiday else None
         theme = self._get_theme_record(hid)
         themes = self.get_themes(hid)
@@ -383,7 +464,7 @@ class SQTUnifiedEngine:
         ceremonial = theme.get("ceremonial_boost", False) or (holiday or {}).get("type") == "major"
 
         journal_seed = theme.get("journal_prompt_seed", "What message arrives for you today?")
-        if ceremonial and mode == "standard":
+        if ceremonial and resolved == "ceremonial":
             journal_prompt = f"{journal_seed} ({ctx} — {holiday_name})"
         elif holiday_name:
             journal_prompt = f"{journal_seed} Reflect on {holiday_name} during {ctx}."
@@ -436,7 +517,7 @@ class SQTUnifiedEngine:
         }
         if ops_meta:
             bundle["squirrel_ops_lab"] = ops_meta
-        return bundle
+        return shape_bundle_for_mode(bundle, themes, resolved, holiday, project_context)
 
     def _widget_holiday(self, holiday_ctx: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         active = holiday_ctx.get("active")
@@ -461,6 +542,8 @@ class SQTUnifiedEngine:
         reference_time: Optional[datetime] = None,
         include_bundle: bool = True,
         holiday_only: bool = False,
+        circuit_mode: str = "standard",
+        project_context: Optional[str] = None,
     ) -> Dict[str, Any]:
         sqt = self.get_sqt_state(reference_time)
         if "error" in sqt:
@@ -484,7 +567,11 @@ class SQTUnifiedEngine:
         }
 
         if not holiday_only and include_bundle:
-            payload["bundle"] = self.generate_bundle(sqt, active)
+            resolved_mode = resolve_circuit_mode(circuit_mode, active)
+            payload["circuit_mode"] = resolved_mode
+            payload["bundle"] = self.generate_bundle(
+                sqt, active, mode=resolved_mode, project_context=project_context
+            )
 
         payload["_extended"] = {
             "sqt_full": sqt,
@@ -540,8 +627,21 @@ def main(argv: Optional[List[str]] = None) -> int:
         default="sqt-squirrel-ops-labs.json",
         help="Squirrel Ops lab catalog JSON (used with --squirrel-ops)",
     )
+    parser.add_argument(
+        "--circuit-mode",
+        default="standard",
+        help="Circuit delivery mode: standard, teaser, whisper, ceremonial, storytelling, project-deep",
+    )
+    parser.add_argument(
+        "--project-context",
+        default=None,
+        help="Optional project focus string (project-deep mode)",
+    )
 
     args = parser.parse_args(argv)
+    project_context = args.project_context
+    if project_context and Path(project_context).is_file():
+        project_context = Path(project_context).read_text(encoding="utf-8").strip()
     include_bundle = args.bundle or args.bundle_stub or (args.json and not args.holiday)
 
     try:
@@ -568,6 +668,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         ref_time,
         include_bundle=include_bundle,
         holiday_only=args.holiday,
+        circuit_mode=args.circuit_mode,
+        project_context=project_context,
     )
 
     if args.simulate_lunation or args.simulate_day:
@@ -582,7 +684,11 @@ def main(argv: Optional[List[str]] = None) -> int:
         ctx["holiday"] = engine._widget_holiday(holiday_ctx)
         ctx["themes"] = engine.get_themes(active.get("id") if active else None)
         if include_bundle and not args.holiday:
-            ctx["bundle"] = engine.generate_bundle(forced_sqt, active)
+            resolved_mode = resolve_circuit_mode(args.circuit_mode, active)
+            ctx["circuit_mode"] = resolved_mode
+            ctx["bundle"] = engine.generate_bundle(
+                forced_sqt, active, mode=resolved_mode, project_context=project_context
+            )
         ctx["_extended"] = {"sqt_full": forced_sqt, "holiday_detection": holiday_ctx}
         ctx["_note"] = "Simulated lunation/day for design validation."
 

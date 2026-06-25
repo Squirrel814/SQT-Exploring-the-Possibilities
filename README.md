@@ -6,7 +6,7 @@ Structured test of the v2 Grok-Agents Memory Ecosystem handoff process while des
 
 ## Current Phase
 
-**Phase 3 — Implementation** **archived** (good enough, Track A distillation complete) — Phases 4–7 optional
+**Phase 3 — Implementation** **archived** (good enough) — **Track B** (Phase 4/5 expansion) in progress
 
 | Segment | Status |
 |---------|--------|
@@ -66,6 +66,8 @@ Widget JS/CSS in `docs/` must stay in sync with `widgets/sqt-grove-clock/` — a
 | `phase2-architecture-diagram.md` | Data flow + implemented vs spec boundaries |
 | `SESSION_HANDOFF_PROMPT.md` | Paste into new agent sessions |
 | `Post_Project_Summary.md` | Phase 3 archive + Memory Island distillation source |
+| `docs/API.md` | Public JSON API (v1 paths + circuit modes) |
+| `sqt-burrowkins-hooks.json` | Burrowkins / Acorn Grove holiday hook catalog |
 
 ## Widget Specs & Scaffolds (Phase 3 Chunk E)
 

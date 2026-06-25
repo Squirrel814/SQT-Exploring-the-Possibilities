@@ -16,7 +16,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PWA_BASE = "https://squirrel814.github.io/SQT-Exploring-the-Possibilities/"
-PWA_ASSETS = ("circuit-current.json", "calendar_matrix.json", "sqt-grove-clock.js", "sw.js")
+PWA_ASSETS = (
+    "circuit-current.json",
+    "calendar_matrix.json",
+    "sqt-grove-clock.js",
+    "sw.js",
+    "v1/circuit/current.json",
+    "burrowkins-hooks.json",
+)
 
 
 def check_pwa_assets() -> list[str]:

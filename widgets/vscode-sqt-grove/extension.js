@@ -44,6 +44,10 @@ function fetchCircuit(callback) {
   const cwd = path.dirname(engine);
   const args = [engine, '--json', '--bundle', '--compact'];
   if (getConfig().get('squirrelOps')) args.push('--squirrel-ops');
+  const circuitMode = getConfig().get('circuitMode') || 'standard';
+  if (circuitMode && circuitMode !== 'standard') args.push('--circuit-mode', circuitMode);
+  const projectContext = getConfig().get('projectContext');
+  if (projectContext) args.push('--project-context', projectContext);
   execFile(python, args, { cwd, timeout: 5000 }, (err, stdout) => {
     if (err) return callback(err);
     try {

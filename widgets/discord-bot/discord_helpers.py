@@ -125,6 +125,7 @@ def fetch_circuit(
     engine_path: Optional[Path] = None,
     *,
     bundle: bool = True,
+    circuit_mode: str = "standard",
     timeout: float = 3,
 ) -> dict:
     """Mode A — subprocess engine JSON (same argv contract as bot.py)."""
@@ -132,6 +133,10 @@ def fetch_circuit(
     cmd = [sys.executable, str(engine), "--json", "--compact"]
     if bundle:
         cmd.append("--bundle")
+    if circuit_mode and circuit_mode not in ("standard", "full"):
+        cmd += ["--circuit-mode", circuit_mode]
+    elif circuit_mode == "full":
+        cmd += ["--circuit-mode", "standard"]
     cmd += ["--holidays", str(root / "sqt-holidays.json")]
     cmd += ["--themes", str(root / "sqt-themes.json")]
     out = subprocess.check_output(cmd, cwd=str(root), timeout=timeout, text=True)

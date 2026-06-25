@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "description": "Burrowkins / Acorn Grove cross-project hooks keyed by SQT holiday id",
+  "default_grove_day": {
+    "event_type": "grove_ambient",
+    "companion_mood": "curious",
+    "foraging_window": "open",
+    "leyline_intensity": 0
+  },
+  "holiday_hooks": {
+    "whisperwake_first_message": {
+      "event_type": "messenger_whisper",
+      "companion_mood": "attentive",
+      "foraging_window": "intention_setting",
+      "leyline_intensity": 1
+    },
+    "discerned_hoard": {
+      "event_type": "hoard_curation",
+      "companion_mood": "discerning",
+      "foraging_window": "inventory_review",
+      "leyline_intensity": 1
+    },
+    "leybridge_threading": {
+      "event_type": "leyline_boost",
+      "companion_mood": "connective",
+      "foraging_window": "bridge_building",
+      "leyline_intensity": 2
+    },
+    "burrowstill_knowing": {
+      "event_type": "burrow_rest",
+      "companion_mood": "reflective",
+      "foraging_window": "integration",
+      "leyline_intensity": 0
+    },
+    "chatterseed_scatter": {
+      "event_type": "seed_scatter",
+      "companion_mood": "generous",
+      "foraging_window": "social_forage",
+      "leyline_intensity": 1
+    },
+    "the_hoardkeepers_joyful_reckoning": {
+      "event_type": "hero_milestone",
+      "companion_mood": "joyful_reckoning",
+      "foraging_window": "major_forage",
+      "leyline_intensity": 3
+    },
+    "shadow_trial": {
+      "event_type": "shadow_trial",
+      "companion_mood": "resolute",
+      "foraging_window": "courage_check",
+      "leyline_intensity": 3
+    },
+    "the_burrow_rebirth": {
+      "event_type": "burrow_rebirth",
+      "companion_mood": "renewed",
+      "foraging_window": "nest_building",
+      "leyline_intensity": 3
+    },
+    "the_messengers_circuit_complete": {
+      "event_type": "circuit_complete",
+      "companion_mood": "integrated",
+      "foraging_window": "year_close",
+      "leyline_intensity": 3
+    },
+    "shadowforage_eclipse": {
+      "event_type": "shadow_eclipse",
+      "companion_mood": "watchful",
+      "foraging_window": "stealth_forage",
+      "leyline_intensity": 2
+    },
+    "the_whisper_storm": {
+      "event_type": "whisper_storm",
+      "companion_mood": "overwhelmed_curious",
+      "foraging_window": "message_triage",
+      "leyline_intensity": 2
+    },
+    "hidden_cache_reveal": {
+      "event_type": "cache_reveal",
+      "companion_mood": "delighted",
+      "foraging_window": "discovery",
+      "leyline_intensity": 2
+    },
+    "ratatoskr_argument": {
+      "event_type": "dual_whisper",
+      "companion_mood": "conflicted",
+      "foraging_window": "synthesis_choice",
+      "leyline_intensity": 2
+    },
+    "leyline_surge": {
+      "event_type": "leyline_surge",
+      "companion_mood": "charged",
+      "foraging_window": "high_energy_forage",
+      "leyline_intensity": 3
+    },
+    "burrow_rebuild": {
+      "event_type": "burrow_rebuild",
+      "companion_mood": "constructive",
+      "foraging_window": "repair_focus",
+      "leyline_intensity": 2
+    }
+  }
+}

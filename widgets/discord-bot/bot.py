@@ -208,16 +208,21 @@ bot = RatatoskrBot()
 
 
 @bot.tree.command(name="circuit", description="Today's Messenger's Circuit")
-@app_commands.describe(mode="teaser or full bundle")
+@app_commands.describe(mode="teaser, full, whisper, or storytelling")
 @app_commands.choices(mode=[
     app_commands.Choice(name="teaser", value="teaser"),
     app_commands.Choice(name="full", value="full"),
+    app_commands.Choice(name="whisper", value="whisper"),
+    app_commands.Choice(name="storytelling", value="storytelling"),
 ])
 async def circuit(interaction: discord.Interaction, mode: app_commands.Choice[str] | None = None):
     await interaction.response.defer()
     try:
-        data = fetch_circuit(ROOT, ENGINE, bundle=True, timeout=ENGINE_TIMEOUT)
         m = (mode.value if mode else "teaser")
+        engine_mode = "standard" if m == "full" else m
+        data = fetch_circuit(
+            ROOT, ENGINE, bundle=True, circuit_mode=engine_mode, timeout=ENGINE_TIMEOUT
+        )
         embed = embed_from_circuit(data, m)
         view = None
         h = data.get("holiday") or {}

@@ -2,10 +2,18 @@
   "name": "sqt-grove",
   "displayName": "SQT Grove — Messenger's Circuit",
   "description": "SQT status bar + insert Messenger's Circuit bundle",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "squirrel814",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Squirrel814/SQT-Exploring-the-Possibilities.git",
+    "directory": "widgets/vscode-sqt-grove"
+  },
+  "homepage": "https://squirrel814.github.io/SQT-Exploring-the-Possibilities/",
   "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other"],
+  "categories": ["Other", "Snippets"],
+  "keywords": ["sqt", "squirrel", "calendar", "oracle", "grove", "time"],
   "activationEvents": ["onStartupFinished"],
   "main": "./extension.js",
   "contributes": {
@@ -37,6 +45,17 @@
           "type": "boolean",
           "default": false,
           "description": "Inject Cyber-SQRRL Squirrel Ops labs into foraging_idea (engine --squirrel-ops)"
+        },
+        "sqtGrove.circuitMode": {
+          "type": "string",
+          "enum": ["standard", "teaser", "whisper", "ceremonial", "storytelling", "project-deep"],
+          "default": "standard",
+          "description": "Messenger's Circuit delivery mode (--circuit-mode)"
+        },
+        "sqtGrove.projectContext": {
+          "type": "string",
+          "default": "",
+          "description": "Optional project focus for project-deep mode (--project-context)"
         }
       }
     }
