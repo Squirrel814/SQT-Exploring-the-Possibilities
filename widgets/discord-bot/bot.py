@@ -134,19 +134,38 @@ class RatatoskrBot(discord.Client):
         self.tree = app_commands.CommandTree(self)
 
     async def setup_hook(self):
-        # Optional: DISCORD_GUILD_ID for instant guild command sync during dev
         guild_id = os.environ.get("DISCORD_GUILD_ID")
         if guild_id:
             guild = discord.Object(id=int(guild_id))
             self.tree.copy_global_to(guild=guild)
-            await self.tree.sync(guild=guild)
-            print(f"Synced slash commands to guild {guild_id}")
-        else:
-            await self.tree.sync()
-            print("Synced global slash commands (may take up to ~1h to appear everywhere)")
+            try:
+                await self.tree.sync(guild=guild)
+                print(f"Synced slash commands to guild {guild_id}")
+                return
+            except discord.Forbidden:
+                print(
+                    f"[warn] Guild sync failed for {guild_id} — Missing Access (50001).\n"
+                    "  → Re-invite Ratatoskr with scopes: bot + applications.commands\n"
+                    "  → Pick the correct server in the invite URL\n"
+                    "  → Falling back to global command sync...",
+                    file=sys.stderr,
+                )
+            except discord.HTTPException as exc:
+                print(f"[warn] Guild sync failed: {exc} — falling back to global sync...", file=sys.stderr)
+
+        await self.tree.sync()
+        print("Synced global slash commands (may take up to ~1h to appear everywhere)")
 
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})")
+        if self.guilds:
+            names = ", ".join(f"{g.name} ({g.id})" for g in self.guilds)
+            print(f"Joined servers: {names}")
+        else:
+            print(
+                "[warn] Ratatoskr is not in any server yet — generate an invite URL in the Developer Portal.",
+                file=sys.stderr,
+            )
 
 
 bot = RatatoskrBot()

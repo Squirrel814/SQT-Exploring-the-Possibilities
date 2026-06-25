@@ -21,6 +21,8 @@ python bot.py
 
 **Faster slash-command testing:** set `DISCORD_GUILD_ID` to your server ID — commands sync instantly to that guild instead of waiting on global propagation.
 
+**403 Missing Access (50001) on guild sync:** Ratatoskr is not in that server (or was invited without `applications.commands`). In the [Developer Portal](https://discord.com/developers/applications) → OAuth2 → URL Generator → scopes **`bot`** + **`applications.commands`** → invite to server `1511195330421719071` (or your target). On startup, `Joined servers:` lists where the bot actually is.
+
 Calls `sqt_engine_unified.py --json --bundle --compact` from repo root. See `phase2-2.3-widget-specs.md`.
 
 **Ratatoskr Relay** (major events, `/circuit mode:full`):
