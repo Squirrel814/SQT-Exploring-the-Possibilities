@@ -9,24 +9,32 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 WIDGET_DIR = ROOT / "widgets" / "sqt-grove-clock"
+CORE_DIR = ROOT / "lib"
 DOCS_DIR = ROOT / "docs"
 
 SYNC_FILES = (
-    "sqt-grove-clock.js",
-    "sqt-grove-clock.css",
+    ("sqt-grove-clock.js", WIDGET_DIR),
+    ("sqt-grove-clock.css", WIDGET_DIR),
+    ("sqt-core.js", CORE_DIR),
 )
 
 
 def sync_docs_widgets(docs_dir: Path = DOCS_DIR, widget_dir: Path = WIDGET_DIR) -> list[Path]:
     docs_dir.mkdir(parents=True, exist_ok=True)
     copied: list[Path] = []
-    for name in SYNC_FILES:
-        src = widget_dir / name
+    for name, src_dir in SYNC_FILES:
+        src = src_dir / name
         if not src.is_file():
             raise FileNotFoundError(f"Missing widget source: {src}")
         dest = docs_dir / name
         shutil.copy2(src, dest)
         copied.append(dest)
+    core = CORE_DIR / "sqt-core.js"
+    if core.is_file():
+        widget_core = widget_dir / "sqt-core.js"
+        shutil.copy2(core, widget_core)
+        if widget_core not in copied:
+            copied.append(widget_core)
     return copied
 
 

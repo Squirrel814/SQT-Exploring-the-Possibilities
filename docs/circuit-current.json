@@ -1,11 +1,11 @@
 {
   "version": "sqt-unified-0.2-phase2.2",
-  "generated_at": "2026-06-25T00:42:57.139048+00:00",
+  "generated_at": "2026-06-25T01:18:17.945487+00:00",
   "sqt": {
     "year": 1,
     "lunation": 6,
     "day": 7,
-    "time": "04:22:02"
+    "time": "04:57:23"
   },
   "holiday": {
     "id": "leybridge_threading",
@@ -31,7 +31,7 @@
     ]
   },
   "bundle": {
-    "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Canopy lunation, Stash-day.",
+    "journal_prompt": "What small bridge are you threading today? Reflect on Leybridge Threading during Year 1, Canopy Moon, Stash-day.",
     "mood_board": {
       "palette": [
         "#2E5A44",

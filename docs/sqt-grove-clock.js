@@ -2,6 +2,8 @@
  * <sqt-grove-clock> — embeddable SQT time + holiday + Circuit modal
  * Contract: phase2-2.3-widget-specs.md
  */
+import { sqtStateNow } from './sqt-core.js';
+
 const BADGE_COLORS = {
   recurring: 'var(--sqt-badge-recurring, #4CAF50)',
   major: 'var(--sqt-badge-major, #FFD54F)',
@@ -9,48 +11,120 @@ const BADGE_COLORS = {
   none: 'var(--sqt-badge-none, #8C6239)',
 };
 
+function phaseLabel(live) {
+  if (live.day === 10) return 'Lunation';
+  return live.moon_phase;
+}
+
+function formatStamp(live) {
+  const moon = live.lunation_name_display || `Moon ${live.lunation}`;
+  const day = live.day_name_display || `Day ${live.day}`;
+  return `Year ${live.year} · ${moon} · ${day} · ${phaseLabel(live)} · ${live.time}`;
+}
+
+function holidayFromMatrix(matrix, lunation, day) {
+  if (!matrix?.cells) return null;
+  const cell = matrix.cells.find((c) => c.lunation === lunation && c.day === day);
+  if (!cell?.holiday_id) return null;
+  return { id: cell.holiday_id, name: cell.holiday_name, type: cell.type };
+}
+
 class SQTGroveClock extends HTMLElement {
   static get observedAttributes() {
-    return ['src', 'refresh', 'theme', 'bundle-mode', 'calendar-src'];
+    return ['src', 'refresh', 'theme', 'bundle-mode', 'calendar-src', 'lunation-labels'];
   }
 
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this._data = null;
-    this._timer = null;
+    this._matrix = null;
+    this._pollTimer = null;
+    this._clockTimer = null;
+    this._live = null;
+    this._lastPosition = '';
   }
 
   connectedCallback() {
     this.renderShell();
+    this.loadCalendarMatrix();
     this.fetchData();
+    this.tickClock();
+    this._clockTimer = setInterval(() => this.tickClock(), 1000);
     const sec = parseInt(this.getAttribute('refresh') || '60', 10);
     if (sec > 0) {
-      this._timer = setInterval(() => this.fetchData(), sec * 1000);
+      this._pollTimer = setInterval(() => this.fetchData(), sec * 1000);
     }
   }
 
   disconnectedCallback() {
-    if (this._timer) clearInterval(this._timer);
+    if (this._pollTimer) clearInterval(this._pollTimer);
+    if (this._clockTimer) clearInterval(this._clockTimer);
   }
 
   attributeChangedCallback() {
-    if (this.isConnected) this.fetchData();
+    if (!this.isConnected) return;
+    this.loadCalendarMatrix();
+    this.fetchData();
+  }
+
+  async loadCalendarMatrix() {
+    const src = this.getAttribute('calendar-src');
+    if (!src) return;
+    try {
+      const res = await fetch(src);
+      if (res.ok) this._matrix = await res.json();
+    } catch {
+      this._matrix = null;
+    }
   }
 
   async fetchData() {
     const src = this.getAttribute('src') || './circuit-current.json';
+    const url = `${src}${src.includes('?') ? '&' : '?'}t=${Date.now()}`;
     try {
-      const res = await fetch(src);
+      const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       this._data = data;
       this.renderData(data);
       this.dispatchEvent(new CustomEvent('sqt-loaded', { detail: data, bubbles: true }));
     } catch (err) {
-      this.renderError(err.message);
+      if (!this._live) this.renderError(err.message);
       this.dispatchEvent(new CustomEvent('sqt-error', { detail: { message: err.message, src }, bubbles: true }));
     }
+  }
+
+  tickClock() {
+    this._live = sqtStateNow();
+    const timeEl = this.shadowRoot?.querySelector('.time');
+    if (!timeEl) return;
+
+    if (this._live.error) {
+      timeEl.textContent = this._live.error;
+      return;
+    }
+
+    timeEl.textContent = formatStamp(this._live);
+
+    const pos = `${this._live.year}-${this._live.lunation}-${this._live.day}`;
+    if (pos !== this._lastPosition) {
+      this._lastPosition = pos;
+      if (this._data) this.renderData(this._data);
+      this.fetchData();
+      this.dispatchEvent(new CustomEvent('sqt-holiday-change', {
+        detail: { live: this._live, holiday: this.activeHoliday() },
+        bubbles: true,
+      }));
+    }
+  }
+
+  activeHoliday() {
+    if (this._live && this._matrix) {
+      const fromMatrix = holidayFromMatrix(this._matrix, this._live.lunation, this._live.day);
+      if (fromMatrix) return fromMatrix;
+    }
+    return this._data?.holiday || null;
   }
 
   renderShell() {
@@ -76,15 +150,12 @@ class SQTGroveClock extends HTMLElement {
   }
 
   renderData(data) {
-    const s = data.sqt || {};
-    const h = data.holiday;
-    const ext = data._extended?.sqt_full;
-    const lunLabel = ext?.lunation_name || `Lunation ${s.lunation}`;
-    const dayLabel = ext?.day_name || `Day ${s.day}`;
+    if (this._live && !this._live.error) {
+      const timeEl = this.shadowRoot.querySelector('.time');
+      if (timeEl) timeEl.textContent = formatStamp(this._live);
+    }
 
-    const timeEl = this.shadowRoot.querySelector('.time');
-    timeEl.textContent = `Year ${s.year} · ${lunLabel} · ${dayLabel} · ${s.time || '--:--:--'}`;
-
+    const h = this.activeHoliday();
     const badgeWrap = this.shadowRoot.querySelector('.badge-wrap');
     badgeWrap.innerHTML = '';
     if (h) {
@@ -107,7 +178,7 @@ class SQTGroveClock extends HTMLElement {
     if (!data) return;
     const modal = this.shadowRoot.querySelector('.modal');
     const inner = this.shadowRoot.querySelector('.modal-inner');
-    const h = data.holiday;
+    const h = this.activeHoliday();
     const b = data.bundle || {};
     const mode = this.getAttribute('bundle-mode') || 'teaser';
     const palettes = (b.mood_board?.palette || data.themes?.palettes || [])
@@ -124,7 +195,8 @@ class SQTGroveClock extends HTMLElement {
       <button type="button" class="copy">Copy teaser</button>
     `;
     inner.querySelector('.copy')?.addEventListener('click', () => {
-      const text = `## ${h?.name || 'SQT Grove'}\n\n${b.journal_prompt || ''}\n\n**Forage:** ${b.foraging_idea || ''}`;
+      const stamp = this._live ? formatStamp(this._live) : '';
+      const text = `## ${h?.name || 'SQT Grove'}\n${stamp}\n\n${b.journal_prompt || ''}\n\n**Forage:** ${b.foraging_idea || ''}`;
       navigator.clipboard?.writeText(text);
     });
     modal.showModal();

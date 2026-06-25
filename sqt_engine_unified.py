@@ -327,11 +327,9 @@ class SQTUnifiedEngine:
         }
 
     def _format_sqt_context(self, sqt: Dict[str, Any]) -> str:
-        return (
-            f"Year {sqt.get('year', 1)}, "
-            f"{sqt.get('lunation_name', 'Unknown')} lunation, "
-            f"{sqt.get('day_name', 'Unknown')}-day"
-        )
+        moon = sqt.get("lunation_name_display") or f"{sqt.get('lunation_name', 'Unknown')} Moon"
+        day = sqt.get("day_name_display") or f"{sqt.get('day_name', 'Unknown')}-day"
+        return f"Year {sqt.get('year', 1)}, {moon}, {day}"
 
     def generate_bundle(
         self,
