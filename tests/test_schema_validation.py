@@ -10,10 +10,12 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def test_sample_holidays_valid():
+    validate_holidays_file(ROOT / "sqt-holidays.json")
     validate_holidays_file(ROOT / "sqt-holidays.sample.json")
 
 
 def test_sample_themes_valid():
+    validate_themes_file(ROOT / "sqt-themes.json")
     validate_themes_file(ROOT / "sqt-themes.sample.json")
 
 

@@ -79,9 +79,9 @@ def test_fetch_circuit_major_simulate():
         "--simulate-day",
         "19",
         "--holidays",
-        str(ROOT / "sqt-holidays.sample.json"),
+        str(ROOT / "sqt-holidays.json"),
         "--themes",
-        str(ROOT / "sqt-themes.sample.json"),
+        str(ROOT / "sqt-themes.json"),
     ]
     out = subprocess.check_output(cmd, cwd=str(ROOT), timeout=5, text=True)
     data = json.loads(out)

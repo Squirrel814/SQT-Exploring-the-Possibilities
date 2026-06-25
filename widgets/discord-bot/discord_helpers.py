@@ -132,8 +132,8 @@ def fetch_circuit(
     cmd = [sys.executable, str(engine), "--json", "--compact"]
     if bundle:
         cmd.append("--bundle")
-    cmd += ["--holidays", str(root / "sqt-holidays.sample.json")]
-    cmd += ["--themes", str(root / "sqt-themes.sample.json")]
+    cmd += ["--holidays", str(root / "sqt-holidays.json")]
+    cmd += ["--themes", str(root / "sqt-themes.json")]
     out = subprocess.check_output(cmd, cwd=str(root), timeout=timeout, text=True)
     return json.loads(out)
 

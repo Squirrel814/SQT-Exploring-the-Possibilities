@@ -9,8 +9,8 @@ import pytest
 from sqt_engine_unified import SQT_DAYS_PER_LUNATION, SQT_LUNATIONS_PER_YEAR, SQTUnifiedEngine
 
 ROOT = Path(__file__).resolve().parent.parent
-HOLIDAYS = str(ROOT / "sqt-holidays.sample.json")
-THEMES = str(ROOT / "sqt-themes.sample.json")
+HOLIDAYS = str(ROOT / "sqt-holidays.json")
+THEMES = str(ROOT / "sqt-themes.json")
 
 # Known active holidays at specific cells (year 1 simulation)
 EXPECTED_ACTIVE = {

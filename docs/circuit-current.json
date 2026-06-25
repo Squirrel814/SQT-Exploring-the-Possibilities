@@ -1,11 +1,11 @@
 {
   "version": "sqt-unified-0.2-phase2.2",
-  "generated_at": "2026-06-25T01:32:25.800000+00:00",
+  "generated_at": "2026-06-25T03:29:58.471170+00:00",
   "sqt": {
     "year": 1,
     "lunation": 6,
     "day": 7,
-    "time": "05:11:31"
+    "time": "07:09:04"
   },
   "holiday": {
     "id": "leybridge_threading",

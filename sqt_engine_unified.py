@@ -521,8 +521,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--bundle-stub", action="store_true", help=argparse.SUPPRESS)  # legacy alias
     parser.add_argument("--simulate-lunation", type=int, help="Force lunation (1-12)")
     parser.add_argument("--simulate-day", type=int, help="Force day (1-19)")
-    parser.add_argument("--holidays", default="sqt-holidays.sample.json")
-    parser.add_argument("--themes", default="sqt-themes.sample.json")
+    parser.add_argument("--holidays", default="sqt-holidays.json")
+    parser.add_argument("--themes", default="sqt-themes.json")
     parser.add_argument("--no-trim", action="store_true", help="Use display names instead of trimmed")
     parser.add_argument("--skip-schema-validation", action="store_true", help="Load JSON without jsonschema enforcement")
     parser.add_argument(

@@ -62,8 +62,8 @@ def build_calendar_matrix(engine: SQTUnifiedEngine) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Export SQT static JSON feeds")
     parser.add_argument("--output-dir", default=str(ROOT / "docs"), help="Output directory")
-    parser.add_argument("--holidays", default=str(ROOT / "sqt-holidays.sample.json"))
-    parser.add_argument("--themes", default=str(ROOT / "sqt-themes.sample.json"))
+    parser.add_argument("--holidays", default=str(ROOT / "sqt-holidays.json"))
+    parser.add_argument("--themes", default=str(ROOT / "sqt-themes.json"))
     args = parser.parse_args()
 
     out = Path(args.output_dir)

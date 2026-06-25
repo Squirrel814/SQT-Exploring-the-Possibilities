@@ -38,9 +38,9 @@ const majorStdout = execFileSync(
     '--simulate-day',
     '19',
     '--holidays',
-    join(ROOT, 'sqt-holidays.sample.json'),
+    join(ROOT, 'sqt-holidays.json'),
     '--themes',
-    join(ROOT, 'sqt-themes.sample.json'),
+    join(ROOT, 'sqt-themes.json'),
   ],
   { cwd: ROOT, encoding: 'utf8', timeout: 8000 },
 );

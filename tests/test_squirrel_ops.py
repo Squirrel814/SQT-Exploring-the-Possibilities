@@ -25,9 +25,9 @@ def run_engine(*extra: str) -> dict:
         "--simulate-day",
         "7",
         "--holidays",
-        str(ROOT / "sqt-holidays.sample.json"),
+        str(ROOT / "sqt-holidays.json"),
         "--themes",
-        str(ROOT / "sqt-themes.sample.json"),
+        str(ROOT / "sqt-themes.json"),
         *extra,
     ]
     out = subprocess.check_output(cmd, cwd=str(ROOT), timeout=8, text=True)
@@ -63,9 +63,9 @@ def test_squirrel_ops_major_shadow_trial():
         "--simulate-day",
         "19",
         "--holidays",
-        str(ROOT / "sqt-holidays.sample.json"),
+        str(ROOT / "sqt-holidays.json"),
         "--themes",
-        str(ROOT / "sqt-themes.sample.json"),
+        str(ROOT / "sqt-themes.json"),
     ]
     data = json.loads(subprocess.check_output(cmd, cwd=str(ROOT), timeout=8, text=True))
     assert data["holiday"]["type"] == "major"
@@ -85,9 +85,9 @@ def test_squirrel_ops_plain_day_unchanged():
         "--simulate-day",
         "8",
         "--holidays",
-        str(ROOT / "sqt-holidays.sample.json"),
+        str(ROOT / "sqt-holidays.json"),
         "--themes",
-        str(ROOT / "sqt-themes.sample.json"),
+        str(ROOT / "sqt-themes.json"),
     ]
     data = json.loads(subprocess.check_output(cmd, cwd=str(ROOT), timeout=8, text=True))
     assert data["holiday"] is None

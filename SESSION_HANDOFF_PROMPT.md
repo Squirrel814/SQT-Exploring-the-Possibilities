@@ -98,11 +98,12 @@ git commit -m "Refresh static feeds and widget assets"
 git push origin master
 ```
 
-### 6. Medium-term (Chunk F + data)
-- ~~Cyber-SQRRL: Squirrel Ops lab injection in `foraging_idea` (opt-in)~~ ✅ (`--squirrel-ops`, `sqtGrove.squirrelOps`)
-- Promote `*.sample.json` → production lore when copy finalized
-- Expand `Post_Project_Summary.md` (still stub)
-- Log Phase 3 chunks in project log (one entry per shipped chunk)
+### 6. Medium-term
+- ~~Squirrel Ops lab injection~~ ✅
+- ~~Promote `*.sample.json` → production lore~~ ✅ (`sqt-holidays.json`, `sqt-themes.json`, `scripts/promote_lore.py`)
+- ~~`Post_Project_Summary.md`~~ ✅ Phase 3 status doc
+- ~~PWA automated verification~~ ✅ `test_pwa_build.mjs` + live asset smoke
+- Manual PWA browser pass (hard refresh, grid click, modal a11y) — checklist in `Post_Project_Summary.md`
 
 ---
 

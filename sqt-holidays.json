@@ -1,0 +1,171 @@
+{
+  "recurring_holidays": [
+    {
+      "id": "whisperwake_first_message",
+      "name": "Whisperwake of the First Message",
+      "days": [
+        1
+      ],
+      "core_feeling": "Fresh, attentive, intentional",
+      "theme_keywords": [
+        "new beginnings",
+        "messenger energy",
+        "clarity of intention"
+      ]
+    },
+    {
+      "id": "discerned_hoard",
+      "name": "The Discerned Hoard",
+      "days": [
+        4,
+        5
+      ],
+      "core_feeling": "Focused, discerning, practical",
+      "theme_keywords": [
+        "wise preparation",
+        "curation",
+        "selection"
+      ]
+    },
+    {
+      "id": "leybridge_threading",
+      "name": "Leybridge Threading",
+      "days": [
+        7
+      ],
+      "core_feeling": "Steady, connective, patient",
+      "theme_keywords": [
+        "incremental progress",
+        "bridge-building",
+        "one pebble"
+      ]
+    },
+    {
+      "id": "burrowstill_knowing",
+      "name": "Burrowstill Knowing",
+      "days": [
+        13,
+        14
+      ],
+      "core_feeling": "Quiet, reflective, restorative",
+      "theme_keywords": [
+        "strategic rest",
+        "inner wisdom",
+        "integration"
+      ]
+    },
+    {
+      "id": "chatterseed_scatter",
+      "name": "Chatterseed Scatter",
+      "days": [
+        17
+      ],
+      "core_feeling": "Generous, social, releasing",
+      "theme_keywords": [
+        "playful sharing",
+        "outward generosity",
+        "scattering ideas"
+      ]
+    }
+  ],
+  "major_lunation_events": [
+    {
+      "lunation": 3,
+      "day": 19,
+      "event_name": "Hoardkeeper’s Joyful Reckoning",
+      "heros_journey_stage": "The Call to Adventure",
+      "tone": "Joyful inventory, release, preparation"
+    },
+    {
+      "lunation": 6,
+      "day": 19,
+      "event_name": "The Shadow Trial",
+      "heros_journey_stage": "Trials & Challenges",
+      "tone": "Resistance, tension, clever adaptations"
+    },
+    {
+      "lunation": 9,
+      "day": 19,
+      "event_name": "The Burrow Rebirth",
+      "heros_journey_stage": "Reward & Transformation",
+      "tone": "Deep rest, transformation, emergence"
+    },
+    {
+      "lunation": 12,
+      "day": 19,
+      "event_name": "The Messenger’s Circuit Complete",
+      "heros_journey_stage": "The Return",
+      "tone": "Full integration, returning wisdom"
+    }
+  ],
+  "rare_periodic_events": [
+    {
+      "id": "shadowforage_eclipse",
+      "name": "Shadowforage Eclipse",
+      "trigger_type": "conditional_predicate",
+      "condition": {
+        "target_day": 11,
+        "moon_phase_requirement": "waning",
+        "optional_engine_flag": "low_visibility"
+      },
+      "core_theme": "Adaptability in low visibility"
+    },
+    {
+      "id": "whisper_storm",
+      "name": "The Whisper Storm",
+      "trigger_type": "static_interval",
+      "condition": {
+        "interval_lunation": 4,
+        "target_day": 9
+      },
+      "core_theme": "Creative overload & inspiration"
+    },
+    {
+      "id": "hidden_cache_reveal",
+      "name": "Hidden Cache Reveal",
+      "trigger_type": "static_interval",
+      "condition": {
+        "interval_lunation": 6,
+        "target_day": 12
+      },
+      "core_theme": "Forgotten wisdom resurfacing"
+    },
+    {
+      "id": "ratatoskr_argument",
+      "name": "Ratatoskr's Argument",
+      "trigger_type": "conditional_predicate",
+      "condition": {
+        "target_day": 6,
+        "moon_phase_requirement": "waxing"
+      },
+      "core_theme": "Tension between messages"
+    },
+    {
+      "id": "leyline_surge",
+      "name": "Leyline Surge",
+      "trigger_type": "static_interval",
+      "condition": {
+        "interval_lunation": 5,
+        "target_day": 7
+      },
+      "core_theme": "Sudden connection & amplification"
+    },
+    {
+      "id": "burrow_rebuild",
+      "name": "Burrow Rebuild",
+      "trigger_type": "static_interval",
+      "condition": {
+        "interval_lunation": 3,
+        "target_day": 13
+      },
+      "core_theme": "Destruction & renewal"
+    }
+  ],
+  "_lore_meta": {
+    "version": "1.0.0",
+    "promoted_at": "2026-06-25",
+    "status": "production",
+    "source": "sqt-holidays.sample.json",
+    "note": "Canonical lore for engine, static feeds, and widgets"
+  }
+}

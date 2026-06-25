@@ -59,12 +59,13 @@ Widget JS/CSS in `docs/` must stay in sync with `widgets/sqt-grove-clock/` — a
 | `Creative-Ideas.md` | Full creative vision |
 | `phase1-requirements-messenger-circuit.md` | Widget + bundle JSON contract |
 | `sqt_engine_unified.py` | Runnable engine |
-| `sqt-holidays.sample.json` / `sqt-themes.sample.json` | Sample data |
+| `sqt-holidays.json` / `sqt-themes.json` | Production lore (canonical) |
+| `sqt-holidays.sample.json` / `sqt-themes.sample.json` | Design snapshots → `scripts/promote_lore.py` |
 | `sqt-grove-style-guide.md` | Visual + prompt direction |
 | `phase2-completion-summary.md` | Phase 2 close-out, 2.4 decisions, Phase 3 handoff |
 | `phase2-architecture-diagram.md` | Data flow + implemented vs spec boundaries |
 | `SESSION_HANDOFF_PROMPT.md` | Paste into new agent sessions |
-| `Post_Project_Summary.md` | Memory island distillation target (stub) |
+| `Post_Project_Summary.md` | Phase 3 status + distillation target |
 
 ## Widget Specs & Scaffolds (Phase 3 Chunk E)
 
@@ -109,11 +110,17 @@ git add docs/ && git commit -m "Refresh static feeds and widget assets"
 
 MIT — see [LICENSE](LICENSE).
 
+## Lore promotion
+
+```bash
+python scripts/promote_lore.py --force   # after editing *.sample.json
+```
+
 ## Next Steps (Phase 3)
 
-1. Harden widget scaffolds (Discord rate limits, web calendar grid, VS Code major-event UX)
-2. Enable GitHub Pages in repo Settings (see above)
-3. Smoke-test: Discord token, VS Code F5 extension, live PWA demo
+1. Manual PWA pass in browser (see `Post_Project_Summary.md` § PWA Verification)
+2. VS Code F5 extension UI smoke
+3. Discord Ratatoskr — resume when wanted (scaffold + partial live smoke OK)
 
 ---
 
