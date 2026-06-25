@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SQT Holidays Configuration",
+  "description": "Data-driven definition of SQT holidays, major events, and rare periodic events. All timing is strictly internal SQT (lunation + day). Used by the unified engine for detection and by the Messenger’s Circuit for flavoring.",
+  "$comment": "Compatible with Creative-Ideas.md holiday tables. Consumed by sqt_engine_unified.py in this repo.",
+  "type": "object",
+  "properties": {
+    "recurring_holidays": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "days": {
+            "type": "array",
+            "items": { "type": "integer", "minimum": 1, "maximum": 19 }
+          },
+          "core_feeling": { "type": "string" },
+          "theme_keywords": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["id", "name", "days", "core_feeling"]
+      }
+    },
+    "major_lunation_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lunation": { "type": "integer", "minimum": 1, "maximum": 12 },
+          "day": { "type": "integer", "default": 19 },
+          "event_name": { "type": "string" },
+          "heros_journey_stage": { "type": "string" },
+          "tone": { "type": "string" }
+        },
+        "required": ["lunation", "event_name", "heros_journey_stage"]
+      }
+    },
+    "rare_periodic_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "trigger_type": {
+            "type": "string",
+            "enum": ["static_interval", "conditional_predicate"]
+          },
+          "condition": {
+            "type": "object",
+            "properties": {
+              "interval_lunation": { "type": "integer" },
+              "target_day": { "type": "integer" },
+              "moon_phase_requirement": {
+                "type": "string",
+                "enum": ["new_moon", "waning", "waxing", "full", "any"]
+              },
+              "optional_engine_flag": { "type": "string" }
+            }
+          },
+          "core_theme": { "type": "string" }
+        },
+        "required": ["id", "name", "trigger_type"]
+      }
+    }
+  },
+  "required": ["recurring_holidays", "major_lunation_events", "rare_periodic_events"]
+}

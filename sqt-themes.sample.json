@@ -1,0 +1,117 @@
+{
+  "global_style": {
+    "base_palette": ["#2E5A44", "#DFD4B5", "#8C6239", "#4AF626"],
+    "style_base": "Whimsical storybook illustration with strong natural textures, warm forest palette, recurring acorn/leyline/Ratatoskr motifs"
+  },
+  "holiday_themes": {
+    "whisperwake_first_message": {
+      "palettes": ["#E8F5E9", "#A5D6A7", "#2E7D32"],
+      "motifs": ["fresh sprouts", "first light", "ratatoskr delivering whisper"],
+      "style_modifiers": "Soft morning dew, light green tones, attentive listening posture",
+      "tone_keywords": ["fresh", "intentional", "messenger"],
+      "journal_prompt_seed": "What message arrives for you today?",
+      "forage_bias": "gentle new beginnings, listening before acting",
+      "mood_board_hints": "Soft dawn light through leaves, single acorn on moss",
+      "story_seed_seed": "A young squirrel hears the very first whisper carried on the morning mist...",
+      "art_prompt_seed": "A young squirrel awakening to the first whisper of the lunation, delicate forest light, in the SQT Grove Style"
+    },
+    "discerned_hoard": {
+      "palettes": ["#5D4037", "#D7CCC8", "#8D6E63", "#A5D6A7"],
+      "motifs": ["carefully selected acorns", "balanced scales of twigs", "quiet inspection"],
+      "style_modifiers": "Warm focused light, rich earth tones, deliberate and wise squirrel expressions, subtle golden highlights on chosen items",
+      "tone_keywords": ["focused", "discerning", "wise preparation", "curation"],
+      "journal_prompt_seed": "What truly deserves a place in your hoard today?",
+      "forage_bias": "selective attention, letting go of the non-essential, quality over quantity",
+      "mood_board_hints": "A squirrel thoughtfully sorting a small pile of gleaming acorns on a sunlit root, soft shadows",
+      "story_seed_seed": "Deep in the burrow, the squirrel opened the old cache and began to sort...",
+      "art_prompt_seed": "A wise squirrel carefully curating a small pile of perfect acorns by lantern light inside a cozy burrow, rich textures, in the SQT Grove Style"
+    },
+    "leybridge_threading": {
+      "palettes": ["#2E5A44", "#DFD4B5", "#8C6239"],
+      "motifs": ["pebbles", "braided vines", "glowing leylines"],
+      "style_modifiers": "Chalk storybook illustration, highly detailed wood-grain textures, soft golden atmospheric dust",
+      "tone_keywords": ["steady", "incremental", "patient bridge-building"],
+      "journal_prompt_seed": "What small bridge are you threading today?",
+      "forage_bias": "consistent small actions, connections",
+      "mood_board_hints": "Steady path of pebbles across a stream, vines linking trees",
+      "story_seed_seed": "One pebble at a time, the squirrel began laying a path across the rushing water...",
+      "art_prompt_seed": "A determined squirrel carefully placing smooth pebbles to form a small bridge across a forest stream, glowing leylines in the water, highly detailed wood grain, soft golden dust, in the SQT Grove Style"
+    },
+    "burrowstill_knowing": {
+      "palettes": ["#3E2723", "#A1887F", "#EFEBE9"],
+      "motifs": ["cozy burrow", "soft moss", "inner reflection"],
+      "style_modifiers": "Warm dim light, protective curved forms, quiet introspection",
+      "tone_keywords": ["quiet", "reflective", "restorative"],
+      "journal_prompt_seed": "What wisdom is settling in your burrow right now?",
+      "forage_bias": "strategic rest, integration, listening inward",
+      "mood_board_hints": "Dim lantern light inside a moss-lined burrow, a squirrel sitting still with closed eyes",
+      "story_seed_seed": "The squirrel curled into the softest moss and let the day's fragments settle like fallen leaves...",
+      "art_prompt_seed": "A peaceful squirrel resting in a dimly lit mossy burrow, soft curved walls, gentle light filtering through roots, contemplative expression, in the SQT Grove Style"
+    },
+    "chatterseed_scatter": {
+      "palettes": ["#81C784", "#FFF9C4", "#FFCC80", "#4CAF50"],
+      "motifs": ["scattered seeds", "playful wind", "shared acorns", "ratatoskr messenger in motion"],
+      "style_modifiers": "Lively breezy light, bright playful accents, seeds and ideas flying outward, joyful expressions",
+      "tone_keywords": ["generous", "social", "releasing", "playful sharing"],
+      "journal_prompt_seed": "What idea, story, or resource are you ready to scatter today?",
+      "forage_bias": "generosity without attachment, outward connection, joyful release",
+      "mood_board_hints": "A cheerful squirrel tossing seeds into the wind from a high branch, golden afternoon light",
+      "story_seed_seed": "At the edge of the canopy the squirrel laughed and flung a pawful of bright ideas into the breeze...",
+      "art_prompt_seed": "A joyful squirrel on a high branch scattering shiny seeds and acorn caps into the wind, bright warm palette with emerald accents, dynamic motion, whimsical storybook illustration, in the SQT Grove Style"
+    }
+  },
+  "major_event_themes": {
+    "hoardkeepers_joyful_reckoning": {
+      "palettes": ["#FFD54F", "#FF8F00", "#4CAF50", "#8BC34A"],
+      "motifs": ["joyful acorn piles", "celebratory scattering", "inventory spread", "golden light"],
+      "style_modifiers": "Bright celebratory light, playful yet wise squirrel expressions, abundant yet organized piles",
+      "tone": "Joyful inventory and release",
+      "tone_keywords": ["celebratory", "inventory", "release", "gratitude"],
+      "journal_prompt_seed": "What are you joyfully keeping, releasing, or carrying forward from this cycle?",
+      "forage_bias": "celebration of progress, honest release, grateful selection",
+      "mood_board_hints": "Sun-drenched clearing with carefully arranged piles of acorns, squirrels dancing around them",
+      "story_seed_seed": "On the last day of the third lunation the great hoard was opened with laughter and song...",
+      "art_prompt_seed": "A jubilant gathering of squirrels in a sunlit forest clearing, piles of golden acorns being joyfully sorted and celebrated, bright warm palette with emerald and saffron accents, whimsical storybook, in the SQT Grove Style",
+      "ceremonial_boost": true
+    },
+    "shadow_trial": {
+      "palettes": ["#37474F", "#78909C", "#263238", "#90A4AE"],
+      "motifs": ["shadowy paths", "clever adaptations", "obscured trails", "mist and moonlight"],
+      "style_modifiers": "Darker tones, dramatic contrast, resilient squirrel in mist, subtle silver and deep emerald",
+      "tone": "Trials and clever adaptations",
+      "tone_keywords": ["resilient", "clever", "shadow", "adaptation"],
+      "journal_prompt_seed": "When the usual path disappears, what clever new way forward can you find?",
+      "forage_bias": "facing resistance with creativity, low-visibility problem solving",
+      "mood_board_hints": "A single squirrel navigating a misty, root-tangled path with only faint moonlight",
+      "story_seed_seed": "The forest grew strangely quiet. The familiar trail had vanished into silver fog...",
+      "art_prompt_seed": "A clever resilient squirrel moving through deep misty woods on an obscured trail, dramatic high-contrast lighting, silver moonlight on fur, dark forest greens and slate tones, in the SQT Grove Style",
+      "ceremonial_boost": true
+    },
+    "the_burrow_rebirth": {
+      "palettes": ["#2E7D32", "#C8E6C9", "#8BC34A", "#FFFDE7"],
+      "motifs": ["new green shoots", "soft emerging light", "shed old shells", "renewed burrow entrance"],
+      "style_modifiers": "Gentle renewal light, fresh greens breaking through old browns, hopeful and transformed expressions",
+      "tone": "Deep rest, transformation, emergence",
+      "tone_keywords": ["renewal", "transformation", "emergence", "rest"],
+      "journal_prompt_seed": "What old structure are you ready to let go of so something truer can grow?",
+      "forage_bias": "intentional rest followed by gentle rebirth and new growth",
+      "mood_board_hints": "Soft new light entering a refreshed burrow, tiny green shoots pushing through old moss",
+      "story_seed_seed": "After the long quiet, the squirrel pushed open the burrow door and blinked at the new green world...",
+      "art_prompt_seed": "A transformed squirrel emerging from a beautifully renewed burrow into soft golden-green dawn light, delicate new growth and fresh moss everywhere, hopeful atmosphere, in the SQT Grove Style",
+      "ceremonial_boost": true
+    },
+    "the_messengers_circuit_complete": {
+      "palettes": ["#2E5A44", "#DFD4B5", "#8C6239", "#4AF626", "#FFD54F"],
+      "motifs": ["complete leylines circuit", "full ratatoskr relay", "gathered wisdom scrolls", "integrated acorn mandala"],
+      "style_modifiers": "Full warm spectrum, strong circuit and leyline emphasis, radiant and integrated feeling, multiple squirrels or symbolic echoes",
+      "tone": "Full integration, returning wisdom",
+      "tone_keywords": ["integration", "completion", "wisdom", "return", "circuit"],
+      "journal_prompt_seed": "Looking across the full year’s circuit, what wisdom are you bringing home?",
+      "forage_bias": "synthesis, sharing the full harvest, preparing the next cycle",
+      "mood_board_hints": "A radiant circular arrangement of all seasonal elements with Ratatoskr at the center",
+      "story_seed_seed": "Ratatoskr returned at last, carrying the whole year’s stories woven into one glowing thread...",
+      "art_prompt_seed": "Ratatoskr the messenger squirrel completing the great circuit, surrounded by a mandala of all the year’s acorns, leylines, and seasonal symbols in full warm forest palette with golden highlights, epic yet intimate whimsical storybook illustration, in the SQT Grove Style",
+      "ceremonial_boost": true
+    }
+  }
+}

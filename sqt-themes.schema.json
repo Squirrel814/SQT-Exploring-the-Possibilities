@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SQT Themes Configuration",
+  "description": "Visual, tonal, and prompt styling data for The Messenger’s Circuit and widgets. Drives consistent SQT Grove Style.",
+  "$comment": "Supports tiered prompt assembly. See phase1-requirements-messenger-circuit.md and Creative-Ideas.md for usage.",
+  "type": "object",
+  "properties": {
+    "global_style": {
+      "type": "object",
+      "properties": {
+        "base_palette": { "type": "array", "items": { "type": "string" } },
+        "style_base": { "type": "string" }
+      }
+    },
+    "holiday_themes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "palettes": { "type": "array", "items": { "type": "string" } },
+          "motifs": { "type": "array", "items": { "type": "string" } },
+          "style_modifiers": { "type": "string" },
+          "tone_keywords": { "type": "array", "items": { "type": "string" } },
+          "journal_prompt_seed": { "type": "string" },
+          "forage_bias": { "type": "string" },
+          "mood_board_hints": { "type": "string" },
+          "story_seed_seed": { "type": "string" },
+          "art_prompt_seed": { "type": "string" }
+        }
+      }
+    },
+    "major_event_themes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "palettes": { "type": "array", "items": { "type": "string" } },
+          "motifs": { "type": "array", "items": { "type": "string" } },
+          "style_modifiers": { "type": "string" },
+          "tone": { "type": "string" },
+          "ceremonial_boost": { "type": "boolean", "default": true }
+        }
+      }
+    }
+  },
+  "required": ["holiday_themes"]
+}
