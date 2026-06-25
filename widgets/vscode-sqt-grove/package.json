@@ -32,7 +32,12 @@
           "enum": ["markdown", "comment-block"],
           "default": "markdown"
         },
-        "sqtGrove.pythonPath": { "type": "string", "default": "python" }
+        "sqtGrove.pythonPath": { "type": "string", "default": "python" },
+        "sqtGrove.squirrelOps": {
+          "type": "boolean",
+          "default": false,
+          "description": "Inject Cyber-SQRRL Squirrel Ops labs into foraging_idea (engine --squirrel-ops)"
+        }
       }
     }
   }

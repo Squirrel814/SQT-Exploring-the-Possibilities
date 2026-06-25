@@ -1,0 +1,61 @@
+{
+  "$comment": "Cyber-SQRRL Squirrel Ops lab catalog — opt-in foraging_idea injection (Chunk F)",
+  "version": "0.1",
+  "labs": {
+    "whisperwake_first_message": {
+      "title": "Recon & Intent Logging",
+      "framing": "The first whisper carries the shape of what is to come. Listen carefully before you move.",
+      "lab": "Pick one active project or service. Spend 15 minutes on lightweight recon: list exposed endpoints/ports, note default credentials or open configs, and write a short First Whisper markdown log (date + SQT stamp + 3 observations + one intention for the Moon). No changes yet — only listening."
+    },
+    "discerned_hoard": {
+      "title": "System Security & File Audit",
+      "framing": "A wise squirrel knows every nut in the cache. Unauthenticated additions risk introducing rot to the entire burrow.",
+      "lab": "Choose one project folder. Write or run a short script that discovers key files (configs, requirements, Dockerfiles, .env examples), computes SHA-256 hashes, writes a hoard-integrity.json with timestamp + SQT stamp, and flags untracked or unexpected files. Document what you keep, release, or investigate."
+    },
+    "leybridge_threading": {
+      "title": "Secure Integration Thread",
+      "framing": "One pebble at a time builds a path others can trust.",
+      "lab": "Identify two systems you work with. Design or implement one small secure pebble bridge: authenticated API call, signed webhook verification, or a tiny shared-secret rotation step. Document with a simple sequence diagram + SQT stamp. Focus on one careful step, not the full bridge."
+    },
+    "burrowstill_knowing": {
+      "title": "Backup & Integrity Reflection",
+      "framing": "In the quiet of the burrow, the cache is checked and the heart is listened to.",
+      "lab": "Perform or simulate backup verification for a critical dataset. Restore a small sample to a safe location, compute hashes before/after, and write a Burrowstill Report: what was protected, last verified date, gaps found, one lesson. Include the SQT stamp. No heroic fixes — honest knowing."
+    },
+    "chatterseed_scatter": {
+      "title": "Knowledge Scatter & Responsible Distribution",
+      "framing": "What you have learned belongs to the Grove when scattered with care.",
+      "lab": "Turn one useful insight, script, or configuration pattern into a shareable artifact: README snippet, wiki entry, or minimal PR/gist. Include attribution and a short security note if relevant. Scatter it to at least one other person or public-but-safe place. Log what was shared and why."
+    },
+    "hoardkeepers_joyful_reckoning": {
+      "title": "Asset Inventory & Joyful Release",
+      "framing": "Before the deeper journey, celebrate what has been gathered and decide what travels with you.",
+      "lab": "Create or update a living asset inventory for one major area (repos, cloud resources, credentials, dependencies). Mark items Keep / Release / Investigate. Celebrate the releases. Produce a one-page Hoardkeeper's Summary with SQT stamp and joyful tone."
+    },
+    "shadow_trial": {
+      "title": "Shadow Walk / Mini Red Team Exercise",
+      "framing": "When the trail disappears, the clever squirrel finds a new way that still honors the Grove.",
+      "lab": "On a small safe scope (test account or local app), attempt three shadow actions an attacker might try (weak credential, overly permissive config, missing validation). Document in Shadow Trial Notes with SQT stamp. Then pivot to one defensive adaptation (add a check, rotate a secret, add a log alert)."
+    },
+    "the_burrow_rebirth": {
+      "title": "Secure Refactor & Rebirth Migration",
+      "framing": "Old structures gently give way so something stronger can stand.",
+      "lab": "Pick one legacy or high-risk code/config piece. Plan and execute (or outline) a small rebirth migration: improve secret handling, safer pattern, validation or isolation. Keep the old version until the new one is verified. Write a Rebirth Log: what died, what was born, integrity checks performed."
+    },
+    "the_messengers_circuit_complete": {
+      "title": "Year-Circuit Posture Review",
+      "framing": "The messenger returns carrying everything learned across the full cycle.",
+      "lab": "Conduct a lightweight full-year or full-project security and practice review. Produce: top 3 things that went well, top 3 risks or gaps, one concrete practice to carry into the next circuit. Format as a ceremonial Messenger's Return Report with SQT year/Moon stamps."
+    },
+    "shadowforage_eclipse": {
+      "title": "Chaos / Degraded Conditions Forage",
+      "framing": "When usual sight fails, the squirrel still finds the cache by memory and touch.",
+      "lab": "Simulate degraded conditions on one critical flow (disable network, minimal permissions, limited logs). Complete a small task end-to-end in the constrained state. Document workarounds discovered and one permanent improvement."
+    },
+    "whisper_storm": {
+      "title": "Idea Storm Triage",
+      "framing": "Too many messages arrive at once. The wise squirrel chooses which to carry.",
+      "lab": "Collect open ideas, tickets, or would-be-nice items into one list. Apply rapid discernment (Keep / Park / Release). Produce a trimmed Post-Storm Cache and one small actionable item chosen from the storm."
+    }
+  }
+}

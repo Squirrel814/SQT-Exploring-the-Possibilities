@@ -42,7 +42,9 @@ function fetchCircuit(callback) {
   if (!engine) return callback(new Error('sqt_engine_unified.py not found'));
   const python = getConfig().get('pythonPath') || 'python';
   const cwd = path.dirname(engine);
-  execFile(python, [engine, '--json', '--bundle', '--compact'], { cwd, timeout: 5000 }, (err, stdout) => {
+  const args = [engine, '--json', '--bundle', '--compact'];
+  if (getConfig().get('squirrelOps')) args.push('--squirrel-ops');
+  execFile(python, args, { cwd, timeout: 5000 }, (err, stdout) => {
     if (err) return callback(err);
     try {
       const data = JSON.parse(stdout);
@@ -76,6 +78,8 @@ function refreshStatusBar() {
 
 function activate(context) {
   statusItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 50);
+  statusItem.id = 'sqtGrove.status';
+  statusItem.name = 'SQT Grove Status';
   statusItem.command = 'sqt-grove.insertBundle';
   statusItem.show();
   refreshStatusBar();
@@ -91,7 +95,8 @@ function activate(context) {
         const ed = vscode.window.activeTextEditor;
         if (!ed) return;
         const fmt = getConfig().get('insertFormat') || 'markdown';
-        ed.edit((eb) => eb.insert(ed.selection.active, formatInsert(data, fmt)));
+        const languageId = ed.document.languageId;
+        ed.edit((eb) => eb.insert(ed.selection.active, formatInsert(data, fmt, languageId)));
       });
     }),
     vscode.commands.registerCommand('sqt-grove.insertForage', () => {

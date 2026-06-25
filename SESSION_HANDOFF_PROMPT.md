@@ -82,8 +82,8 @@ You are Grok continuing **SQT-Exploring-the-Possibilities** at Phase 3 — widge
 - ~~`navigator.share` on modal copy~~ ✅ (when `navigator.share` available)
 
 ### 4. VS Code — remaining spec gaps (§5)
-- Language-aware comment syntax from `document.languageId`
-- `sqtGrove.status` item ID alignment with package.json contributions
+- ~~Language-aware comment syntax from `document.languageId`~~ ✅
+- ~~`sqtGrove.status` item ID alignment~~ ✅ (`statusItem.id = 'sqtGrove.status'`)
 
 ### 5. Release hygiene (after any widget/data change)
 ```bash
@@ -99,7 +99,7 @@ git push origin master
 ```
 
 ### 6. Medium-term (Chunk F + data)
-- Cyber-SQRRL: Squirrel Ops lab injection in `foraging_idea` (opt-in)
+- ~~Cyber-SQRRL: Squirrel Ops lab injection in `foraging_idea` (opt-in)~~ ✅ (`--squirrel-ops`, `sqtGrove.squirrelOps`)
 - Promote `*.sample.json` → production lore when copy finalized
 - Expand `Post_Project_Summary.md` (still stub)
 - Log Phase 3 chunks in project log (one entry per shipped chunk)

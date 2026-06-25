@@ -4,6 +4,7 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const {
   ceremonialHeader,
+  commentStyleForLanguage,
   formatInsert,
   formatStatus,
   statusIcon,
@@ -57,6 +58,12 @@ assert.match(md, /Canopy Moon, Nap-day/);
 
 const block = formatInsert(major, 'comment-block');
 assert.match(block, /^\/\/ Ceremonial: resilient · clever · shadow · adaptation/m);
+
+const pyBlock = formatInsert(major, 'comment-block', 'python');
+assert.match(pyBlock, /^# Ceremonial: resilient · clever · shadow · adaptation/m);
+assert.match(pyBlock, /^# ═══ SQT Grove/m);
+assert.equal(commentStyleForLanguage('python').prefix, '# ');
+assert.equal(commentStyleForLanguage('sql').prefix, '-- ');
 
 const plain = formatInsert({ ...recurring, holiday: null }, 'markdown');
 assert.doesNotMatch(plain, /Ceremonial:/);

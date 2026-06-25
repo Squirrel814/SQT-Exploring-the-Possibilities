@@ -13,12 +13,28 @@ const DAY_NAMES = {
   16: 'Bark-day', 17: 'Willow-day', 18: 'Drey-day', 19: 'Nap-day',
 };
 
+const HASH_COMMENT_LANGS = new Set([
+  'python', 'shellscript', 'powershell', 'dockerfile', 'makefile', 'ruby', 'perl', 'r',
+  'yaml', 'toml', 'properties', 'cmake', 'julia', 'coffeescript',
+]);
+
+const DASH_COMMENT_LANGS = new Set(['sql', 'lua', 'haskell', 'graphql']);
+
 function resolveSqtLabels(data) {
   const s = data.sqt || {};
   const ext = data._extended?.sqt_full || {};
   const moon = ext.lunation_name_display || MOON_NAMES[s.lunation] || `Moon ${s.lunation}`;
   const day = ext.day_name_display || DAY_NAMES[s.day] || `Day ${s.day}`;
   return { s, moon, day };
+}
+
+function commentStyleForLanguage(languageId = '') {
+  const id = String(languageId).toLowerCase();
+  if (HASH_COMMENT_LANGS.has(id)) return { prefix: '# ', decorate: (line) => `# ${line}` };
+  if (DASH_COMMENT_LANGS.has(id)) return { prefix: '-- ', decorate: (line) => `-- ${line}` };
+  if (id === 'bat') return { prefix: 'REM ', decorate: (line) => `REM ${line}` };
+  if (id === 'latex') return { prefix: '% ', decorate: (line) => `% ${line}` };
+  return { prefix: '// ', decorate: (line) => `// ${line}` };
 }
 
 function statusIcon(holiday) {
@@ -39,11 +55,13 @@ function formatStatus(data) {
   return `${icon} Y${s.year} ${moon} · ${day}${hol}`;
 }
 
-function ceremonialHeader(themes, fmt) {
+function ceremonialHeader(themes, fmt, languageId = 'javascript') {
   const keywords = themes?.tone_keywords || [];
   if (!keywords.length) return '';
   const line = keywords.join(' · ');
-  if (fmt === 'comment-block') return `// Ceremonial: ${line}\n`;
+  if (fmt === 'comment-block') {
+    return `${commentStyleForLanguage(languageId).decorate(`Ceremonial: ${line}`)}\n`;
+  }
   return `> *${line}*\n\n`;
 }
 
@@ -60,29 +78,32 @@ function formatTooltipLines(data) {
     const majorNote = h.type === 'major' ? ' 🌕 Major Lunation Event' : '';
     lines.push(`**Holiday** ${h.name} (${h.type})${majorNote}`);
   }
+  if (b.squirrel_ops_lab?.title) lines.push(`_Squirrel Ops:_ ${b.squirrel_ops_lab.title}`);
   if (b.foraging_idea) lines.push(`_Forage:_ ${b.foraging_idea}`);
   if (t.motifs?.length) lines.push(`_Motifs:_ ${t.motifs.slice(0, 5).join(', ')}`);
   return lines;
 }
 
-function formatInsert(data, insertFormat = 'markdown') {
+function formatInsert(data, insertFormat = 'markdown', languageId = 'javascript') {
   const { s, moon, day } = resolveSqtLabels(data);
   const h = data.holiday;
   const b = data.bundle || {};
   const t = data.themes || {};
-  const ceremonial = h?.type === 'major' ? ceremonialHeader(t, insertFormat) : '';
+  const ceremonial = h?.type === 'major' ? ceremonialHeader(t, insertFormat, languageId) : '';
   const hid = h?.id || 'grove_day';
+  const comment = commentStyleForLanguage(languageId);
 
   if (insertFormat === 'comment-block') {
     const j = (b.journal_prompt || '').replace(/\n/g, ' ').slice(0, 120);
     const story = (b.story_seed || '').replace(/\n/g, ' ').slice(0, 120);
+    const forage = (b.foraging_idea || '').replace(/\n/g, ' ').slice(0, 200);
     return [
       ceremonial,
-      `// ═══ SQT Grove · ${h?.name || 'Grove Day'} · Y${s.year} ${moon} · ${day} ═══`,
-      `// Journal: ${j}`,
-      `// Forage: ${b.foraging_idea || ''}`,
-      story ? `// Story: ${story}` : null,
-      '// ═══',
+      comment.decorate(`═══ SQT Grove · ${h?.name || 'Grove Day'} · Y${s.year} ${moon} · ${day} ═══`),
+      comment.decorate(`Journal: ${j}`),
+      comment.decorate(`Forage: ${forage}`),
+      story ? comment.decorate(`Story: ${story}`) : null,
+      comment.decorate('═══'),
       '',
     ].filter(Boolean).join('\n');
   }
@@ -117,6 +138,7 @@ module.exports = {
   MOON_NAMES,
   DAY_NAMES,
   resolveSqtLabels,
+  commentStyleForLanguage,
   statusIcon,
   formatStatus,
   formatTooltipLines,

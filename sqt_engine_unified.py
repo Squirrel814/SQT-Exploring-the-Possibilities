@@ -125,9 +125,13 @@ class SQTUnifiedEngine:
         themes_path: Optional[str] = None,
         use_trimmed: bool = True,
         validate_schema: bool = True,
+        squirrel_ops: bool = False,
+        squirrel_ops_labs_path: Optional[str] = None,
     ):
         self.use_trimmed = use_trimmed
         self.validate_schema = validate_schema
+        self.squirrel_ops_enabled = squirrel_ops
+        self.squirrel_ops_labs: Dict[str, Any] = {}
         self.holidays: Dict[str, Any] = {}
         self.themes: Dict[str, Any] = {}
         self._holidays_raw: Dict[str, Any] = {}
@@ -137,6 +141,36 @@ class SQTUnifiedEngine:
             self.load_holidays(holidays_path)
         if themes_path:
             self.load_themes(themes_path)
+        if squirrel_ops or squirrel_ops_labs_path:
+            self.load_squirrel_ops_labs(squirrel_ops_labs_path or "sqt-squirrel-ops-labs.json")
+
+    def load_squirrel_ops_labs(self, path: str) -> None:
+        p = Path(path)
+        if not p.is_absolute():
+            p = Path(__file__).resolve().parent / p
+        if not p.exists():
+            print(f"[warn] Squirrel Ops labs file not found: {path}", file=sys.stderr)
+            self.squirrel_ops_labs = {}
+            return
+        with p.open(encoding="utf-8") as f:
+            self.squirrel_ops_labs = json.load(f)
+
+    def _apply_squirrel_ops_lab(
+        self,
+        foraging_idea: str,
+        holiday: Optional[Dict[str, Any]],
+    ) -> Tuple[str, Optional[Dict[str, str]]]:
+        if not self.squirrel_ops_enabled or not holiday:
+            return foraging_idea, None
+        lab = (self.squirrel_ops_labs.get("labs") or {}).get(holiday.get("id"))
+        if not lab:
+            return foraging_idea, None
+        injected = (
+            f"🛡️ Squirrel Ops Lab — {lab['title']}\n"
+            f"{lab['framing']}\n"
+            f"Lab: {lab['lab']}"
+        )
+        return injected, {"title": lab["title"], "holiday_id": holiday["id"]}
 
     def load_holidays(self, path: str) -> None:
         p = Path(path)
@@ -392,13 +426,17 @@ class SQTUnifiedEngine:
         else:
             foraging_idea = f"Forage today: {forage_bias.capitalize()}."
 
-        return {
+        foraging_idea, ops_meta = self._apply_squirrel_ops_lab(foraging_idea, holiday)
+        bundle: Dict[str, Any] = {
             "journal_prompt": journal_prompt,
             "mood_board": mood_board,
             "story_seed": story_seed,
             "art_prompt": art_prompt,
             "foraging_idea": foraging_idea,
         }
+        if ops_meta:
+            bundle["squirrel_ops_lab"] = ops_meta
+        return bundle
 
     def _widget_holiday(self, holiday_ctx: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         active = holiday_ctx.get("active")
@@ -492,6 +530,16 @@ def main(argv: Optional[List[str]] = None) -> int:
         action="store_true",
         help="Widget JSON only — omit _extended and _note debug fields",
     )
+    parser.add_argument(
+        "--squirrel-ops",
+        action="store_true",
+        help="Inject Cyber-SQRRL Squirrel Ops lab into foraging_idea when mapped",
+    )
+    parser.add_argument(
+        "--squirrel-ops-labs",
+        default="sqt-squirrel-ops-labs.json",
+        help="Squirrel Ops lab catalog JSON (used with --squirrel-ops)",
+    )
 
     args = parser.parse_args(argv)
     include_bundle = args.bundle or args.bundle_stub or (args.json and not args.holiday)
@@ -502,6 +550,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             themes_path=args.themes,
             use_trimmed=not args.no_trim,
             validate_schema=not args.skip_schema_validation,
+            squirrel_ops=args.squirrel_ops,
+            squirrel_ops_labs_path=args.squirrel_ops_labs if args.squirrel_ops else None,
         )
     except SchemaValidationError as exc:
         print(f"[error] {exc}", file=sys.stderr)
