@@ -197,7 +197,7 @@ Detailed specs in Creative-Ideas.
 
 ---
 
-## Phase 2: Initial Variants & Design Options (Post Gate)
+## Phase 2: Initial Variants & Design Options
 
 ### 1. Holidays & Lore Calendar Variants
 - **Variant 1 (Data-First):** Pure JSON + detection library only (Jasper lead). Dashboard reads static export.
@@ -234,7 +234,9 @@ Detailed specs in Creative-Ideas.
 
 **Curriculum Variant Status:** Variant 5 (Curriculum Injection) is now substantially populated with 11 concrete labs and metaphor dictionary. Ready for deeper "Time is Relative" module design.
 
-*All variants logged for options-first decision in Phase 2.*
+**Segment 2.4 — CLOSED (2026-06-24):** Variants ≥5 per major area documented. Phase 3 paths selected in `phase2-completion-summary.md` § Decision Matrices. Deferred variants (Burrowkins hooks, printable passport, LLM pipeline, full calendar grid) remain in this file for future exploration — not blockers for Phase 3 widget hardening.
+
+*All variants logged for options-first decision. Formal closure: phase2-completion-summary.md.*
 
 ---
 

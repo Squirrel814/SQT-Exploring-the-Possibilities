@@ -39,4 +39,6 @@ Per user direction, Phase 2 was a thorough design sprint. Segment 2.5 (exit pack
 - GitHub Pages: enable `/docs` in repo Settings (see README)
 - Release: `export_static_feed.py` + `sync_docs_widgets.py` → commit `docs/`
 
+**Phase 2 close-out:** `phase2-completion-summary.md` (segment table, 2.4 decision matrices, known gaps, Phase 3 handoff).
+
 **Lightweight Reference:** See `Post_Project_Summary.md` for distilled patterns.

@@ -28,6 +28,8 @@ Deliver the **SQT Living Grove Ecosystem** (*The Messenger's Circuit*): unified 
 | `sqt-holidays.sample.json` / `sqt-themes.sample.json` | Sample data |
 | `phase1-requirements-messenger-circuit.md` | Widget + bundle contract spec |
 | `phase2-schedule.md` | Phase 2 segment tracker |
+| `phase2-completion-summary.md` | Phase 2 close-out + Phase 3 handoff |
+| `phase2-architecture-diagram.md` | Implemented vs spec-only boundaries |
 | `sqt-grove-style-guide.md` | Visual + prompt direction |
 | `phase2-2.3-widget-specs.md` | Discord, web component, VS Code contracts |
 | `phase2-2.3-pwa-outline.md` | PWA manifest + service worker outline |

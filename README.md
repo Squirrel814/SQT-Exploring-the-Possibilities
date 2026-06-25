@@ -61,6 +61,8 @@ Widget JS/CSS in `docs/` must stay in sync with `widgets/sqt-grove-clock/` — a
 | `sqt_engine_unified.py` | Runnable engine |
 | `sqt-holidays.sample.json` / `sqt-themes.sample.json` | Sample data |
 | `sqt-grove-style-guide.md` | Visual + prompt direction |
+| `phase2-completion-summary.md` | Phase 2 close-out, 2.4 decisions, Phase 3 handoff |
+| `phase2-architecture-diagram.md` | Data flow + implemented vs spec boundaries |
 | `SESSION_HANDOFF_PROMPT.md` | Paste into new agent sessions |
 | `Post_Project_Summary.md` | Memory island distillation target (stub) |
 
