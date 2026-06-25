@@ -2,7 +2,7 @@
 
 **Status:** Stub (in progress — project not yet archived)  
 **Last Updated:** 2026-06-24  
-**Project Phase:** Phase 2 — Segment 2.5 next (2.3 Widget Specs complete)
+**Project Phase:** Phase 3 — Implementation (Phase 2 complete)
 
 ---
 
@@ -39,7 +39,8 @@ Deliver the **SQT Living Grove Ecosystem** (*The Messenger's Circuit*): unified 
 
 - **Phase 0:** Complete
 - **Phase 1:** Complete (schemas, requirements, handoff packages)
-- **Phase 2:** In progress — 2.1 ✅, 2.2 ✅, 2.3 ✅, **2.5 next**
+- **Phase 2:** Complete — 2.1 ✅, 2.2 ✅, 2.3 ✅, 2.4 ✅ (segment 2.5 removed)
+- **Phase 3:** In progress — widget scaffolds, tests, static export
 
 ---
 
@@ -48,7 +49,8 @@ Deliver the **SQT Living Grove Ecosystem** (*The Messenger's Circuit*): unified 
 1. **Engine fidelity:** Copy `sqt_engine_2.py` into exploration repo; rewrite headless in-place rather than patching upstream.
 2. **Widget JSON contract:** Flat `holiday` + `bundle` + `themes` shape per `phase1-requirements-messenger-circuit.md`.
 3. **Tiered bundle assembly:** Theme seeds → `generate_bundle()` template expansion (no LLM calls in engine).
-4. **Options-first design sprint:** Phase 2 as longer sprint; segment gates in `phase2-schedule.md`.
+4. **Options-first design sprint:** Phase 2 segments in `phase2-schedule.md`; no formal gate checkpoints.
+5. **Static feed policy (Option B):** Commit `docs/*.json` with `generated_at`; sync widgets via `scripts/sync_docs_widgets.py`.
 
 ---
 

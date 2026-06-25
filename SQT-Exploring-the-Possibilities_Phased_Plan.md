@@ -3,7 +3,7 @@
 **Project:** SQT-Exploring-the-Possibilities  
 **Purpose:** Master phased plan to deliver the unified **SQT Living Grove Ecosystem** (core name: **The Messenger’s Circuit**) by integrating all approved optimizations and the full cohesive creative vision (detailed holidays, daily oracle, widgets, cross-project/curriculum uses). Follows GROK-BUILD_Meta-Framework_v3.1.md (Phased Framework 0-7, creative/exploratory mode, verifiable deliverables) with customized lighter terminology for this exploratory project (see note below) and the v2 Grok-Agents handoff/logging process.
 
-**Terminology Note:** "Comprehension Gates" from the framework (curriculum-heavy origins) have been softened here to "Phase Gates", "Review Points", or "Checkpoints" for less strict language. The structure (small phases + reviews) is retained for traceability, but requirements are lighter given the creative/exploratory nature of SQT work vs pure school curriculum. This aligns with the agent name change (Perl → Cyber-SQRRL) and project customization.  
+**Process Note:** This creative/exploratory project does **not** use comprehension gates, phase exit packages, or formal gate checkpoints. Progress is tracked via SQT-stamped project log entries and segment deliverables.  
 **Version:** 0.2 (Incorporates full Creative-Ideas.md vision + Cohesive Integration Outline)  
 **Date:** 2026-06-24  
 **References:** 
@@ -160,7 +160,7 @@ Full details, user flows (normal vs. major event), and principles in Creative-Id
 
 ## Phased Plan (adapted from GROK-BUILD_Meta-Framework_v3.1.md)
 
-**Current Phase Status:** Phase 0: COMPLETE. Phase 1: COMPLETE (Phase Review / Gate PASSED — see `phase1-completion-summary.md`, using customized lighter language). Phase 2: IN PROGRESS (longer design sprint — artifacts kicked off).
+**Current Phase Status:** Phase 0: COMPLETE. Phase 1: COMPLETE (see `phase1-completion-summary.md`). Phase 2: COMPLETE (segments 2.1–2.4; segment 2.5 removed). **Phase 3: IN PROGRESS** (widget scaffolds, tests, static export).
 
 ### Phase 0: Context Load, Scope Lock & Risk Scan (COMPLETE)
 - Restated goal/vision incorporating The Messenger’s Circuit as the unifying product.
@@ -168,7 +168,7 @@ Full details, user flows (normal vs. major event), and principles in Creative-Id
 - Risks scanned: Engine drift vs. existing dashboard; scope creep on widgets/curriculum; maintaining SQT purity; tone consistency; naming transition (current Moon/-day vs trimmed + holiday layer).
 - Deliverable: This document + SESSION_HANDOFF_PROMPT.md + updated project log.
 
-### Phase 1: Analysis & Requirements Clarification (COMPLETE — Phase Review / Gate PASSED, customized lighter language)
+### Phase 1: Analysis & Requirements Clarification (COMPLETE)
 **Goal:** Lightweight requirements mapping of core optimizations + Messenger’s Circuit vision. Produce data schemas, interface requirements, and ready handoff packages. Engine precision anchored to `reference/sqt_engine_2.py` in this repo. Move heavier design elements (detailed variants, full prompt templates, sample data) to Phase 2 for faster gate.
 
 **Consolidations Made:**
@@ -184,7 +184,7 @@ Full details, user flows (normal vs. major event), and principles in Creative-Id
 - Light vision mapping + references in design_notes.md
 - Updated project log with SQT entries
 
-**Phase Gate / Review:** PASSED (see `phase1-completion-summary.md` for full record, using customized lighter language). User confirmed the four main artifacts + consolidated plan. Phase 1 complete.
+**Phase 1 closed:** See `phase1-completion-summary.md`. User confirmed the four main artifacts + consolidated plan.
 
 **What This Enables:** Much lighter Phase 1. Direct handoff to Phase 2 as a longer design sprint (engine details, themes population, widget specs, variants) with solid foundations prioritized over early surfaces.
 
@@ -286,7 +286,7 @@ Full details, user flows (normal vs. major event), and principles in Creative-Id
 
 ## Next Steps (as of this document)
 
-Phase 1 Phase Gate / Review **PASSED** (recorded in `phase1-completion-summary.md` with customized lighter language).
+Phase 1 **complete** (recorded in `phase1-completion-summary.md`).
 
 1. Proceed to Phase 2 as a longer design sprint (no forced early surface by end of Phase 2).
 2. Handoff to Jasper / Crystal / Cyber-SQRRL for Phase 2 design work.
@@ -317,7 +317,7 @@ Phase 1 Phase Gate / Review **PASSED** (recorded in `phase1-completion-summary.m
 
 ---
 
-**Comprehension Check:** This v0.2 plan fully incorporates the detailed Creative-Ideas.md vision (holidays tables, Messenger’s Circuit as the named central product, 5-element bundle, 3 core widgets with specific features, Hero’s Journey arc, architecture flows, execution order, agent assignments, principles) while preserving the approved optimizations, Meta-Framework structure, v2 handoff discipline, and SQT logging requirements.
+**Plan check:** This v0.2 plan fully incorporates the detailed Creative-Ideas.md vision (holidays tables, Messenger’s Circuit as the named central product, 5-element bundle, 3 core widgets with specific features, Hero’s Journey arc, architecture flows, execution order, agent assignments, principles) while preserving the approved optimizations, Meta-Framework structure, v2 handoff discipline, and SQT logging requirements.
 
 **What This Enables:** Clear, concrete roadmap from current SQT dashboard/engine → fully realized living SQT Grove ecosystem centered on The Messenger’s Circuit.
 

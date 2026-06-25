@@ -132,7 +132,7 @@ Embed:
   description: {bundle.journal_prompt}
   fields:
     - name: "Forage Today"
-      value: {bundle.forage_idea}
+      value: {bundle.foraging_idea}
     - name: "SQT Time"
       value: "{sqt.time}"
   color: {themes.palettes[0] as int}
@@ -147,7 +147,7 @@ Embed (primary):
   description: {bundle.journal_prompt}
   fields:
     - Story Seed → {bundle.story_seed} (truncate 1024)
-    - Foraging → {bundle.forage_idea}
+    - Foraging → {bundle.foraging_idea}
     - Atmosphere → {bundle.mood_board.atmosphere}
   color: accent by holiday.type
 
@@ -173,7 +173,7 @@ Follow-up message (ephemeral option):
 |-------|------|---------|
 | `focus` | string | `holiday` |
 
-Values: `holiday` (uses `bundle.forage_idea`), `general` (first line of journal_prompt reframed).
+Values: `holiday` (uses `bundle.foraging_idea`), `general` (first line of journal_prompt reframed).
 
 **Response:** Single embed, title "Today's Forage", body = foraging_idea, color from palette[1].
 
@@ -468,7 +468,7 @@ Motifs rendered as subtle tooltip footer when present.
 {bundle.story_seed}
 
 ### Foraging
-{bundle.forage_idea}
+{bundle.foraging_idea}
 
 ### Mood
 {bundle.mood_board.atmosphere}
@@ -576,7 +576,7 @@ See `phase2-2.3-pwa-outline.md` for manifest fields and SW caching strategy.
 
 ---
 
-## 9. Phase 2.3 Validation Gate
+## 9. Phase 2.3 Completion Checklist
 
 | Criterion | Status |
 |-----------|--------|

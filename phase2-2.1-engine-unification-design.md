@@ -288,7 +288,7 @@ Output to stdout (machine readable when --json).
 - Enables tiered prompt assembly (2.2)
 - Provides clean contracts for all widgets (2.3)
 - Data layer ready for variants exploration (2.4)
-- Pure SQT + themes = creative core (2.5)
+- Pure SQT + themes = creative core (Phase 2 segments 2.2+)
 
 *This design prioritizes options-first exploration within the longer Phase 2 sprint. Implementation will stay lightweight and documented.*
 

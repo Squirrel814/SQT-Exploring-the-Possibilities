@@ -6,17 +6,16 @@ Structured test of the v2 Grok-Agents Memory Ecosystem handoff process while des
 
 ## Current Phase
 
-**Phase 2 — Segment 2.5 next** (Polish & Phase 2 exit package)
+**Phase 3 — Implementation** (Phase 2 design complete; Chunk E scaffolds started)
 
 | Segment | Status |
 |---------|--------|
 | 2.1 Engine & Data Foundation | Complete |
 | 2.2 Themes, Style & Prompt Core | Complete |
 | 2.3 Widget Specs | Complete |
-| 2.4 Variants | Partial |
-| 2.5 Polish & Review | Not started |
+| 2.4 Variants | Complete |
 
-See `phase2-schedule.md` for the full segment table.
+See `phase2-schedule.md` for the segment table. Segment 2.5 was removed (accidental process drift).
 
 ## Engine (This Repo Only)
 
@@ -29,9 +28,21 @@ python sqt_engine_unified.py --json --bundle --compact
 python sqt_engine_unified.py --json --simulate-lunation 6 --simulate-day 7 --bundle
 python -m pytest tests/ -q
 python scripts/export_static_feed.py
+python scripts/sync_docs_widgets.py
 ```
 
 This repo does **not** modify the upstream Squirrel-Quantum-Time repository.
+
+## Static feeds & docs sync (Option B)
+
+`docs/circuit-current.json`, `docs/circuit-holiday-only.json`, and `docs/calendar_matrix.json` are **committed to git** with a `generated_at` timestamp. Regenerate on each release or deploy:
+
+```bash
+python scripts/export_static_feed.py    # engine JSON → docs/
+python scripts/sync_docs_widgets.py       # widgets/sqt-grove-clock/ → docs/
+```
+
+Widget JS/CSS in `docs/` must stay in sync with `widgets/sqt-grove-clock/` — always run `sync_docs_widgets.py` after editing the web component.
 
 ## Process (v2 Handoff Test)
 
@@ -53,28 +64,30 @@ This repo does **not** modify the upstream Squirrel-Quantum-Time repository.
 | `SESSION_HANDOFF_PROMPT.md` | Paste into new agent sessions |
 | `Post_Project_Summary.md` | Memory island distillation target (stub) |
 
-## Widget Specs & Scaffolds (Phase 3 Chunk E started)
+## Widget Specs & Scaffolds (Phase 3 Chunk E)
 
 | Path | Role |
 |------|------|
 | `phase2-2.3-widget-specs.md` | Binding contracts |
 | `widgets/discord-bot/` | Ratatoskr Grove Messenger (`DISCORD_BOT_TOKEN`) |
-| `widgets/sqt-grove-clock/` | `<sqt-grove-clock>` web component |
+| `widgets/sqt-grove-clock/` | `<sqt-grove-clock>` web component (source of truth) |
 | `widgets/vscode-sqt-grove/` | VS Code status bar + insert bundle |
 | `docs/` | PWA demo (manifest, SW, static JSON feeds) |
 | `lib/sqt-core.js` | JS engine parity with Python (12×19 lunations) |
+| `scripts/sync_docs_widgets.py` | Copy widget assets into `docs/` |
 
 ## Tests & Validation
 
 - **Schema:** `jsonschema` enforced on engine load (`--skip-schema-validation` to bypass)
 - **Holiday matrix:** `tests/test_holiday_matrix.py` — all **12 lunations × 19 days**
 - **Python/JS parity:** `tests/test_sqt_parity.py` — requires Node.js
+- **Bundle field:** canonical key is `foraging_idea` (not `forage_idea`)
 
-## Next Steps (Segment 2.5)
+## Next Steps (Phase 3)
 
-1. Phase 2 exit package + architecture review
-2. Phase 3 chunking: `export_static_feed.py`, widget skeletons
-3. Fix rare-event sample data (Shadowforage Eclipse trigger)
+1. Harden widget scaffolds (Discord rate limits, web calendar grid, VS Code major-event UX)
+2. GitHub Actions CI + enable GitHub Pages from `/docs`
+3. Smoke-test: Discord token, VS Code F5 extension, PWA demo
 
 ---
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Export static JSON feeds for GitHub Pages and widgets."""
+"""Export static JSON feeds for GitHub Pages and widgets.
+
+After exporting, run scripts/sync_docs_widgets.py to copy web component assets into docs/.
+"""
 
 from __future__ import annotations
 

@@ -72,7 +72,7 @@ function formatTooltip(data) {
     `**Time** ${s.time || '—'}`,
   ];
   if (h) lines.push(`**Holiday** ${h.name} (${h.type})`);
-  if (b.forage_idea) lines.push(`_Forage:_ ${b.forage_idea}`);
+  if (b.foraging_idea) lines.push(`_Forage:_ ${b.foraging_idea}`);
   return new vscode.MarkdownString(lines.join('\n'));
 }
 
@@ -86,7 +86,7 @@ function formatInsert(data) {
     return [
       `// ═══ SQT Grove · ${h?.name || 'Grove Day'} · Y${s.year} L${s.lunation} D${s.day} ═══`,
       `// Journal: ${j}`,
-      `// Forage: ${b.forage_idea || ''}`,
+      `// Forage: ${b.foraging_idea || ''}`,
       `// ═══`,
       '',
     ].join('\n');
@@ -103,7 +103,7 @@ function formatInsert(data) {
     b.story_seed || '',
     '',
     '### Foraging',
-    b.forage_idea || '',
+    b.foraging_idea || '',
     '',
     '### Art Prompt',
     b.art_prompt || '',

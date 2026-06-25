@@ -117,14 +117,14 @@ class SQTGroveClock extends HTMLElement {
     inner.innerHTML = `
       <h2>${h ? h.name : 'Grove Day'}</h2>
       <p class="journal">${b.journal_prompt || ''}</p>
-      <p class="forage"><strong>Forage:</strong> ${b.forage_idea || ''}</p>
+      <p class="forage"><strong>Forage:</strong> ${b.foraging_idea || ''}</p>
       ${mode === 'full' && b.story_seed ? `<details><summary>Story Seed</summary><p>${b.story_seed}</p></details>` : ''}
       ${mode === 'full' && b.art_prompt ? `<details><summary>Art Prompt</summary><p>${b.art_prompt}</p></details>` : ''}
       ${palettes ? `<div class="swatches">${palettes}</div>` : ''}
       <button type="button" class="copy">Copy teaser</button>
     `;
     inner.querySelector('.copy')?.addEventListener('click', () => {
-      const text = `## ${h?.name || 'SQT Grove'}\n\n${b.journal_prompt || ''}\n\n**Forage:** ${b.forage_idea || ''}`;
+      const text = `## ${h?.name || 'SQT Grove'}\n\n${b.journal_prompt || ''}\n\n**Forage:** ${b.foraging_idea || ''}`;
       navigator.clipboard?.writeText(text);
     });
     modal.showModal();

@@ -112,4 +112,4 @@ This shape directly supports the schemas and the tiered prompt assembly.
 - Widget interface requirements define Discord, `<sqt-grove-clock>`, and VS Code contracts with shared data shape
 - All requirements are traceable back to Creative-Ideas.md and the consolidated Phased Plan
 
-These items are now ready for review as part of the Phase 1 Phase Review / Gate (customized lighter language). Detailed design, sample data, and actual templates move to Phase 2.
+These items completed Phase 1 requirements. Detailed design, sample data, and templates were delivered in Phase 2.

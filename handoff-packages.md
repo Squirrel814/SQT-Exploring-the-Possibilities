@@ -96,7 +96,7 @@
 - All three specialists should work from the same data contracts defined by Jasper.
 - Use `design_notes.md` as the shared working space for examples and variants.
 - Log every significant decision with SQT stamps.
-- Target: Complete these packages + remaining Phase 1 items → Phase Review / Gate → Phase 2.
+- Target: Complete these packages + remaining Phase 1 items → Phase 2 design work.
 
 **Next Recommended Handoff:** Jasper to begin engine unification + schema implementation spike after user approval of this package.
 
