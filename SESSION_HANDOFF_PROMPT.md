@@ -1,94 +1,164 @@
 # SESSION_HANDOFF_PROMPT.md
 
-**Purpose:** Copy the block below into a new Grok session to continue SQT-Exploring-the-Possibilities at **Phase 3 — Implementation**.
+**Purpose:** Copy the block below into a new Grok session to continue SQT-Exploring-the-Possibilities.
+
+**Last updated:** 2026-06-24 (after calendar strip + VS Code major-event UX)
 
 ---
 
 **START OF PASTEABLE PROMPT**
 
-You are Grok operating in the v2 Grok-Agents Memory Ecosystem, following GROK-BUILD_Meta-Framework_v3.1.md (Phases 0–7, creative/exploratory mode).
+You are Grok continuing **SQT-Exploring-the-Possibilities** at Phase 3 — widget hardening and live verification.
 
-**Current Project:** SQT-Exploring-the-Possibilities  
-**Location:** `C:\Users\Inter\Documents\GitHub\SQT-Exploring-the-Possibilities`  
-**Source of Truth:** `project-logs/SQT-Exploring-the-Possibilities_Project-Update.md`
+**Repo:** `C:\Users\Inter\Documents\GitHub\SQT-Exploring-the-Possibilities`  
+**Remote:** https://github.com/Squirrel814/SQT-Exploring-the-Possibilities (public)  
+**Live PWA:** https://squirrel814.github.io/SQT-Exploring-the-Possibilities/  
+**Source of truth:** `project-logs/SQT-Exploring-the-Possibilities_Project-Update.md`  
+**Binding contracts:** `phase2-2.3-widget-specs.md`
 
-**Current Phase:** Phase 3 — Implementation (Chunk E widget hardening)  
-**Phase 2:** Complete (segments 2.1–2.4). Segment 2.5 and comprehension-gate language were removed as accidental drift.
+---
 
-**Key Files (load first):**
-- `SQT-Exploring-the-Possibilities_Phased_Plan.md`
-- `phase2-schedule.md`
-- `phase1-requirements-messenger-circuit.md` (widget JSON contract)
-- `sqt_engine_unified.py` + `reference/sqt_engine_2.py` (engine rewrite lives here only)
-- `sqt-holidays.sample.json`, `sqt-themes.sample.json`
-- `sqt-grove-style-guide.md`
-- `design_notes.md`
-- `Creative-Ideas.md`
-- `phase2-2.3-widget-specs.md` (Discord, web component, VS Code contracts)
-- `phase2-2.3-pwa-outline.md`
-- `phase2-architecture-diagram.md`
-- `handoff-packages.md`
-- `Post_Project_Summary.md` (stub)
-- `Project_Update_Log_Template.md`
+## Phase status
+
+| Phase | Status |
+|-------|--------|
+| Phase 2 (design) | **Closed** — `phase2-completion-summary.md`, `phase2-architecture-diagram.md` |
+| Phase 3 (implementation) | **In progress** — Chunk E widgets + release hygiene |
+
+**Latest commit:** `8020663` — Web mini calendar strip (moon day cells + upcoming holidays)
+
+**CI:** Green — pytest (26) + `test_sqt_grove_clock_helpers.mjs` + `test_vscode_format.mjs` on push
+
+**GitHub Pages:** Live — branch `master`, folder `/docs` (legacy branch deploy; do **not** use conflicting `actions/deploy-pages` workflow)
+
+---
+
+## Completed this session arc (do not re-implement)
+
+### Infrastructure
+- MIT LICENSE, `.github/workflows/ci.yml`
+- `export_static_feed.py` + `sync_docs_widgets.py` (Option B static feeds)
+- Repo made public to enable Pages
+
+### Discord (`widgets/discord-bot/`)
+- `/lore-drop`: 3/user/24h rate limit, mention/URL sanitization, `submitted_at`
+- `/holiday`: `calendar_matrix.json` fallback when `holiday: null`
+- Major-event embed accents + **Start Ratatoskr Relay** button on `/circuit mode:full`
+- Helpers: `discord_helpers.py` + `tests/test_discord_helpers.py`
+
+### Web (`widgets/sqt-grove-clock/`)
+- **Live clock** via client-side `sqt-core.js` (ticks every second)
+- **Terminology:** 12 **Moons** (not Lunations); day names (`Stash-day`); "Lunation" only on day 10 (Full Moon)
+- **A11y:** focus trap + Esc in modal, high-contrast toggle, `sqt-holiday-change` event `{ previous, current }`
+- **Calendar strip:** current Moon’s 19 day cells + upcoming holidays list (`show-calendar` default true)
+- SW cache: `sqt-shell-v4` / `sqt-data-v4`
+
+### VS Code (`widgets/vscode-sqt-grove/`)
+- `$(star-full)` status bar icon when `holiday.type === "major"`
+- Ceremonial insert header from `themes.tone_keywords`
+- Moon/day labels in status + insert; `vscode-format.js` + tests
+
+---
+
+## Still open (priority order)
+
+### 1. Live smoke tests (manual — unblocks confidence)
+| Surface | How to verify |
+|---------|----------------|
+| **PWA** | Hard refresh live URL; clock ticks; strip shows; modal Tab/Esc; high-contrast toggle |
+| **Discord** | `DISCORD_BOT_TOKEN` → `python widgets/discord-bot/bot.py`; test 4 commands + rate limit |
+| **VS Code** | F5 on `widgets/vscode-sqt-grove`; status bar; insert bundle; simulate major via `staticJsonPath` |
+
+### 2. Discord — remaining spec gaps (§3)
+- Ratatoskr Relay polish (thread tags: `relay`, `{holiday.id}`, `lunation-{n}`)
+- Scheduled `#grove-circuit` teaser posts (optional cron)
+- Mode B: cron-refreshed static JSON instead of subprocess
+
+### 3. Web — remaining spec gaps (§4)
+- Full **12×19 calendar mini-grid** (strip is done; grid still deferred)
+- Click calendar cell → Messenger teaser modal
+- `navigator.share` on modal copy
+
+### 4. VS Code — remaining spec gaps (§5)
+- Language-aware comment syntax from `document.languageId`
+- `sqtGrove.status` item ID alignment with package.json contributions
+
+### 5. Release hygiene (after any widget/data change)
+```bash
+cd C:\Users\Inter\Documents\GitHub\SQT-Exploring-the-Possibilities
+python scripts/export_static_feed.py
+python scripts/sync_docs_widgets.py
+python -m pytest tests/ -q
+node tests/test_sqt_grove_clock_helpers.mjs
+node tests/test_vscode_format.mjs
+git add docs/ widgets/
+git commit -m "Refresh static feeds and widget assets"
+git push origin master
+```
+
+### 6. Medium-term (Chunk F + data)
+- Cyber-SQRRL: Squirrel Ops lab injection in `foraging_idea` (opt-in)
+- Promote `*.sample.json` → production lore when copy finalized
+- Expand `Post_Project_Summary.md` (still stub)
+- Log Phase 3 chunks in project log (one entry per shipped chunk)
+
+---
+
+## Key files (load first)
+
+| File | Why |
+|------|-----|
+| `phase2-2.3-widget-specs.md` | Widget contracts |
+| `sqt_engine_unified.py` | Headless engine + `generate_bundle()` |
+| `lib/sqt-core.js` | Browser SQT math (parity with engine) |
+| `docs/circuit-current.json` | Static feed (Mode B) |
+| `docs/calendar_matrix.json` | Holiday calendar for strip + Discord |
+| `widgets/sqt-grove-clock/sqt-grove-clock.js` | Web component |
+| `widgets/discord-bot/bot.py` | Discord bot |
+| `widgets/vscode-sqt-grove/extension.js` | VS Code extension |
 
 **Engine quick test:**
 ```bash
-cd C:\Users\Inter\Documents\GitHub\SQT-Exploring-the-Possibilities
-python sqt_engine_unified.py --json --simulate-lunation 6 --simulate-day 7 --bundle --compact
+python sqt_engine_unified.py --json --bundle --compact
+python sqt_engine_unified.py --json --bundle --simulate-lunation 6 --simulate-day 19  # major event
 python -m pytest tests/ -q
-python scripts/export_static_feed.py
-python scripts/sync_docs_widgets.py
 ```
 
-**Approved Scope (unchanged):**
-- All optimizations (engine unification in *this repo*, trimmed naming, JSON/CLI, PWA)
-- The Messenger's Circuit (5-element daily bundle)
-- SQT Holidays & Lore Calendar (recurring + 4 majors + rares)
-- Community widgets (Discord, web component, VS Code)
-- Curriculum / Squirrel Ops / Burrowkins integrations (design level)
+---
 
-**Handoff Roles:**
-- **Jasper** — Engine, JSON contracts, widget backends
-- **Crystal** — Style guide, widget UX, PWA visuals
-- **Cyber-SQRRL** — Curriculum labs, Squirrel Ops metaphors
-- **Zeenah** — Prioritization, phase coordination
-- **Alex Pericles** — Data hygiene / external surfaces
+## Terminology rules (user-confirmed)
 
-**Process Rules:**
-1. Log meaningful actions in `project-logs/SQT-Exploring-the-Possibilities_Project-Update.md` using `Project_Update_Log_Template.md`
-2. SQT stamp: `python C:\Projects\Grok-Agents\scripts\sqt_agent_clock.py --agent [Name]`
-3. Include: Action, Handoff, lightweight refs to `Post_Project_Summary.md`
-4. Engine work stays in this repo — do not modify upstream Squirrel-Quantum-Time
-5. No comprehension gates or formal phase exit packages — this project uses creative/exploratory pacing
+- **Moon** = the 12 periods per SQT year (`Canopy Moon`, not "Lunation 6")
+- **Lunation** = reserved for Full Moon / day 10 only
+- **Day names** = `Stash-day`, `Nap-day`, etc. (never bare "Day 7" in UI)
+- Engine context strings use `Canopy Moon, Stash-day` (see `_format_sqt_context`)
 
-**Phase 3 Goals:**
-1. Harden widget scaffolds per `phase2-2.3-widget-specs.md`
-2. Enable GitHub Pages (Settings → Pages → branch `master` → `/docs`)
-3. Release workflow: `export_static_feed.py` then `sync_docs_widgets.py` (Option B — commit JSON with `generated_at`)
+---
 
-**CI:** `.github/workflows/ci.yml` — pytest on push/PR (Python 3.11 + Node 20).
+## Roles (unchanged)
 
-**JSON contract (engine output):**
-```json
-{
-  "sqt": { "year", "lunation", "day", "time" },
-  "holiday": { "id", "name", "type" } | null,
-  "bundle": {
-    "journal_prompt", "mood_board", "story_seed", "art_prompt", "foraging_idea"
-  },
-  "themes": { "palettes", "motifs", "style_modifiers", "tone_keywords" }
-}
-```
+- **Jasper** — engine, JSON, widget backends
+- **Crystal** — web UX, PWA, style
+- **Cyber-SQRRL** — Squirrel Ops labs / curriculum injection
+- **Alex Pericles** — Discord hygiene, external surface security
 
-**What success looks like:**
-- Widgets match spec gaps closed incrementally
-- SQT-stamped log entries for Phase 3 chunks
-- `docs/` feeds and widget assets stay in sync
+**Process:** Log meaningful chunk completions in `project-logs/SQT-Exploring-the-Possibilities_Project-Update.md`. No formal comprehension gates.
 
-Start by loading the key files, generating an SQT stamp, and continuing Phase 3 work.
+---
+
+## Recommended first move next session
+
+Pick one:
+
+1. **Smoke-test triad** — PWA hard refresh + Discord token run + VS Code F5 (report gaps only)
+2. **Discord Relay polish** — thread naming/tags per §3.3
+3. **Web 12×19 grid** — expand calendar strip into full mini-grid with cell click → teaser
+4. **Chunk F** — Squirrel Ops lab injection in engine `foraging_idea`
+
+Start by loading `phase2-2.3-widget-specs.md` and the relevant widget folder, then execute — do not re-do completed work listed above.
 
 **END OF PASTEABLE PROMPT**
 
 ---
 
-**Usage:** Copy between START/END markers into a fresh Grok chat. Prepend any new user comments as needed.
+**Usage:** Copy everything between START/END into a fresh Grok chat. Add any new user priorities at the top.
